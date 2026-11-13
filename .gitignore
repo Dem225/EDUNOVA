@@ -1,0 +1,20 @@
+# Python Environment
+.venv/
+__pycache__/
+*.py[cod]
+
+# Variables secrètes
+.env
+.env.*
+
+# Alembic
+*.db
+
+# Tests et couverture
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Éditeurs
+.vscode/
+.idea/

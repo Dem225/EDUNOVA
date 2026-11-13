@@ -1,0 +1,169 @@
+
+/* ==========================
+   EDUNOVA - STYLES GENERAUX
+========================== */
+
+:root {
+    --navy: #101C35;
+    --white: #FFFFFF;
+    --turquoise: #19A7A0;
+    --gold: #E9B44C;
+    --background: #F4F7FA;
+    --text: #263247;
+    --muted: #68758A;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* HEADER */
+
+header {
+    background: var(--navy);
+    color: var(--white);
+    text-align: center;
+    padding: 35px 20px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    letter-spacing: 3px;
+    margin-bottom: 5px;
+}
+
+header p {
+    color: #DCE5F2;
+}
+
+/* CONTENU PRINCIPAL */
+
+main {
+    width: 100%;
+    padding: 50px 20px;
+}
+
+section {
+    max-width: 650px;
+    margin: auto;
+    background: var(--white);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 35px rgba(16, 28, 53, 0.08);
+}
+
+section h2 {
+    color: var(--navy);
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+section > p {
+    color: var(--muted);
+    margin-bottom: 30px;
+}
+
+/* FORMULAIRE */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+label {
+    font-weight: 600;
+    color: var(--navy);
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #D7DEE8;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    background: var(--white);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--turquoise);
+    box-shadow: 0 0 0 3px rgba(25, 167, 160, 0.12);
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* BOUTON */
+
+button {
+    background: var(--navy);
+    color: var(--white);
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: var(--turquoise);
+}
+
+/* MESSAGE */
+
+#message {
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 25px 15px;
+    color: var(--muted);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+    main {
+        padding: 25px 12px;
+    }
+
+    section {
+        padding: 25px 18px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    section h2 {
+        font-size: 1.5rem;
+    }
+}
