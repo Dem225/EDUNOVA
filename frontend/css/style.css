@@ -7,10 +7,14 @@
     --navy: #101C35;
     --white: #FFFFFF;
     --turquoise: #19A7A0;
+    --turquoise-dark: #117C77;
     --gold: #E9B44C;
     --background: #F4F7FA;
     --text: #263247;
-    --muted: #68758A;
+    --muted: #4A5568;
+    --border: #7A8699;
+    --success: #16803C;
+    --danger: #B42318;
 }
 
 * {
@@ -91,12 +95,17 @@ label {
     color: var(--navy);
 }
 
+.help {
+    font-size: 0.875rem;
+    color: var(--muted);
+}
+
 input,
 select,
 textarea {
     width: 100%;
     padding: 13px 15px;
-    border: 1px solid #D7DEE8;
+    border: 1px solid var(--border);
     border-radius: 8px;
     font-size: 1rem;
     font-family: inherit;
@@ -107,8 +116,23 @@ textarea {
 input:focus,
 select:focus,
 textarea:focus {
-    border-color: var(--turquoise);
-    box-shadow: 0 0 0 3px rgba(25, 167, 160, 0.12);
+    border-color: var(--turquoise-dark);
+    box-shadow: 0 0 0 3px rgba(17, 124, 119, 0.25);
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--navy);
+    outline-offset: 2px;
+}
+
+input[aria-invalid="true"],
+select[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+    border-color: var(--danger);
+    box-shadow: 0 0 0 3px rgba(180, 35, 24, 0.18);
 }
 
 textarea {
@@ -129,15 +153,37 @@ button {
     transition: background 0.3s ease;
 }
 
-button:hover {
-    background: var(--turquoise);
+@media (hover: hover) {
+    button:hover:not(:disabled) {
+        background: var(--turquoise-dark);
+    }
+}
+
+button:disabled {
+    background: #6B7280;
+    color: var(--white);
+    cursor: not-allowed;
 }
 
 /* MESSAGE */
 
 #message {
     margin-top: 20px;
+    min-height: 1.6em;
     font-weight: 600;
+    white-space: pre-line;
+}
+
+.message--info {
+    color: var(--text);
+}
+
+.message--succes {
+    color: var(--success);
+}
+
+.message--erreur {
+    color: var(--danger);
 }
 
 /* FOOTER */
@@ -146,6 +192,14 @@ footer {
     text-align: center;
     padding: 25px 15px;
     color: var(--muted);
+}
+
+/* ACCESSIBILITE - MOUVEMENT REDUIT */
+
+@media (prefers-reduced-motion: reduce) {
+    button {
+        transition: none;
+    }
 }
 
 /* RESPONSIVE */

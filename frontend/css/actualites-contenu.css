@@ -1,0 +1,674 @@
+/*
+    EDUNOVA - Styles des sections 2 à 7 de la page « Actualités ».
+    organisation : à la une, grille éditoriale, catégories filtrables,
+    annonces, agenda et panneau final. Chargé après actualites.css.
+*/
+
+/* ===== SECTION 2 — À LA UNE ===== */
+
+.actu-a-la-une__article {
+    display: grid;
+    grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+    gap: 48px;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--rayon-carte);
+    background: rgba(22, 36, 66, 0.5);
+}
+
+.actu-article__visuel {
+    position: relative;
+    display: grid;
+    place-items: center;
+    height: 320px;
+    overflow: hidden;
+    border: 1px solid rgba(45, 212, 191, 0.16);
+    border-radius: 16px;
+    background:
+        radial-gradient(circle at 30% 25%, rgba(45, 212, 191, 0.14), transparent 52%),
+        linear-gradient(145deg, rgba(11, 21, 40, 0.9), rgba(26, 46, 86, 0.75));
+    color: var(--turquoise-clair);
+}
+
+.actu-article__visuel svg {
+    width: 74%;
+    max-width: 320px;
+}
+
+.actu-article__visuel-texte {
+    position: absolute;
+    right: 14px;
+    bottom: 12px;
+    padding: 3px 9px;
+    border-radius: var(--rayon-pilule);
+    background: rgba(11, 21, 40, 0.8);
+    color: var(--texte-discret);
+    font-family: var(--police-texte);
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 15px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.actu-article__corps {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 8px 12px 8px 0;
+}
+
+.actu-article__meta {
+    color: var(--texte-discret);
+    font-family: var(--police-texte);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.actu-article__titre {
+    color: var(--blanc);
+    font-family: var(--police-titre);
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 43px;
+    letter-spacing: -0.4px;
+    text-wrap: balance;
+}
+
+.actu-article__resume {
+    max-width: 460px;
+    color: rgba(197, 206, 229, 0.86);
+    font-family: var(--police-texte);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 25px;
+    text-wrap: pretty;
+}
+
+.actu-article__lien {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    min-height: 44px;
+    padding: 0 18px;
+    border: 1px solid rgba(45, 212, 191, 0.5);
+    border-radius: var(--rayon-pilule);
+    color: var(--turquoise-clair);
+    font-family: var(--police-texte);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    transition: color var(--transition), border-color var(--transition);
+}
+
+.actu-article__lien:hover {
+    border-color: var(--blanc);
+    color: var(--blanc);
+}
+
+/* ===== SECTION 3 — GRILLE ÉDITORIALE ===== */
+
+.actu-grille {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 40px 28px;
+}
+
+/* L'attribut hidden est piloté par js/actualites.js pour les filtres. */
+.actu-publication[hidden] {
+    display: none;
+}
+
+.actu-publication {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    min-width: 0;
+    padding-top: 18px;
+    border-top: 1px solid rgba(229, 184, 75, 0.32);
+    transition: transform var(--transition), border-color var(--transition);
+}
+
+.actu-publication:hover {
+    border-color: rgba(45, 212, 191, 0.5);
+    transform: translateY(-4px);
+}
+
+.actu-publication__visuel {
+    position: relative;
+    display: grid;
+    place-items: center;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    background:
+        radial-gradient(circle at 70% 20%, rgba(125, 211, 252, 0.12), transparent 55%),
+        linear-gradient(150deg, rgba(26, 46, 86, 0.85), rgba(11, 21, 40, 0.95));
+    color: var(--turquoise);
+}
+
+.actu-publication__visuel svg {
+    width: 72%;
+    max-width: 260px;
+}
+
+.actu-publication__visuel span {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    padding: 2px 8px;
+    border: 1px solid rgba(229, 184, 75, 0.4);
+    border-radius: var(--rayon-pilule);
+    color: var(--or);
+    font-family: var(--police-texte);
+    font-size: 9px;
+    font-weight: 600;
+    line-height: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.actu-publication__corps {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.actu-publication__meta {
+    color: rgba(197, 206, 229, 0.7);
+    font-family: var(--police-texte);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+}
+
+.actu-publication__titre {
+    color: var(--blanc);
+    font-family: var(--police-titre);
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 32px;
+    text-wrap: balance;
+}
+
+.actu-publication__resume {
+    color: rgba(197, 206, 229, 0.82);
+    font-family: var(--police-texte);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 23px;
+    text-wrap: pretty;
+}
+
+.actu-publication__lien {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    min-height: 44px;
+    margin-top: auto;
+    color: var(--turquoise-clair);
+    font-family: var(--police-texte);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.actu-publication__lien:hover {
+    color: var(--blanc);
+}
+
+/* ===== SECTION 4 — CATÉGORIES ET FILTRES ===== */
+
+.actu-categories__corps {
+    display: grid;
+    grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+    gap: 64px;
+    align-items: start;
+}
+
+.actu-filtres {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.actu-filtre {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    min-height: 44px;
+    padding: 8px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: var(--rayon-pilule);
+    background: rgba(22, 36, 66, 0.5);
+    color: var(--texte-discret);
+    font-family: var(--police-texte);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 19px;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color var(--transition), color var(--transition);
+}
+
+.actu-filtre:hover {
+    border-color: rgba(45, 212, 191, 0.45);
+    color: var(--blanc);
+}
+
+.actu-filtre.est-actif {
+    border-color: rgba(229, 184, 75, 0.75);
+    background: rgba(229, 184, 75, 0.1);
+    color: var(--blanc);
+}
+
+.actu-filtre__compte {
+    color: var(--or);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.actu-filtres__lien {
+    align-self: flex-start;
+    min-height: 44px;
+    padding: 0 4px;
+}
+
+.actu-liste {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.actu-ligne {
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr);
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.actu-ligne:first-child {
+    padding-top: 0;
+}
+
+.actu-numero {
+    color: var(--or);
+    font-family: var(--police-titre);
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 32px;
+}
+
+.actu-ligne__titre {
+    color: var(--blanc);
+    font-family: var(--police-titre);
+    font-size: 27px;
+    font-weight: 400;
+    line-height: 34px;
+    text-wrap: balance;
+}
+
+.actu-ligne__texte {
+    margin-top: 6px;
+    color: rgba(197, 206, 229, 0.78);
+    font-family: var(--police-texte);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 23px;
+    text-wrap: pretty;
+}
+
+/* ===== SECTION 5 — ANNONCES : ÉTAT VIDE ÉDITORIAL ===== */
+
+.actu-bandeau {
+    display: grid;
+    grid-template-columns: 88px minmax(0, 1fr);
+    gap: 28px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 36px;
+    border-left: 2px solid var(--or);
+    border-radius: 0 var(--rayon-carte) var(--rayon-carte) 0;
+    background: rgba(22, 36, 66, 0.55);
+}
+
+.actu-bandeau__icone {
+    display: grid;
+    place-items: center;
+    width: 72px;
+    height: 72px;
+    border: 1px solid rgba(229, 184, 75, 0.4);
+    border-radius: 16px;
+    color: var(--or);
+}
+
+.actu-bandeau__icone svg {
+    width: 34px;
+    height: 34px;
+}
+
+.actu-bandeau__corps {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: flex-start;
+}
+
+.actu-bandeau__titre {
+    color: var(--blanc);
+    font-family: var(--police-titre);
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 41px;
+    text-wrap: balance;
+}
+
+.actu-bandeau__texte {
+    max-width: 700px;
+    color: rgba(197, 206, 229, 0.86);
+    font-family: var(--police-texte);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 25px;
+    text-wrap: pretty;
+}
+
+.actu-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.actu-chip {
+    padding: 6px 12px;
+    border: 1px solid rgba(45, 212, 191, 0.28);
+    border-radius: var(--rayon-pilule);
+    color: var(--turquoise-clair);
+    font-family: var(--police-texte);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 17px;
+}
+
+/* ===== SECTION 6 — ÉVÉNEMENTS ET RENDEZ-VOUS ===== */
+
+.actu-pistes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.actu-piste {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 30px 24px 26px;
+    border-top: 1px solid rgba(45, 212, 191, 0.35);
+    background: linear-gradient(to bottom, rgba(45, 212, 191, 0.05), transparent 60%);
+}
+
+.actu-piste__point {
+    position: absolute;
+    top: -5px;
+    left: 24px;
+    width: 9px;
+    height: 9px;
+    border: 2px solid var(--bleu-nuit);
+    border-radius: 50%;
+    background: var(--turquoise);
+}
+
+.actu-piste__titre {
+    color: var(--blanc);
+    font-family: var(--police-titre);
+    font-size: 29px;
+    font-weight: 400;
+    line-height: 36px;
+}
+
+.actu-piste__texte {
+    color: rgba(197, 206, 229, 0.84);
+    font-family: var(--police-texte);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-wrap: pretty;
+}
+
+/* ===== SECTION 7 — RESTEZ INFORMÉS ===== */
+
+.actu-restez__panneau {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 72px 32px 64px;
+}
+
+.actu-page .actu-restez .panneau__titre {
+    font-size: 48px;
+    line-height: 56px;
+}
+
+.actu-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.actu-actions .lien-texte {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+}
+
+.actu-restez .actu-note {
+    margin-top: var(--gutter-lg);
+    text-align: center;
+}
+
+/* ===== RESPONSIVE : 1024 PX ===== */
+
+@media (max-width: 1024px) {
+    .actu-a-la-une__article {
+        gap: 32px;
+        padding: 20px;
+    }
+
+    .actu-article__visuel {
+        height: 280px;
+    }
+
+    .actu-article__titre {
+        font-size: 30px;
+        line-height: 37px;
+    }
+
+    .actu-grille {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 32px 24px;
+    }
+
+    .actu-categories__corps {
+        gap: 40px;
+    }
+
+    .actu-ligne__titre {
+        font-size: 24px;
+        line-height: 31px;
+    }
+
+    .actu-bandeau__titre {
+        font-size: 29px;
+        line-height: 36px;
+    }
+
+    .actu-page .actu-restez .panneau__titre {
+        font-size: 40px;
+        line-height: 48px;
+    }
+}
+
+/* ===== RESPONSIVE : 768 PX ===== */
+
+@media (max-width: 768px) {
+    .actu-a-la-une__article {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    .actu-article__visuel {
+        height: 240px;
+    }
+
+    .actu-article__corps {
+        padding: 0;
+    }
+
+    .actu-categories__corps {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
+    }
+
+    .actu-filtres {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .actu-filtre {
+        width: auto;
+        flex: 1 1 auto;
+    }
+
+    .actu-filtres__lien {
+        flex-basis: 100%;
+    }
+
+    .actu-bandeau {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+        padding: 28px;
+    }
+
+    .actu-bandeau__icone {
+        width: 56px;
+        height: 56px;
+    }
+
+    .actu-bandeau__icone svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .actu-pistes {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+    }
+
+    .actu-piste {
+        padding: 24px 20px 20px;
+    }
+
+    .actu-restez__panneau {
+        padding: 56px 24px 48px;
+    }
+}
+
+/* ===== RESPONSIVE : 390 PX ===== */
+
+@media (max-width: 390px) {
+    .actu-a-la-une__article {
+        gap: 20px;
+        padding: 14px;
+    }
+
+    .actu-article__visuel {
+        height: 190px;
+    }
+
+    .actu-article__titre {
+        font-size: 26px;
+        line-height: 33px;
+    }
+
+    .actu-article__resume {
+        font-size: 14px;
+        line-height: 23px;
+    }
+
+    .actu-grille {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+    }
+
+    .actu-publication__titre {
+        font-size: 23px;
+        line-height: 30px;
+    }
+
+    .actu-filtres {
+        flex-direction: column;
+    }
+
+    .actu-filtre {
+        width: 100%;
+    }
+
+    .actu-ligne {
+        grid-template-columns: 42px minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .actu-numero {
+        font-size: 22px;
+        line-height: 28px;
+    }
+
+    .actu-ligne__titre {
+        font-size: 21px;
+        line-height: 28px;
+    }
+
+    .actu-bandeau {
+        padding: 22px;
+    }
+
+    .actu-bandeau__titre {
+        font-size: 25px;
+        line-height: 32px;
+    }
+
+    .actu-chip {
+        font-size: 11px;
+    }
+
+    .actu-piste__titre {
+        font-size: 25px;
+        line-height: 32px;
+    }
+
+    .actu-page .actu-restez .panneau__titre {
+        font-size: 32px;
+        line-height: 39px;
+    }
+
+    .actu-actions {
+        flex-direction: column;
+    }
+
+    .actu-actions .bouton--blanc {
+        width: 100%;
+    }
+}

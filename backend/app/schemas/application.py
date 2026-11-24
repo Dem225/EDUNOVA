@@ -2,14 +2,14 @@
 from datetime import datetime
 from typing import Literal
 
-from pydantic import BaseModel, ConfigDict, EmailStr, Field
+from pydantic import BaseModel, ConfigDict, EmailStr, Field, field_validator
 
 from app.models.application_status import ApplicationStatus
 
 
 class ApplicationCreate(BaseModel):
     nom: str = Field(min_length=2, max_length=100)
-    prenom: str = Field(min_length=2, max_length=150)
+    prenom: str = Field(min_length=2, max_length=100)
     email: EmailStr
     telephone: str | None = Field(default=None, max_length=30)
 
@@ -21,7 +21,12 @@ class ApplicationCreate(BaseModel):
         "formation_professionnelle",
     ]
 
-    motivation: str = Field(min_length=20)
+    motivation: str = Field(min_length=20, max_length=5_000)
+
+    @field_validator("email", mode="after")
+    @classmethod
+    def normaliser_email(cls, valeur: EmailStr) -> str:
+        return str(valeur).lower()
 
 
 class ApplicationResponse(BaseModel):
@@ -45,4 +50,8 @@ class ApplicationList(BaseModel):
 
 class ApplicationStatusUpdate(BaseModel):
     statut: ApplicationStatus
+
+
+class ApplicationAcknowledgement(BaseModel):
+    message: str
 

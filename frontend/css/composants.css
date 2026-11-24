@@ -1,0 +1,240 @@
+/*
+    EDUNOVA - Composants réutilisables : boutons, cartes en verre,
+    pastilles, icônes, jauge, étoiles et masques des visuels.
+*/
+
+/* ===== BOUTONS ===== */
+
+.bouton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--rayon-pilule);
+    font-family: var(--police-texte);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+/* Bouton principal blanc (hero et appel à l'action). */
+.bouton--blanc {
+    height: 52px;
+    padding: 0 var(--gutter-xl);
+    border: 0;
+    background: var(--blanc);
+    color: var(--bleu-nuit);
+    transition: transform var(--transition);
+}
+
+.bouton--blanc:hover {
+    transform: scale(1.02);
+}
+
+.bouton--blanc:active {
+    transform: scale(0.99);
+}
+
+/* Bouton secondaire en dégradé turquoise (en-tête). */
+.bouton--degrade {
+    flex-shrink: 0;
+    height: 40px;
+    padding: 0 var(--gutter-lg);
+    background: linear-gradient(to right, var(--turquoise), var(--bleu-leger));
+    color: var(--bleu-nuit);
+    transition: opacity var(--transition);
+}
+
+.bouton--degrade:hover {
+    opacity: 0.9;
+}
+
+/* Lien d'action discrète sous le bouton principal. */
+.lien-texte {
+    padding: 4px var(--gutter-sm);
+    border-radius: var(--rayon-sm);
+    color: var(--turquoise-clair);
+    font-family: var(--police-texte);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 20px;
+    transition: color var(--transition);
+}
+
+.lien-texte:hover {
+    color: var(--blanc);
+}
+
+/* ===== CARTES EN VERRE ===== */
+
+.carte {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gutter-lg);
+    height: 100%;
+    padding: var(--gutter-xl);
+    border: 1px solid var(--verre-bordure);
+    border-radius: var(--rayon-carte);
+    background: var(--verre-fond);
+    backdrop-filter: var(--verre-flou);
+    -webkit-backdrop-filter: var(--verre-flou);
+}
+
+/* Carte « Intelligence artificielle et innovation » : état survolé figé. */
+.carte--active {
+    border-color: rgba(45, 212, 191, 0.4);
+    box-shadow: 0 16px 48px -12px rgba(45, 212, 191, 0.24);
+    transform: translateY(-4px);
+}
+
+.carte__corps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gutter-sm);
+}
+
+.carte__en-tete {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.carte__libelle {
+    color: var(--texte-discret);
+}
+
+.carte__titre {
+    color: var(--blanc);
+    font-family: var(--police-texte);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: -0.1px;
+}
+
+.carte__point {
+    position: absolute;
+    top: var(--gutter-md);
+    right: var(--gutter-md);
+    width: 8px;
+    height: 8px;
+    border-radius: var(--rayon-pilule);
+    background: var(--turquoise);
+}
+
+/* ===== ICÔNES ET JAUGE ===== */
+
+.boite-icone {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--rayon-md);
+    background: rgba(45, 212, 191, 0.1);
+    color: var(--turquoise);
+}
+
+.boite-icone--grande {
+    width: 48px;
+    height: 48px;
+}
+
+.boite-icone--action {
+    width: 56px;
+    height: 56px;
+}
+
+.icone {
+    width: 24px;
+    height: 24px;
+}
+
+.icone--petite {
+    width: 20px;
+    height: 20px;
+}
+
+.jauge {
+    width: 100%;
+    height: 2px;
+    margin-top: var(--gutter-md);
+    overflow: hidden;
+    border-radius: var(--rayon-pilule);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.jauge__remplissage {
+    width: 75%;
+    height: 100%;
+    border-radius: var(--rayon-pilule);
+    background: var(--turquoise);
+}
+
+/* ===== PASTILLES ET FILETS DORÉS ===== */
+
+.pastille {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--gutter-sm);
+    padding: 10px var(--gutter-lg);
+    border: 1px solid var(--verre-bordure);
+    border-radius: var(--rayon-pilule);
+    background: var(--verre-fond);
+    backdrop-filter: var(--verre-flou);
+    -webkit-backdrop-filter: var(--verre-flou);
+}
+
+.pastille__point {
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: var(--rayon-pilule);
+    background: var(--turquoise);
+}
+
+.pastille__point--or {
+    background: var(--or);
+}
+
+.pastille__texte {
+    color: var(--blanc);
+    font-family: var(--police-texte);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 22px;
+}
+
+.filet-or {
+    width: 32px;
+    height: 1px;
+    background: rgba(229, 184, 75, 0.75);
+}
+
+/* ===== ÉTOILES DU HERO ===== */
+
+.etoile {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: var(--rayon-pilule);
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.etoile--petite {
+    width: 1.5px;
+    height: 1.5px;
+}
+
+/* ===== MASQUES DES VISUELS (effets d'origine conservés) ===== */
+
+.globe-mask {
+    -webkit-mask-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 1) 43%, rgba(0, 0, 0, 0.85) 48%, rgba(0, 0, 0, 0) 56%);
+    mask-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 1) 43%, rgba(0, 0, 0, 0.85) 48%, rgba(0, 0, 0, 0) 56%);
+}
+
+.map-mask {
+    -webkit-mask-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 1) 52%, rgba(0, 0, 0, 0.8) 65%, rgba(0, 0, 0, 0) 76%);
+    mask-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 1) 52%, rgba(0, 0, 0, 0.8) 65%, rgba(0, 0, 0, 0) 76%);
+}

@@ -1,16 +1,19 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, Request, status
+from sqlalchemy import func
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
+from app.core.rate_limit import (
+    RateLimitUnavailable,
+    erreur_email,
+    erreur_indisponible,
+)
 from app.db.session import get_db
 from app.models.application import Application
-from app.schemas.application import ApplicationCreate, ApplicationResponse
-
 from app.schemas.application import (
+    ApplicationAcknowledgement,
     ApplicationCreate,
-    ApplicationResponse,
-    ApplicationList,
 )
-
 
 
 router = APIRouter(
@@ -18,51 +21,65 @@ router = APIRouter(
     tags=["Candidatures"],
 )
 
+MESSAGE_ACCUSE_DE_RECEPTION = (
+    "Votre demande a bien été prise en compte. "
+    "Si nécessaire, notre équipe vous contactera."
+)
+CONTRAINTE_EMAIL_UNIQUE = "ix_applications_email"
+
+
+def reponse_generique() -> dict[str, str]:
+    return {"message": MESSAGE_ACCUSE_DE_RECEPTION}
+
+
+def est_violation_unicite_email(exc: IntegrityError) -> bool:
+    orig = getattr(exc, "orig", None)
+    diag = getattr(orig, "diag", None)
+    return getattr(diag, "constraint_name", None) == CONTRAINTE_EMAIL_UNIQUE
+
 
 @router.post(
     "/",
-    response_model=ApplicationResponse,
-    status_code=status.HTTP_201_CREATED,
+    response_model=ApplicationAcknowledgement,
+    status_code=status.HTTP_202_ACCEPTED,
 )
-def create_application(
+async def create_application(
     application_data: ApplicationCreate,
+    request: Request,
     db: Session = Depends(get_db),
 ):
+    email_normalise = application_data.email.lower()
+
+    limiteur = request.app.state.rate_limiter
+    try:
+        decision_email = await limiteur.verifier_email(email_normalise)
+    except RateLimitUnavailable:
+        raise erreur_indisponible()
+    if not decision_email.autorise:
+        raise erreur_email(decision_email)
+
     existing_application = db.query(Application).filter(
-        Application.email == application_data.email
+        func.lower(Application.email) == email_normalise
     ).first()
 
     if existing_application:
-        raise HTTPException(
-            status_code=status.HTTP_409_CONFLICT,
-            detail="Une candidature existe déjà avec cette adresse e-mail.",
-        )
+        return reponse_generique()
+
+    donnees_application = application_data.model_dump()
+    donnees_application["email"] = email_normalise
 
     new_application = Application(
-        **application_data.model_dump(),
+        **donnees_application,
     )
 
     db.add(new_application)
-    db.commit()
-    db.refresh(new_application)
 
-    return new_application
+    try:
+        db.commit()
+    except IntegrityError as exc:
+        db.rollback()
+        if est_violation_unicite_email(exc):
+            return reponse_generique()
+        raise
 
-
-
-
-@router.get(
-    "/",
-    response_model=ApplicationList,
-)
-def get_applications(
-    db: Session = Depends(get_db),
-):
-    candidatures = db.query(Application).order_by(
-        Application.date_candidature.desc()
-    ).all()
-
-    return {
-        "total": len(candidatures),
-        "candidatures": candidatures,
-    }
+    return reponse_generique()

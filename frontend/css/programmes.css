@@ -1,0 +1,384 @@
+/*
+    EDUNOVA - Styles propres à la page « Nos programmes » : structure,
+    hero, approche, animations et adaptations globales. Les sections de
+    contenu sont dans programmes-contenu.css, chargé juste après.
+    Aucun style commun n'est redéfini inutilement, et aucune règle prioritaire.
+*/
+
+/* ===== STRUCTURE DE LA PAGE ===== */
+
+.pg-page {
+    overflow-x: hidden;
+}
+
+.pg-page__conteneur {
+    width: 100%;
+    overflow: hidden;
+}
+
+.pg-page .section__en-tete {
+    margin-bottom: 56px;
+}
+
+.pg-page .section__en-tete .surtitre {
+    margin-bottom: var(--gutter-md);
+}
+
+.pg-niveaux__intro,
+.pg-matieres__intro,
+.pg-solutions__intro {
+    max-width: 760px;
+    margin-top: var(--gutter-lg);
+    color: rgba(255, 255, 255, 0.78);
+    font-family: var(--police-texte);
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 27px;
+    text-align: center;
+    text-wrap: pretty;
+}
+
+/* ===== HERO : TITRE À GAUCHE, ESCALIER À DROITE ===== */
+
+.pg-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+    align-items: center;
+    gap: 64px;
+    max-width: 1200px;
+    min-height: 620px;
+    padding: 160px var(--gutter-lg) 120px;
+    overflow: hidden;
+    text-align: left;
+}
+
+.pg-hero__halo {
+    position: absolute;
+    top: 12%;
+    left: 54%;
+    z-index: 0;
+    width: 820px;
+    max-width: 110vw;
+    height: 440px;
+    border-radius: var(--rayon-pilule);
+    background: rgba(26, 46, 86, 0.55);
+    filter: blur(110px);
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.pg-hero__halo::after {
+    content: "";
+    position: absolute;
+    top: 34%;
+    left: 32%;
+    width: 36%;
+    height: 34%;
+    border-radius: var(--rayon-pilule);
+    background: rgba(45, 212, 191, 0.16);
+    filter: blur(60px);
+}
+
+.pg-hero__points {
+    z-index: 0;
+}
+
+.pg-hero__badge {
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+
+.pg-hero__pastille {
+    padding: 3px 9px;
+    border: 1px solid rgba(229, 184, 75, 0.35);
+    border-radius: var(--rayon-pilule);
+    background: rgba(229, 184, 75, 0.08);
+    color: var(--or);
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 14px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+}
+
+.pg-hero .hero__titre {
+    max-width: 680px;
+    margin-bottom: var(--gutter-lg);
+    font-size: 72px;
+    line-height: 78px;
+    letter-spacing: -1.5px;
+    text-align: left;
+}
+
+.pg-hero .hero__sous-titre {
+    max-width: 620px;
+    margin-bottom: var(--gutter-xl);
+    text-align: left;
+}
+
+.pg-hero .hero__actions {
+    align-items: flex-start;
+}
+
+.pg-hero__escalier {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 560px;
+    height: auto;
+    justify-self: end;
+    color: var(--turquoise);
+    filter: drop-shadow(0 18px 36px rgba(45, 212, 191, 0.2));
+}
+
+.pg-hero__marche:nth-child(1) { color: rgba(45, 212, 191, 0.45); }
+.pg-hero__marche:nth-child(2) { color: rgba(45, 212, 191, 0.6); }
+.pg-hero__marche:nth-child(3) { color: rgba(45, 212, 191, 0.75); }
+.pg-hero__marche:nth-child(4) { color: rgba(94, 234, 212, 0.9); }
+.pg-hero__marche:nth-child(5) { color: var(--turquoise-clair); }
+
+.pg-hero__marche circle {
+    filter: drop-shadow(0 0 6px rgba(229, 184, 75, 0.6));
+}
+
+/* ===== APPROCHE ÉDUCATIVE : BANDES SANS CARTES ===== */
+
+.pg-approche__bandes {
+    display: flex;
+    flex-direction: column;
+}
+
+.pg-approche__bande {
+    display: grid;
+    grid-template-columns: 72px 1px minmax(0, 1fr);
+    align-items: start;
+    gap: var(--gutter-lg);
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pg-approche__bande:first-child {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pg-approche__numero {
+    color: var(--or);
+    font-family: var(--police-titre);
+    font-size: 28px;
+    line-height: 32px;
+}
+
+.pg-approche__filet {
+    width: 1px;
+    min-height: 56px;
+    background: linear-gradient(to bottom, rgba(229, 184, 75, 0.75), rgba(229, 184, 75, 0));
+}
+
+.pg-approche__contenu {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gutter-sm);
+}
+
+.pg-approche__titre {
+    color: var(--blanc);
+    font-family: var(--police-texte);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 27px;
+}
+
+.pg-approche__texte {
+    max-width: 720px;
+    color: rgba(255, 255, 255, 0.72);
+    font-family: var(--police-texte);
+    font-size: 16px;
+    line-height: 25px;
+    text-wrap: pretty;
+}
+
+/* ===== ANIMATIONS : VISIBLES PAR DÉFAUT ===== */
+
+.pg-page .pg-anime {
+    opacity: 1;
+    transform: none;
+}
+
+/* Le JS n'ajoute cette classe que si GSAP est chargé et le mouvement autorisé. */
+.pg-animations-actives .pg-anime {
+    opacity: 0;
+    transform: translateY(24px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pg-animations-actives .pg-anime {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* À unifier plus tard dans formulaire.css : cible tactile 44 px du dialogue. */
+.pg-page .dialogue__fermer {
+    width: 44px;
+    height: 44px;
+}
+
+/* ===== RESPONSIVE : 1024 PX ===== */
+
+@media (max-width: 1024px) {
+    .pg-hero {
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
+        gap: 40px;
+        min-height: 600px;
+        padding-top: 140px;
+        padding-bottom: 110px;
+    }
+
+    .pg-hero .hero__titre {
+        font-size: 60px;
+        line-height: 68px;
+    }
+
+    .pg-hero__escalier {
+        max-width: 440px;
+    }
+
+    .pg-approche__bande {
+        grid-template-columns: 56px 1px minmax(0, 1fr);
+        gap: var(--gutter-lg);
+    }
+}
+
+/* ===== RESPONSIVE : TABLETTE JUSQU'À 768 PX ===== */
+
+@media (max-width: 768px) {
+    .pg-hero {
+        grid-template-columns: minmax(0, 1fr) minmax(240px, 0.75fr);
+        gap: 32px;
+        min-height: 580px;
+        padding-top: 120px;
+        padding-bottom: 100px;
+    }
+
+    .pg-hero .hero__titre {
+        font-size: 48px;
+        line-height: 56px;
+        letter-spacing: -0.5px;
+    }
+
+    .pg-hero .hero__sous-titre,
+    .pg-niveaux__intro,
+    .pg-matieres__intro,
+    .pg-solutions__intro {
+        font-size: 16px;
+        line-height: 25px;
+    }
+
+    .pg-hero__escalier {
+        max-width: 360px;
+    }
+
+    .pg-page .section__titre {
+        font-size: 40px;
+        line-height: 46px;
+        letter-spacing: -0.5px;
+    }
+
+    .pg-page .panneau__titre {
+        font-size: 40px;
+        line-height: 48px;
+    }
+}
+
+/* ===== RESPONSIVE : MOBILE (SOUS 768 PX) ===== */
+
+@media (max-width: 767px) {
+    .pg-page .section {
+        padding-top: 72px;
+        padding-bottom: 72px;
+    }
+
+    .pg-page .section__en-tete {
+        margin-bottom: 40px;
+    }
+
+    .pg-hero {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 40px;
+        min-height: 0;
+        padding: 110px var(--gutter-md) 72px;
+    }
+
+    .pg-hero__titre {
+        max-width: none;
+    }
+
+    .pg-hero .hero__titre {
+        font-size: 38px;
+        line-height: 44px;
+    }
+
+    .pg-hero .hero__actions {
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .pg-hero .hero__actions .bouton--blanc {
+        width: 100%;
+    }
+
+    .pg-hero__escalier {
+        max-width: 320px;
+        margin: 0 auto;
+        justify-self: center;
+    }
+
+    .pg-approche__bande {
+        grid-template-columns: 48px 1px minmax(0, 1fr);
+        gap: var(--gutter-md);
+        padding: 22px 0;
+    }
+
+    .pg-approche__numero {
+        font-size: 24px;
+        line-height: 28px;
+    }
+}
+
+/* ===== RESPONSIVE : ÉCRAN ÉTROIT (390 PX) ===== */
+
+@media (max-width: 390px) {
+    .pg-hero {
+        gap: 32px;
+        padding-top: 100px;
+    }
+
+    .pg-hero__badge {
+        font-size: 11px;
+    }
+
+    .pg-hero__pastille {
+        font-size: 9px;
+    }
+
+    .pg-hero .hero__titre {
+        font-size: 34px;
+        line-height: 40px;
+    }
+
+    .pg-hero__escalier {
+        max-width: 260px;
+    }
+
+    .pg-approche__bande {
+        grid-template-columns: 40px 1px minmax(0, 1fr);
+    }
+
+    .pg-page .section__titre,
+    .pg-page .panneau__titre {
+        font-size: 32px;
+        line-height: 38px;
+    }
+}

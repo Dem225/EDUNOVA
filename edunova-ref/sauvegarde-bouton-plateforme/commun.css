@@ -1,0 +1,133 @@
+/*
+    EDUNOVA - Styles communs aux pages « À propos » et
+    « Notre vision & notre mission ».
+    Regroupe l'en-tête à sept liens, le bouton d'accès à la plateforme,
+    la pastille « Bientôt », les liens désactivés et leurs états dans le
+    pied de page, ainsi que les media queries associées.
+
+    Ordre de chargement : intlTelInput.min.css, base.css, composants.css,
+    sections.css, formulaire.css, commun.css, puis le CSS propre à la page.
+    Les sélecteurs restent sans préfixe de page : la cascade naturelle
+    (fichier chargé après sections.css) conserve les valeurs validées.
+*/
+
+/* ===== EN-TÊTE : DIMENSIONS ET ÉCARTS DE LA NAVIGATION ===== */
+
+.en-tete {
+    max-width: 1320px;
+}
+
+.barre-nav {
+    gap: 20px;
+}
+
+.nav-principale {
+    gap: 20px;
+}
+
+.lien-nav {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.bouton-menu {
+    width: 44px;
+    height: 44px;
+}
+
+/* ===== BOUTON DE PLATEFORME DÉSACTIVÉ ===== */
+
+.bouton--degrade {
+    height: 44px;
+    min-height: 44px;
+    font-size: 13px;
+}
+
+.bouton--bientot {
+    gap: 8px;
+    cursor: default;
+    opacity: 0.62;
+}
+
+/* Le survol du bouton désactivé ne doit pas changer son opacité. */
+.bouton--degrade.bouton--bientot:hover {
+    opacity: 0.62;
+}
+
+/* Pastille « Bientôt » intégrée au bouton de plateforme. */
+.pastille-bientot {
+    padding: 2px 8px;
+    border-radius: var(--rayon-pilule);
+    background: rgba(11, 21, 40, 0.3);
+    color: var(--bleu-nuit);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 14px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+/* Dans le panneau mobile, le bouton occupe toute la largeur. */
+.menu-mobile .bouton--bientot {
+    width: 100%;
+    margin-top: var(--gutter-sm);
+}
+
+/* ===== LIENS « BIENTÔT » : SANS SURVOL NI FOCUS ACTIF ===== */
+
+.lien-nav--bientot,
+.pied-page__lien--bientot {
+    opacity: 0.55;
+    cursor: default;
+}
+
+/* Annule le survol turquoise des liens de navigation ordinaires. */
+.lien-nav--bientot:hover {
+    color: var(--blanc);
+}
+
+/* Annule le survol blanc des liens ordinaires du pied de page. */
+.pied-page__lien--bientot:hover {
+    color: var(--texte-discret);
+}
+
+/* ===== RESPONSIVE : 1024 PX ===== */
+
+@media (max-width: 1024px) {
+    .nav-principale {
+        gap: 12px;
+    }
+
+    .lien-nav {
+        font-size: 13px;
+    }
+}
+
+/* Passage anticipé au menu hamburger : sept liens ne tiennent pas sous 900 px. */
+@media (max-width: 900px) {
+    .nav-principale {
+        display: none;
+    }
+
+    .bouton-menu {
+        display: inline-flex;
+    }
+
+    .menu-mobile {
+        display: flex;
+    }
+}
+
+/* ===== RESPONSIVE : ÉCRANS TRÈS ÉTROITS (390 PX) ===== */
+
+@media (max-width: 390px) {
+    .barre-nav {
+        padding-right: var(--gutter-md);
+        padding-left: var(--gutter-md);
+    }
+
+    .bouton--bientot {
+        padding: 0 var(--gutter-md);
+        font-size: 12px;
+    }
+}

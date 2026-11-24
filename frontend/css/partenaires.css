@@ -1,0 +1,378 @@
+/*
+    EDUNOVA - Styles propres à la page « Nos partenaires » : structure,
+    hero, pont de deux rives, animations et adaptations globales.
+    Les styles des sections 2 à 7 sont dans partenaires-contenu.css, chargé
+    juste après. Aucune règle prioritaire, aucun doublon de commun.css.
+*/
+
+/* ===== STRUCTURE DE LA PAGE ===== */
+
+.pt-page {
+    overflow-x: hidden;
+}
+
+.pt-page__conteneur {
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Gouttières latérales conservées à toutes les largeurs. */
+.pt-page .section {
+    padding-right: var(--gutter-lg);
+    padding-left: var(--gutter-lg);
+}
+
+.pt-page .section__en-tete {
+    margin-bottom: 56px;
+}
+
+/* Petite étiquette dorée : uniquement des catégories recherchées. */
+.pt-etiquette {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border: 1px solid rgba(229, 184, 75, 0.42);
+    border-radius: var(--rayon-pilule);
+    background: rgba(229, 184, 75, 0.08);
+    color: var(--or);
+    font-family: var(--police-texte);
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 15px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+/* Intro partagée par les sections à en-tête ordinaire. */
+.pt-intro {
+    max-width: 680px;
+    margin: 24px auto 0;
+    color: var(--texte-discret);
+    font-family: var(--police-texte);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    text-wrap: pretty;
+}
+
+/* ===== ANIMATIONS DISCRÈTES =====
+   Le contenu est visible par défaut ; il n'est masqué que lorsque le JS
+   confirme la présence de GSAP, de ScrollTrigger et un mouvement autorisé. */
+
+.pt-page .pt-anime {
+    opacity: 1;
+    transform: none;
+}
+
+html.pt-animations-actives .pt-anime {
+    opacity: 0;
+    transform: translateY(24px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html.pt-animations-actives .pt-anime {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* ===== HERO : TITRE À GAUCHE, PONT DE DEUX RIVES À DROITE ===== */
+
+.pt-page .pt-hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+    gap: 56px;
+    align-items: center;
+    max-width: 1200px;
+    min-height: 600px;
+    margin: 0 auto;
+    padding: 150px var(--gutter-lg) 72px;
+    isolation: isolate;
+    text-align: left;
+}
+
+/* Halos turquoise diffus derrière le motif. */
+.pt-hero__halo {
+    position: absolute;
+    top: 30px;
+    right: -60px;
+    z-index: -2;
+    width: 640px;
+    height: 640px;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 42% 52%, rgba(45, 212, 191, 0.18), transparent 56%),
+        radial-gradient(circle at 68% 38%, rgba(94, 234, 212, 0.1), transparent 58%);
+    filter: blur(60px);
+    pointer-events: none;
+}
+
+.pt-hero__points {
+    z-index: -1;
+}
+
+.pt-hero__texte {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+}
+
+.pt-page .pt-hero__badge {
+    flex-wrap: wrap;
+    margin-bottom: var(--gutter-xl);
+}
+
+.pt-hero__pastille {
+    padding: 3px 9px;
+    border: 1px solid rgba(229, 184, 75, 0.35);
+    border-radius: var(--rayon-pilule);
+    background: rgba(229, 184, 75, 0.08);
+    color: var(--or);
+    font-size: 11px;
+    line-height: 15px;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    white-space: nowrap;
+}
+
+.pt-page .pt-hero__titre {
+    max-width: 640px;
+    margin-bottom: var(--gutter-xl);
+    font-size: clamp(44px, 4.4vw, 66px);
+    line-height: 1.08;
+    letter-spacing: -1px;
+}
+
+.pt-page .pt-hero__intro {
+    max-width: 600px;
+    margin-bottom: 32px;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.pt-page .pt-hero__actions {
+    align-items: flex-start;
+}
+
+/* Les deux arcs se rejoignent au centre comme un pont. */
+.pt-hero__pont {
+    position: relative;
+    z-index: 0;
+    justify-self: end;
+    width: 100%;
+    max-width: 560px;
+    color: var(--turquoise);
+    overflow: visible;
+}
+
+.pt-hero__arc {
+    filter: drop-shadow(0 0 10px rgba(45, 212, 191, 0.4));
+}
+
+.pt-hero__jonction {
+    filter: drop-shadow(0 0 12px rgba(229, 184, 75, 0.55));
+}
+
+.pt-hero__pont path {
+    vector-effect: non-scaling-stroke;
+}
+
+/* ===== PANNEAU FINAL, BOUTONS ET DIALOGUE ===== */
+
+.pt-page .pt-rejoindre__panneau {
+    max-width: 900px;
+}
+
+.pt-page .pt-rejoindre__panneau .panneau__titre {
+    font-size: clamp(34px, 4vw, 48px);
+    line-height: 1.12;
+}
+
+.pt-rejoindre__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 12px 20px;
+    margin-bottom: 24px;
+}
+
+.pt-bouton-secondaire {
+    height: 52px;
+    padding: 0 var(--gutter-xl);
+    border: 1px solid rgba(255, 255, 255, 0.38);
+    background: transparent;
+    color: var(--blanc);
+    transition: border-color var(--transition), color var(--transition);
+}
+
+.pt-bouton-secondaire:hover {
+    border-color: var(--turquoise-clair);
+    color: var(--turquoise-clair);
+}
+
+.pt-rejoindre__note {
+    max-width: 620px;
+    color: var(--texte-discret);
+    font-family: var(--police-texte);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+    text-wrap: pretty;
+}
+
+/* Règle à unifier plus tard dans formulaire.css : quatrième page concernée,
+   après programmes.html (.pg-page), contact.html (.ct-page) et actions.html
+   (.ac-page). */
+.pt-page .dialogue__fermer {
+    width: 44px;
+    height: 44px;
+}
+
+/* ===== RESPONSIVE : 1024 PX ===== */
+
+@media (max-width: 1024px) {
+    .pt-page .pt-hero {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 8px;
+        max-width: 800px;
+        min-height: 0;
+        padding-top: 132px;
+        padding-bottom: 64px;
+        text-align: center;
+    }
+
+    .pt-hero__texte {
+        order: 1;
+        margin: 0 auto;
+    }
+
+    .pt-hero__pont {
+        order: 2;
+        justify-self: center;
+        max-width: 440px;
+    }
+
+    .pt-hero__halo {
+        top: 120px;
+        right: 50%;
+        width: 560px;
+        height: 560px;
+        transform: translateX(50%);
+    }
+
+    .pt-page .pt-hero__badge {
+        justify-content: center;
+    }
+
+    .pt-page .pt-hero__titre {
+        margin-right: auto;
+        margin-left: auto;
+        font-size: 54px;
+        line-height: 60px;
+    }
+
+    .pt-page .pt-hero__intro {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .pt-page .pt-hero__actions {
+        align-items: center;
+    }
+
+    .pt-page .section__en-tete {
+        margin-bottom: 48px;
+    }
+}
+
+/* ===== RESPONSIVE : 768 PX ===== */
+
+@media (max-width: 768px) {
+    /* Rythme vertical resserré sur mobile : 72 px au lieu de 128 px. */
+    .pt-page .section {
+        padding-top: 72px;
+        padding-bottom: 72px;
+    }
+
+    .pt-page .section__en-tete {
+        margin-bottom: 40px;
+    }
+
+    .pt-page .pt-hero {
+        gap: 0;
+        padding-top: 120px;
+        padding-bottom: 48px;
+    }
+
+    .pt-page .pt-hero__badge {
+        margin-bottom: var(--gutter-lg);
+    }
+
+    .pt-page .pt-hero__titre {
+        font-size: 42px;
+        line-height: 48px;
+        letter-spacing: -0.6px;
+    }
+
+    .pt-page .pt-hero__intro {
+        margin-bottom: 28px;
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    .pt-hero__pont {
+        max-width: 360px;
+    }
+
+    .pt-page .pt-rejoindre__panneau .panneau__titre {
+        font-size: 36px;
+        line-height: 42px;
+    }
+}
+
+/* ===== RESPONSIVE : ÉCRANS ÉTROITS (390 PX) ===== */
+
+@media (max-width: 390px) {
+    .pt-page .pt-hero {
+        padding-top: 112px;
+    }
+
+    .pt-page .pt-hero__badge {
+        gap: 6px;
+        padding-right: var(--gutter-sm);
+        padding-left: var(--gutter-sm);
+    }
+
+    .pt-hero__pastille {
+        padding: 3px 7px;
+        font-size: 10px;
+        white-space: normal;
+    }
+
+    .pt-page .pt-hero__titre {
+        font-size: 34px;
+        line-height: 40px;
+    }
+
+    .pt-page .pt-hero__intro {
+        font-size: 15px;
+        line-height: 24px;
+    }
+
+    .pt-hero__pont {
+        max-width: 300px;
+    }
+
+    .pt-rejoindre__actions {
+        gap: 10px;
+    }
+
+    .pt-page .pt-rejoindre__panneau .panneau__titre {
+        font-size: 32px;
+        line-height: 38px;
+    }
+}

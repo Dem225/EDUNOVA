@@ -1,0 +1,620 @@
+/*
+    EDUNOVA - Styles propres au contenu de « Nos programmes » :
+    niveaux, matières, solutions, innovation et appel final.
+    Chargé après programmes.css. Aucune règle prioritaire.
+*/
+
+/* ===== NIVEAUX : CINQ COMPOSITIONS DISTINCTES ===== */
+
+.pg-niveaux__grille {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: var(--gutter-lg);
+}
+
+.pg-niveau {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gutter-lg);
+    min-width: 0;
+    padding: var(--gutter-xl);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--rayon-carte);
+    background: linear-gradient(145deg, rgba(22, 36, 66, 0.72), rgba(11, 21, 40, 0.42));
+    backdrop-filter: var(--verre-flou);
+    -webkit-backdrop-filter: var(--verre-flou);
+}
+
+.pg-niveau__visuel {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    color: var(--turquoise);
+}
+
+.pg-niveau__svg {
+    width: 100%;
+    max-width: 140px;
+    height: auto;
+}
+
+.pg-niveau__contenu {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gutter-sm);
+    min-width: 0;
+}
+
+.pg-niveau__etiquette {
+    align-self: flex-start;
+    padding: 4px 10px;
+    border: 1px solid rgba(229, 184, 75, 0.28);
+    border-radius: var(--rayon-pilule);
+    background: rgba(229, 184, 75, 0.08);
+    color: rgba(229, 184, 75, 0.95);
+    font-family: var(--police-texte);
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.pg-niveau__nom {
+    color: var(--turquoise-clair);
+    font-family: var(--police-texte);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: 0.06em;
+}
+
+.pg-niveau__titre {
+    color: var(--blanc);
+    font-family: var(--police-titre);
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 36px;
+    letter-spacing: -0.4px;
+}
+
+.pg-niveau__texte {
+    color: rgba(255, 255, 255, 0.74);
+    font-family: var(--police-texte);
+    font-size: 15px;
+    line-height: 24px;
+    text-wrap: pretty;
+}
+
+/* 1 — Primaire : grand bloc de gauche, texte à gauche du livre ouvert. */
+.pg-niveau--primaire {
+    grid-column: span 7;
+    grid-row: span 2;
+    flex-direction: row-reverse;
+    align-items: center;
+    min-height: 360px;
+}
+
+.pg-niveau--primaire .pg-niveau__visuel {
+    align-self: flex-end;
+}
+
+/* 2 — Collège : bloc compact, losange central. */
+.pg-niveau--college {
+    grid-column: span 5;
+    min-height: 168px;
+}
+
+.pg-niveau__visuel--college {
+    align-self: flex-end;
+    transform: rotate(-8deg);
+}
+
+/* 3 — Lycée : bloc compact inversé, lignes convergentes. */
+.pg-niveau--lycee {
+    grid-column: span 5;
+    flex-direction: row-reverse;
+    align-items: center;
+    min-height: 168px;
+    border-left: 1px solid rgba(229, 184, 75, 0.45);
+}
+
+.pg-niveau__visuel--lycee .pg-niveau__svg {
+    max-width: 120px;
+}
+
+/* 4 — Université : bloc large, texte à gauche, colonnes à droite. */
+.pg-niveau--universite {
+    grid-column: span 12;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 260px;
+    align-items: center;
+    min-height: 250px;
+}
+
+.pg-niveau--universite .pg-niveau__contenu {
+    order: 1;
+}
+
+.pg-niveau--universite .pg-niveau__visuel {
+    order: 2;
+}
+
+.pg-niveau__visuel--universite .pg-niveau__svg {
+    max-width: 180px;
+}
+
+/* 5 — Formation professionnelle : bandeau à jalons horizontaux. */
+.pg-niveau--skills {
+    grid-column: span 12;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    min-height: 180px;
+    padding-top: var(--gutter-lg);
+    padding-bottom: var(--gutter-lg);
+    border-top: 1px solid rgba(229, 184, 75, 0.4);
+    border-bottom: 1px solid rgba(229, 184, 75, 0.4);
+    border-radius: var(--rayon-md);
+}
+
+.pg-niveau__visuel--skills .pg-niveau__svg {
+    max-width: 200px;
+}
+
+.pg-niveaux__note {
+    max-width: 720px;
+    margin: var(--gutter-xl) auto 0;
+    color: rgba(197, 206, 229, 0.78);
+    font-family: var(--police-texte);
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+}
+
+/* ===== DOMAINES : INDEX DE HUIT TUILES SANS LIEN ===== */
+
+.pg-matieres__index {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1px;
+    padding: 1px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--rayon-md);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.pg-matieres__tuile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--gutter-lg);
+    min-height: 180px;
+    padding: var(--gutter-xl);
+    background: var(--bleu-nuit);
+    cursor: default;
+}
+
+.pg-matieres__numero {
+    color: var(--or);
+    font-family: var(--police-titre);
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.pg-matieres__icone {
+    width: 26px;
+    height: 26px;
+    color: var(--turquoise);
+}
+
+.pg-matieres__nom {
+    color: var(--blanc);
+    font-family: var(--police-texte);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+}
+
+/* ===== SOLUTIONS : LIGNES ALTERNÉES ET MOTIFS ABSTRAITS ===== */
+
+.pg-solutions__liste {
+    display: flex;
+    flex-direction: column;
+}
+
+.pg-solutions__ligne {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 0.8fr);
+    align-items: center;
+    gap: 64px;
+    padding: 40px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pg-solutions__ligne:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pg-solutions__ligne:nth-child(even) .pg-solutions__motif {
+    order: -1;
+}
+
+.pg-solutions__texte {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--gutter-md);
+}
+
+.pg-solutions__etiquette {
+    padding: 4px 10px;
+    border: 1px solid rgba(229, 184, 75, 0.28);
+    border-radius: var(--rayon-pilule);
+    background: rgba(229, 184, 75, 0.08);
+    color: rgba(229, 184, 75, 0.95);
+    font-family: var(--police-texte);
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.pg-solutions__titre {
+    color: var(--blanc);
+    font-family: var(--police-texte);
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 29px;
+    letter-spacing: -0.2px;
+}
+
+.pg-solutions__description {
+    max-width: 520px;
+    color: rgba(255, 255, 255, 0.74);
+    font-family: var(--police-texte);
+    font-size: 16px;
+    line-height: 25px;
+    text-wrap: pretty;
+}
+
+.pg-solutions__motif {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--turquoise);
+}
+
+.pg-solutions__svg {
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+    opacity: 0.8;
+}
+
+/* ===== INNOVATION : PHRASE, FILETS ET ENCADRÉ DE PRUDENCE ===== */
+
+.pg-innovation__grille {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    align-items: start;
+    gap: 80px;
+}
+
+.pg-innovation__intro {
+    position: sticky;
+    top: 96px;
+}
+
+.pg-innovation__intro .surtitre {
+    margin-bottom: var(--gutter-lg);
+}
+
+.pg-innovation__phrase {
+    max-width: 420px;
+    color: var(--blanc);
+    font-family: var(--police-titre);
+    font-size: 56px;
+    font-weight: 400;
+    line-height: 62px;
+    letter-spacing: -0.75px;
+    text-wrap: balance;
+}
+
+.pg-innovation__liste {
+    display: flex;
+    flex-direction: column;
+}
+
+.pg-innovation__item {
+    display: grid;
+    grid-template-columns: 1px minmax(0, 1fr);
+    gap: var(--gutter-lg);
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pg-innovation__item:first-child {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pg-innovation__filet {
+    width: 1px;
+    background: linear-gradient(to bottom, rgba(229, 184, 75, 0.8), rgba(229, 184, 75, 0));
+}
+
+.pg-innovation__contenu {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gutter-sm);
+}
+
+.pg-innovation__titre {
+    color: var(--blanc);
+    font-family: var(--police-texte);
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 26px;
+}
+
+.pg-innovation__texte {
+    color: rgba(255, 255, 255, 0.72);
+    font-family: var(--police-texte);
+    font-size: 15px;
+    line-height: 24px;
+    text-wrap: pretty;
+}
+
+.pg-innovation__prudence {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: flex-start;
+    gap: var(--gutter-lg);
+    margin-top: var(--gutter-lg);
+    padding: var(--gutter-lg) var(--gutter-xl);
+    border: 1px solid rgba(229, 184, 75, 0.42);
+    border-radius: var(--rayon-md);
+    background: rgba(229, 184, 75, 0.05);
+}
+
+.pg-innovation__prudence .pg-innovation__filet {
+    min-height: 44px;
+}
+
+.pg-innovation__prudence-texte {
+    max-width: 900px;
+    color: rgba(255, 255, 255, 0.82);
+    font-family: var(--police-texte);
+    font-size: 15px;
+    line-height: 25px;
+    text-wrap: pretty;
+}
+
+/* ===== REJOINDRE ===== */
+
+.pg-rejoindre__roles {
+    margin-bottom: var(--gutter-sm);
+}
+
+.pg-rejoindre__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gutter-md) var(--gutter-lg);
+}
+
+.pg-page .pg-rejoindre__actions .lien-texte {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+}
+
+/* ===== RESPONSIVE : 1024 PX ===== */
+
+@media (max-width: 1024px) {
+    .pg-niveau--primaire {
+        grid-column: span 12;
+        grid-row: auto;
+        min-height: 300px;
+    }
+
+    .pg-niveau--college,
+    .pg-niveau--lycee {
+        grid-column: span 6;
+        min-height: 200px;
+    }
+
+    .pg-niveau--universite {
+        grid-template-columns: minmax(0, 1fr) 220px;
+    }
+
+    .pg-solutions__ligne {
+        gap: 40px;
+    }
+
+    .pg-innovation__grille {
+        gap: 48px;
+    }
+
+    .pg-innovation__phrase {
+        font-size: 48px;
+        line-height: 54px;
+    }
+}
+
+/* ===== RESPONSIVE : TABLETTE JUSQU'À 768 PX ===== */
+
+@media (max-width: 768px) {
+    .pg-niveau__titre {
+        font-size: 26px;
+        line-height: 32px;
+    }
+
+    .pg-niveau--universite {
+        grid-template-columns: minmax(0, 1fr) 180px;
+    }
+
+    .pg-matieres__tuile {
+        min-height: 160px;
+        padding: var(--gutter-lg);
+    }
+
+    .pg-solutions__ligne {
+        gap: 32px;
+    }
+
+    .pg-solutions__svg {
+        max-width: 220px;
+    }
+
+    .pg-innovation__grille {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .pg-innovation__intro {
+        position: static;
+    }
+
+    .pg-innovation__phrase {
+        max-width: none;
+        font-size: 40px;
+        line-height: 46px;
+        letter-spacing: -0.5px;
+    }
+}
+
+/* ===== RESPONSIVE : MOBILE (SOUS 768 PX) ===== */
+
+@media (max-width: 767px) {
+    .pg-niveaux__grille {
+        grid-template-columns: 1fr;
+    }
+
+    .pg-niveau,
+    .pg-niveau--primaire,
+    .pg-niveau--college,
+    .pg-niveau--lycee,
+    .pg-niveau--universite,
+    .pg-niveau--skills {
+        grid-column: span 1;
+        grid-row: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: var(--gutter-md);
+        min-height: 0;
+        padding: var(--gutter-lg);
+        border-radius: var(--rayon-md);
+    }
+
+    .pg-niveau--universite .pg-niveau__contenu,
+    .pg-niveau--universite .pg-niveau__visuel {
+        order: initial;
+    }
+
+    .pg-niveau__visuel--college {
+        transform: none;
+    }
+
+    .pg-niveau__visuel--lycee .pg-niveau__svg,
+    .pg-niveau__visuel--universite .pg-niveau__svg,
+    .pg-niveau__visuel--skills .pg-niveau__svg {
+        max-width: 120px;
+    }
+
+    .pg-niveau__titre {
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    .pg-matieres__index {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pg-matieres__tuile {
+        min-height: 150px;
+    }
+
+    .pg-solutions__ligne {
+        grid-template-columns: 1fr;
+        gap: var(--gutter-lg);
+        padding: 32px 0;
+    }
+
+    .pg-solutions__ligne:nth-child(even) .pg-solutions__motif {
+        order: 0;
+    }
+
+    .pg-solutions__motif {
+        justify-content: flex-start;
+    }
+
+    .pg-solutions__svg {
+        max-width: 200px;
+    }
+
+    .pg-innovation__prudence {
+        flex-direction: column;
+        gap: var(--gutter-md);
+    }
+
+    .pg-innovation__prudence .pg-innovation__filet {
+        min-height: 32px;
+    }
+
+    .pg-rejoindre__actions {
+        width: 100%;
+        flex-direction: column;
+        gap: var(--gutter-sm);
+    }
+
+    .pg-rejoindre__actions .bouton--blanc {
+        width: 100%;
+    }
+}
+
+/* ===== RESPONSIVE : ÉCRAN ÉTROIT (390 PX) ===== */
+
+@media (max-width: 390px) {
+    .pg-niveau__visuel .pg-niveau__svg {
+        max-width: 96px;
+    }
+
+    .pg-niveau__titre {
+        font-size: 22px;
+        line-height: 28px;
+    }
+
+    .pg-matieres__tuile {
+        min-height: 140px;
+        padding: var(--gutter-md);
+    }
+
+    .pg-matieres__icone {
+        width: 22px;
+        height: 22px;
+    }
+
+    .pg-matieres__nom {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .pg-solutions__svg {
+        max-width: 180px;
+    }
+
+    .pg-innovation__phrase {
+        font-size: 32px;
+        line-height: 38px;
+    }
+}

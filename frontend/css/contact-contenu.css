@@ -1,0 +1,389 @@
+/*
+    EDUNOVA - Styles propres au contenu de la page « Contact » :
+    publics, canaux, questions fréquentes et appel final.
+    Chargé après contact.css. Aucune règle prioritaire.
+*/
+
+/* ===== SECTION 2 — LISTE ÉDITORIALE DES PUBLICS ===== */
+
+.ct-publics__liste {
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+/* Filet final, pour fermer la liste comme un tableau éditorial. */
+.ct-publics__liste::after {
+    display: block;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.14), transparent);
+    content: "";
+}
+
+.ct-publics__item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: var(--gutter-lg);
+    align-items: center;
+    padding: 24px var(--gutter-md);
+}
+
+/* Filet fin entre chaque ligne. */
+.ct-publics__filet {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.14), transparent);
+    pointer-events: none;
+}
+
+.ct-publics__icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(45, 212, 191, 0.24);
+    border-radius: var(--rayon-md);
+    background: rgba(45, 212, 191, 0.08);
+    color: var(--turquoise);
+}
+
+.ct-publics__titre {
+    color: var(--blanc);
+    font-family: var(--police-texte);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+.ct-publics__texte {
+    margin-top: 4px;
+    color: var(--texte-discret);
+    font-family: var(--police-texte);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+/* ===== SECTION 3 — BLOCS « COMMENT NOUS JOINDRE ? » ===== */
+
+.ct-canaux__grille {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--gutter-lg);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Blocs sobres : ni flou ni matière de verre, réservés au panneau final. */
+.ct-canal {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--gutter-md);
+    min-height: 264px;
+    padding: var(--gutter-xl);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--rayon-md);
+    background: rgba(22, 36, 66, 0.35);
+}
+
+/* Petit filet doré en haut de chaque bloc. */
+.ct-canal::before {
+    position: absolute;
+    top: 0;
+    left: var(--gutter-xl);
+    width: 64px;
+    height: 1px;
+    background: rgba(229, 184, 75, 0.75);
+    content: "";
+}
+
+.ct-canal__en-tete {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--gutter-md);
+}
+
+.ct-canal__titre {
+    color: var(--blanc);
+    font-family: var(--police-titre);
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 34px;
+}
+
+.ct-canal__texte {
+    color: rgba(255, 255, 255, 0.76);
+    font-family: var(--police-texte);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+/* Pastille « Bientôt » lisible sur fond sombre (commun.css reste chargé avant). */
+.ct-canal__pastille {
+    border: 1px solid rgba(229, 184, 75, 0.4);
+    background: rgba(229, 184, 75, 0.14);
+    color: var(--or);
+}
+
+.ct-canal__bouton {
+    min-height: 44px;
+    margin-top: auto;
+}
+
+.ct-canaux__mention {
+    max-width: 760px;
+    margin: var(--gutter-xl) auto 0;
+    color: rgba(197, 206, 229, 0.78);
+    font-family: var(--police-texte);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: center;
+    text-wrap: pretty;
+}
+
+.ct-canaux__lien {
+    font-size: 13px;
+    line-height: 22px;
+    text-decoration: underline;
+    text-decoration-color: rgba(94, 234, 212, 0.5);
+    text-underline-offset: 3px;
+}
+
+/* ===== SECTION 4 — ACCORDÉON NATIF ===== */
+
+.ct-faq__liste {
+    max-width: 900px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ct-faq__item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ct-faq__question {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 56px;
+    padding: 16px 52px 16px var(--gutter-sm);
+    color: var(--blanc);
+    font-family: var(--police-texte);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 24px;
+    cursor: pointer;
+    list-style: none;
+}
+
+/* Marqueur natif masqué, remplacé par un compteur circulaire discret. */
+.ct-faq__question::-webkit-details-marker {
+    display: none;
+}
+
+.ct-faq__question::after {
+    position: absolute;
+    top: 50%;
+    right: var(--gutter-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border: 1px solid rgba(45, 212, 191, 0.35);
+    border-radius: var(--rayon-pilule);
+    color: var(--turquoise-clair);
+    font-size: 18px;
+    line-height: 1;
+    content: "+";
+    transform: translateY(-50%);
+}
+
+.ct-faq__item[open] .ct-faq__question::after {
+    content: "−";
+}
+
+.ct-faq__reponse {
+    padding: 0 52px 24px var(--gutter-sm);
+    color: var(--texte-discret);
+    font-family: var(--police-texte);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 25px;
+    text-wrap: pretty;
+}
+
+/* ===== SECTION 5 — PANNEAU FINAL ===== */
+
+.ct-rejoindre__panneau {
+    max-width: 900px;
+}
+
+.ct-page .ct-rejoindre__panneau .panneau__titre {
+    font-size: clamp(34px, 4vw, 52px);
+    line-height: 1.1;
+}
+
+.ct-rejoindre__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gutter-md);
+}
+
+/* ===== RESPONSIVE : 1024 PX ===== */
+
+@media (max-width: 1024px) {
+    .ct-page .section__titre {
+        font-size: 48px;
+        line-height: 54px;
+    }
+
+    .ct-canal {
+        padding: var(--gutter-lg);
+    }
+
+    .ct-canal__titre {
+        font-size: 25px;
+        line-height: 31px;
+    }
+}
+
+/* ===== RESPONSIVE : 768 PX ===== */
+
+@media (max-width: 768px) {
+    .ct-page .section__titre {
+        font-size: 40px;
+        line-height: 46px;
+    }
+
+    .ct-publics__item {
+        grid-template-columns: 36px minmax(0, 1fr);
+        gap: var(--gutter-md);
+        padding: 20px var(--gutter-sm);
+    }
+
+    .ct-publics__icone {
+        width: 36px;
+        height: 36px;
+    }
+
+    .ct-publics__titre {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .ct-publics__texte {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    .ct-canaux__grille {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--gutter-md);
+    }
+
+    .ct-canal {
+        min-height: 0;
+        padding: var(--gutter-lg);
+    }
+
+    .ct-canal::before {
+        left: var(--gutter-lg);
+    }
+
+    .ct-canal__bouton {
+        margin-top: 0;
+    }
+
+    .ct-canaux__mention {
+        margin-top: var(--gutter-lg);
+    }
+
+    .ct-faq__question {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .ct-faq__reponse {
+        padding-right: 40px;
+    }
+
+    .ct-page .ct-rejoindre__panneau .panneau__titre {
+        font-size: 36px;
+        line-height: 42px;
+    }
+}
+
+/* ===== RESPONSIVE : ÉCRANS ÉTROITS (390 PX) ===== */
+
+@media (max-width: 390px) {
+    .ct-page .section__titre {
+        font-size: 34px;
+        line-height: 40px;
+    }
+
+    .ct-publics__item {
+        grid-template-columns: 32px minmax(0, 1fr);
+        padding: 18px 4px;
+    }
+
+    .ct-publics__icone {
+        width: 32px;
+        height: 32px;
+    }
+
+    .ct-publics__icone .icone {
+        width: 18px;
+        height: 18px;
+    }
+
+    .ct-canal {
+        padding: var(--gutter-md);
+    }
+
+    .ct-canal::before {
+        left: var(--gutter-md);
+    }
+
+    .ct-canal__titre {
+        font-size: 23px;
+        line-height: 29px;
+    }
+
+    .ct-canal__texte {
+        font-size: 15px;
+        line-height: 24px;
+    }
+
+    .ct-faq__question {
+        padding-right: 44px;
+        font-size: 15px;
+        line-height: 21px;
+    }
+
+    .ct-faq__reponse {
+        padding-right: 36px;
+        font-size: 14px;
+        line-height: 23px;
+    }
+
+    .ct-page .ct-rejoindre__panneau .panneau__titre {
+        font-size: 32px;
+        line-height: 38px;
+    }
+}

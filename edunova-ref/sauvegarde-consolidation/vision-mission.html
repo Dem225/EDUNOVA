@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDUNOVA — Notre vision &amp; notre mission</title>
+    <!-- Icône vide : évite une requête 404 sur favicon.ico. -->
+    <link rel="icon" href="data:,">
+    <!-- Polices conservées : DM Serif Display et Manrope uniquement. -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <!-- Socle commun, puis styles propres à cette page. -->
+    <link rel="stylesheet" href="vendor/intl-tel-input/build/css/intlTelInput.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/composants.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="css/formulaire.css">
+    <link rel="stylesheet" href="css/vision-mission.css">
+</head>
+<body class="vm-page">
+
+    <!-- Lien d'évitement vers le contenu principal. -->
+    <a href="#contenu-principal" class="skip-link">Aller au contenu principal</a>
+
+    <div class="vm-page__conteneur">
+
+        <!-- ================================================================
+             EN-TÊTE COMMUN : reproduction locale de celui de a-propos.html.
+             Le lien « À propos » porte aria-current="true" sur cette rubrique.
+        ================================================================= -->
+        <header class="en-tete">
+            <div class="barre-nav">
+                <a href="index.html" class="marque">EDUNOVA</a>
+
+                <nav aria-label="Navigation principale" class="nav-principale">
+                    <a href="index.html" class="lien-nav">Accueil</a>
+                    <a href="a-propos.html" aria-current="true" class="lien-nav">À propos</a>
+                    <!-- Pages à venir : aucun href, état « Bientôt » explicite. -->
+                    <a aria-disabled="true" title="Bientôt disponible" class="lien-nav lien-nav--bientot">Programmes</a>
+                    <a aria-disabled="true" title="Bientôt disponible" class="lien-nav lien-nav--bientot">Nos actions</a>
+                    <a aria-disabled="true" title="Bientôt disponible" class="lien-nav lien-nav--bientot">Partenaires</a>
+                    <a aria-disabled="true" title="Bientôt disponible" class="lien-nav lien-nav--bientot">Actualités</a>
+                    <a href="index.html#contact" class="lien-nav">Contact</a>
+                </nav>
+
+                <button type="button" data-menu-mobile class="bouton-menu" aria-label="Ouvrir le menu de navigation" aria-controls="navigation-mobile" aria-expanded="false">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+                        <path d="M4 7h16M4 12h16M4 17h16"></path>
+                    </svg>
+                </button>
+
+                <button type="button" disabled aria-disabled="true" class="bouton bouton--degrade bouton--bientot">
+                    Accéder à la plateforme <span class="pastille-bientot">Bientôt</span>
+                </button>
+            </div>
+
+            <!-- Le menu mobile réutilise js/interface.js sans modification. -->
+            <nav id="navigation-mobile" aria-label="Navigation principale (mobile)" data-menu-mobile-panneau class="menu-mobile cache">
+                <a href="index.html" class="lien-nav">Accueil</a>
+                <a href="a-propos.html" aria-current="true" class="lien-nav">À propos</a>
+                <a aria-disabled="true" title="Bientôt disponible" class="lien-nav lien-nav--bientot">Programmes</a>
+                <a aria-disabled="true" title="Bientôt disponible" class="lien-nav lien-nav--bientot">Nos actions</a>
+                <a aria-disabled="true" title="Bientôt disponible" class="lien-nav lien-nav--bientot">Partenaires</a>
+                <a aria-disabled="true" title="Bientôt disponible" class="lien-nav lien-nav--bientot">Actualités</a>
+                <a href="index.html#contact" class="lien-nav">Contact</a>
+                <button type="button" disabled aria-disabled="true" class="bouton bouton--degrade bouton--bientot">
+                    Accéder à la plateforme <span class="pastille-bientot">Bientôt</span>
+                </button>
+            </nav>
+        </header>
+
+        <main id="contenu-principal" class="contenu-principal">
+
+            <!-- ============================================================
+                 SECTION 1 — HERO : titre centré, arcs d'horizon et halos.
+            ============================================================= -->
+            <section id="hero" class="hero vm-hero">
+                <div class="vm-hero__halo" aria-hidden="true"></div>
+
+                <!-- Mêmes points discrets que l'accueil (24 positions). -->
+                <div class="champ-etoiles" aria-hidden="true">
+                    <span class="etoile"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile"></span>
+                    <span class="etoile"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile"></span>
+                    <span class="etoile"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile"></span>
+                    <span class="etoile--petite"></span>
+                </div>
+
+                <div class="badge vm-anime">
+                    <span class="filet-or" aria-hidden="true"></span>
+                    <span class="badge__point" aria-hidden="true"></span>
+                    NOTRE VISION &amp; NOTRE MISSION
+                    <span class="badge__point" aria-hidden="true"></span>
+                    <span class="filet-or" aria-hidden="true"></span>
+                </div>
+
+                <h1 class="hero__titre vm-hero__titre vm-anime">Construire aujourd'hui l'éducation de demain.</h1>
+
+                <p class="hero__sous-titre vm-hero__intro vm-anime">Une ambition éducative qui dépasse les frontières et ouvre de nouvelles possibilités à chaque apprenant.</p>
+
+                <div class="hero__actions vm-anime">
+                    <a href="#vision" class="bouton bouton--blanc">Découvrir notre vision</a>
+                </div>
+
+                <!-- Arcs lumineux superposés, sans image ni WebGL. -->
+                <div class="vm-hero__arc vm-hero__arc--externe" aria-hidden="true"></div>
+                <div class="vm-hero__arc vm-hero__arc--moyen" aria-hidden="true"></div>
+                <div class="vm-hero__arc vm-hero__arc--interne" aria-hidden="true"></div>
+            </section>
+
+            <!-- ============================================================
+                 SECTION 2 — NOTRE VISION : citation éditoriale sans carte.
+            ============================================================= -->
+            <section id="vision" class="section vm-section vm-vision">
+                <h2 class="vm-vision__citation vm-anime">Faire de l'accès à une éducation de qualité une possibilité pour chaque apprenant, partout en Afrique.</h2>
+                <p class="vm-vision__texte vm-anime">Telle est la vision d'EDUNOVA : un avenir où le lieu de naissance, les moyens ou le contexte ne limitent plus l'accès au savoir. EDUNOVA souhaite y contribuer, pas à pas, en commençant par la Côte d'Ivoire.</p>
+            </section>
+
+            <!-- ============================================================
+                 SECTION 3 — NOTRE MISSION : énoncé puis liste numérotée.
+            ============================================================= -->
+            <section id="mission" class="section vm-section vm-mission">
+                <div class="vm-mission__grille">
+                    <h2 class="vm-mission__texte vm-anime">Mettre le numérique, les ressources pédagogiques et l'innovation au service d'un apprentissage plus accessible et plus équitable.</h2>
+
+                    <div class="vm-mission__axe">
+                        <p class="vm-mission__intro vm-anime">Les axes d'action envisagés.</p>
+
+                        <ol class="vm-mission__liste">
+                            <li class="vm-mission__etape vm-anime">
+                                <span class="vm-mission__numero" aria-hidden="true">01</span>
+                                <span class="vm-mission__filet" aria-hidden="true"></span>
+                                <div class="vm-mission__contenu">
+                                    <h3 class="vm-mission__titre">Ressources pédagogiques</h3>
+                                    <p class="vm-mission__description">Faciliter l'accès à des contenus organisés et de qualité.</p>
+                                </div>
+                            </li>
+
+                            <li class="vm-mission__etape vm-anime">
+                                <span class="vm-mission__numero" aria-hidden="true">02</span>
+                                <span class="vm-mission__filet" aria-hidden="true"></span>
+                                <div class="vm-mission__contenu">
+                                    <h3 class="vm-mission__titre">Technologies éducatives</h3>
+                                    <p class="vm-mission__description">Explorer des outils numériques utiles à l'apprentissage.</p>
+                                </div>
+                            </li>
+
+                            <li class="vm-mission__etape vm-anime">
+                                <span class="vm-mission__numero" aria-hidden="true">03</span>
+                                <span class="vm-mission__filet" aria-hidden="true"></span>
+                                <div class="vm-mission__contenu">
+                                    <h3 class="vm-mission__titre">Accompagnement des apprenants</h3>
+                                    <p class="vm-mission__description">Proposer des repères pour progresser à son rythme.</p>
+                                </div>
+                            </li>
+
+                            <li class="vm-mission__etape vm-anime">
+                                <span class="vm-mission__numero" aria-hidden="true">04</span>
+                                <span class="vm-mission__filet" aria-hidden="true"></span>
+                                <div class="vm-mission__contenu">
+                                    <h3 class="vm-mission__titre">Accessibilité des apprentissages</h3>
+                                    <p class="vm-mission__description">Chercher à lever les obstacles d'accès, de langue ou de connexion.</p>
+                                </div>
+                            </li>
+
+                            <li class="vm-mission__etape vm-anime">
+                                <span class="vm-mission__numero" aria-hidden="true">05</span>
+                                <span class="vm-mission__filet" aria-hidden="true"></span>
+                                <div class="vm-mission__contenu">
+                                    <h3 class="vm-mission__titre">Innovation responsable</h3>
+                                    <p class="vm-mission__description">Innover avec prudence, en protégeant les apprenants.</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 SECTION 4 — VALEURS : bandes horizontales, sans cartes.
+            ============================================================= -->
+            <section id="valeurs" class="section vm-section vm-valeurs">
+                <h2 class="section__titre vm-anime">Nos valeurs fondamentales</h2>
+
+                <div class="vm-valeurs__bandes">
+                    <div class="vm-valeurs__bande vm-anime">
+                        <div class="vm-valeurs__icone" aria-hidden="true">
+                            <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"></path></svg>
+                        </div>
+                        <h3 class="vm-valeurs__titre">Inclusion et égalité des chances</h3>
+                        <p class="vm-valeurs__texte">Chacun mérite d'apprendre, quel que soit son parcours ou son lieu de vie.</p>
+                    </div>
+
+                    <div class="vm-valeurs__bande vm-anime">
+                        <div class="vm-valeurs__icone" aria-hidden="true">
+                            <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-5 9 5-9 5Z"></path><path d="M7 11v4c0 1.7 2.2 3 5 3s5-1.3 5-3v-4M21 9v5"></path></svg>
+                        </div>
+                        <h3 class="vm-valeurs__titre">Excellence pédagogique</h3>
+                        <p class="vm-valeurs__texte">Viser des contenus clairs, rigoureux et utiles aux apprenants comme aux enseignants.</p>
+                    </div>
+
+                    <div class="vm-valeurs__bande vm-anime">
+                        <div class="vm-valeurs__icone" aria-hidden="true">
+                            <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4m0 10v4M3 12h4m10 0h4M5.6 5.6l2.8 2.8m7.2 7.2 2.8 2.8m0-12.8-2.8 2.8m-7.2 7.2-2.8 2.8"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </div>
+                        <h3 class="vm-valeurs__titre">Innovation responsable</h3>
+                        <p class="vm-valeurs__texte">Utiliser le numérique et l'intelligence artificielle avec discernement et transparence.</p>
+                    </div>
+
+                    <div class="vm-valeurs__bande vm-anime">
+                        <div class="vm-valeurs__icone" aria-hidden="true">
+                            <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v5c0 4.4 3.4 7.9 8 9 4.6-1.1 8-4.6 8-9V7Z"></path><path d="M9 12l2 2 4-4"></path></svg>
+                        </div>
+                        <h3 class="vm-valeurs__titre">Accessibilité du savoir</h3>
+                        <p class="vm-valeurs__texte">Rendre les ressources faciles à trouver et à utiliser, y compris dans des contextes contraints.</p>
+                    </div>
+
+                    <div class="vm-valeurs__bande vm-anime">
+                        <div class="vm-valeurs__icone" aria-hidden="true">
+                            <svg class="icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.5"></circle><circle cx="5" cy="18" r="2.5"></circle><circle cx="19" cy="18" r="2.5"></circle><path d="m10.7 7-4.4 9m7-9 4.4 9M7.5 18h9"></path></svg>
+                        </div>
+                        <h3 class="vm-valeurs__titre">Collaboration et solidarité</h3>
+                        <p class="vm-valeurs__texte">Avancer avec les enseignants, les familles et les partenaires de l'éducation.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 SECTION 5 — ENGAGEMENTS : principes, sans coches.
+            ============================================================= -->
+            <section id="engagements" class="section vm-section vm-engagements">
+                <h2 class="section__titre vm-anime">Nos engagements</h2>
+                <p class="vm-engagements__intro vm-anime">Les principes qui guideront EDUNOVA dans la construction de son initiative.</p>
+
+                <ul class="vm-engagements__liste">
+                    <li class="vm-engagements__ligne vm-anime">
+                        <span class="vm-engagements__marqueur" aria-hidden="true"></span>
+                        <span>Concevoir des ressources adaptées aux réalités africaines.</span>
+                    </li>
+                    <li class="vm-engagements__ligne vm-anime">
+                        <span class="vm-engagements__marqueur" aria-hidden="true"></span>
+                        <span>Favoriser l'accès aux apprentissages.</span>
+                    </li>
+                    <li class="vm-engagements__ligne vm-anime">
+                        <span class="vm-engagements__marqueur" aria-hidden="true"></span>
+                        <span>Encourager une utilisation responsable des technologies.</span>
+                    </li>
+                    <li class="vm-engagements__ligne vm-anime">
+                        <span class="vm-engagements__marqueur" aria-hidden="true"></span>
+                        <span>Promouvoir une éducation de qualité.</span>
+                    </li>
+                    <li class="vm-engagements__ligne vm-anime">
+                        <span class="vm-engagements__marqueur" aria-hidden="true"></span>
+                        <span>Construire des collaborations durables.</span>
+                    </li>
+                </ul>
+
+                <p class="vm-engagements__note vm-anime">Ces engagements décrivent une direction : ils ne sont pas des résultats déjà atteints.</p>
+            </section>
+
+            <!-- ============================================================
+                 SECTION 6 — AMBITION : chemin en trois étapes et carte.
+            ============================================================= -->
+            <section id="ambition" class="section vm-section vm-ambition">
+                <h2 class="section__titre vm-anime">Notre ambition à long terme</h2>
+
+                <div class="vm-ambition__cadre">
+                    <!-- Carte décorative très atténuée, masque identique à l'accueil. -->
+                    <img src="assets/afrique-map.svg" alt="" aria-hidden="true" class="vm-ambition__fond map-mask">
+
+                    <ol class="vm-ambition__chemin">
+                        <li class="vm-ambition__etape vm-anime">
+                            <span class="vm-ambition__point" aria-hidden="true"></span>
+                            <h3 class="vm-ambition__nom">Côte d'Ivoire</h3>
+                            <p class="vm-ambition__texte">Un point de départ : poser les bases de l'initiative.</p>
+                        </li>
+                        <li class="vm-ambition__etape vm-anime">
+                            <span class="vm-ambition__point" aria-hidden="true"></span>
+                            <h3 class="vm-ambition__nom">Consolidation</h3>
+                            <p class="vm-ambition__texte">Apprendre de l'expérience et améliorer ce qui doit l'être.</p>
+                        </li>
+                        <li class="vm-ambition__etape vm-anime">
+                            <span class="vm-ambition__point" aria-hidden="true"></span>
+                            <h3 class="vm-ambition__nom">Extension progressive</h3>
+                            <p class="vm-ambition__texte">Étendre l'initiative à d'autres pays africains, en coopération avec les acteurs de l'éducation.</p>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 SECTION 7 — CONCLUSION ET APPEL À L'ACTION.
+            ============================================================= -->
+            <section id="rejoindre" class="section vm-section vm-rejoindre">
+                <div class="rejoindre">
+                    <div class="rejoindre__halo" aria-hidden="true"></div>
+
+                    <div class="panneau vm-rejoindre__panneau vm-anime">
+                        <div class="panneau__filet" aria-hidden="true"></div>
+                        <h2 class="panneau__titre">Ensemble, ouvrons de nouvelles perspectives pour l'éducation.</h2>
+                        <p class="panneau__texte">EDUNOVA souhaite rassembler celles et ceux qui veulent contribuer à rendre le savoir plus accessible.</p>
+
+                        <div class="vm-rejoindre__actions">
+                            <button data-ouvrir-candidature type="button" class="bouton bouton--blanc">Rejoindre l'initiative</button>
+                            <a href="a-propos.html#approche" class="lien-texte">Découvrir nos programmes</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- =================================================================
+             PIED DE PAGE : reproduction locale de celui de a-propos.html.
+        ================================================================= -->
+        <footer id="contact" class="pied-page">
+            <div class="pied-page__contenu">
+                <div class="pied-page__grille">
+
+                    <div class="pied-page__colonne pied-page__colonne--large">
+                        <span class="pied-page__marque">EDUNOVA</span>
+                        <p class="pied-page__texte">L'éducation sans frontières, le savoir pour tous.</p>
+                        <p class="pied-page__texte pied-page__texte--discret">EDUNOVA est une initiative éducative panafricaine en cours de structuration.</p>
+                    </div>
+
+                    <nav aria-label="Navigation pied de page" class="pied-page__nav">
+                        <a href="index.html" class="pied-page__lien">Accueil</a>
+                        <a href="a-propos.html" aria-current="true" class="pied-page__lien">À propos</a>
+                        <a aria-disabled="true" title="Bientôt disponible" class="pied-page__lien pied-page__lien--bientot">Programmes</a>
+                        <a aria-disabled="true" title="Bientôt disponible" class="pied-page__lien pied-page__lien--bientot">Nos actions</a>
+                        <a aria-disabled="true" title="Bientôt disponible" class="pied-page__lien pied-page__lien--bientot">Partenaires</a>
+                        <a aria-disabled="true" title="Bientôt disponible" class="pied-page__lien pied-page__lien--bientot">Actualités</a>
+                        <a href="index.html#contact" class="pied-page__lien">Contact</a>
+                    </nav>
+
+                    <div class="pied-page__colonne pied-page__colonne--liens">
+                        <a href="mentions-legales.html" class="pied-page__lien">Mentions légales</a>
+                        <a href="politique-confidentialite.html" class="pied-page__lien">Politique de confidentialité</a>
+                    </div>
+
+                </div>
+
+                <div>
+                    <p class="pied-page__copyright">© 2026 EDUNOVA</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- FORMULAIRE DE CANDIDATURE : champs et attributs d'origine inchangés. -->
+    <dialog id="candidature-dialog" class="dialogue" aria-labelledby="titre-candidature">
+        <div class="dialogue__interne">
+            <div class="dialogue__en-tete">
+                <div>
+                    <p class="dialogue__surtitre">EDUNOVA</p>
+                    <h2 id="titre-candidature" class="dialogue__titre">Rejoindre EDUNOVA</h2>
+                </div>
+                <button type="button" data-fermer-candidature aria-label="Fermer le formulaire" class="dialogue__fermer">×</button>
+            </div>
+
+            <p class="dialogue__intro">
+                Remplissez ce formulaire pour demander votre participation
+                à notre programme éducatif pilote.
+            </p>
+
+            <!--
+                Adresse de base de l'API.
+                Laissez vide pour la détection automatique : même origine en
+                production, http://127.0.0.1:8000 pour le développement local
+                (ports 5500/5501) ou l'ouverture en file://.
+                Vous pouvez aussi définir window.EDUNOVA_API_BASE_URL avant
+                le chargement de js/application.js.
+            -->
+            <form id="application-form" data-api-base-url="">
+
+                <div>
+                    <label for="nom">Nom</label>
+                    <input type="text" id="nom" name="nom" required
+                           minlength="2" maxlength="100"
+                           autocomplete="name" aria-describedby="nom-help">
+                    <small class="help" id="nom-help">Entre 2 et 100 caractères.</small>
+                </div>
+
+                <div>
+                    <label for="prenom">Prénom(s)</label>
+                    <input type="text" id="prenom" name="prenom" required
+                           minlength="2" maxlength="100"
+                           autocomplete="given-name" aria-describedby="prenom-help">
+                    <small class="help" id="prenom-help">Entre 2 et 100 caractères.</small>
+                </div>
+
+                <div>
+                    <label for="email">Adresse e-mail</label>
+                    <input type="email" id="email" name="email" required
+                           autocomplete="email" aria-describedby="email-help">
+                    <small class="help" id="email-help">Format : nom@exemple.com</small>
+                </div>
+
+                <div>
+                    <label for="telephone">Téléphone</label>
+                    <input type="tel" id="telephone" name="telephone"
+                           maxlength="30" inputmode="tel"
+                           autocomplete="tel" aria-describedby="telephone-help">
+                    <small class="help" id="telephone-help">30 caractères maximum (facultatif).</small>
+                    <!-- Erreur affichée uniquement par js/telephone.js. -->
+                    <p class="telephone-erreur" id="telephone-erreur" role="alert" hidden>Numéro de téléphone invalide pour ce pays</p>
+                </div>
+
+                <div>
+                    <label for="niveau">Votre parcours éducatif</label>
+
+                    <select id="niveau" name="niveau" required aria-describedby="niveau-help">
+                        <option value="">Choisissez votre parcours</option>
+                        <option value="primaire">EDUNOVA Junior — Primaire</option>
+                        <option value="college">EDUNOVA Collège — Collège</option>
+                        <option value="lycee">EDUNOVA Lycée — Lycée</option>
+                        <option value="universite">EDUNOVA University — Université</option>
+                        <option value="formation_professionnelle">EDUNOVA Skills — Formation professionnelle</option>
+                    </select>
+                    <small class="help" id="niveau-help">Choisissez le parcours qui vous concerne.</small>
+                </div>
+
+                <div>
+                    <label for="motivation">Pourquoi souhaitez-vous rejoindre EDUNOVA ?</label>
+                    <textarea
+                        id="motivation"
+                        name="motivation"
+                        rows="6"
+                        minlength="20"
+                        maxlength="5000"
+                        required
+                        aria-describedby="motivation-help"
+                    ></textarea>
+                    <small class="help" id="motivation-help">20 caractères minimum, 5000 maximum.</small>
+                </div>
+
+                <button type="submit">Envoyer ma candidature</button>
+
+            </form>
+
+            <div id="message" class="message message--info" role="status" aria-live="polite" aria-atomic="true"></div>
+        </div>
+    </dialog>
+
+    <!-- Scripts classiques, tous en defer : animations, puis formulaire. -->
+    <script src="vendor/gsap/3.15.1/gsap.min.js" defer></script>
+    <script src="vendor/gsap/3.15.1/ScrollTrigger.min.js" defer></script>
+    <script src="js/vision-mission.js" defer></script>
+    <script src="vendor/intl-tel-input/build/js/intlTelInputWithUtils.min.js" defer></script>
+    <script src="js/telephone.js" defer></script>
+    <script src="js/interface.js" defer></script>
+    <script src="js/application.js" defer></script>
+</body>
+</html>

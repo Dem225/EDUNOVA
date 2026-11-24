@@ -1,0 +1,167 @@
+/*
+    EDUNOVA - Socle commun : variables de design, remise à zéro et
+    accessibilité. Chargé en premier sur toutes les pages.
+*/
+
+/* ===== VARIABLES DE DESIGN (valeurs exactes de la maquette) ===== */
+
+:root {
+    /* Couleurs */
+    --bleu-nuit: #101C35;
+    --bleu-profond: #0B1528;
+    --bleu-carte: #162442;
+    --bleu-halo: #1A2E56;
+    --turquoise: #2DD4BF;
+    --turquoise-clair: #5EEAD4;
+    --bleu-leger: #7DD3FC;
+    --or: #E5B84B;
+    --blanc: #FFFFFF;
+    --texte-discret: #C5CEE5;
+    --rouge-erreur: #FCA5A5;
+
+    /* Polices */
+    --police-titre: "DM Serif Display", sans-serif;
+    --police-texte: "Manrope", sans-serif;
+
+    /* Rayons */
+    --rayon-sm: 8px;
+    --rayon-md: 16px;
+    --rayon-lg: 20px;
+    --rayon-carte: 24px;
+    --rayon-2xl: 32px;
+    --rayon-pilule: 9999px;
+
+    /* Espacements (gutter de la maquette) */
+    --gutter-sm: 8px;
+    --gutter-md: 16px;
+    --gutter-lg: 24px;
+    --gutter-xl: 32px;
+    --section: 64px;
+    --section-lg: 128px;
+
+    /* Matières */
+    --verre-fond: rgba(22, 36, 66, 0.65);
+    --verre-bordure: rgba(255, 255, 255, 0.12);
+    --verre-flou: blur(12px);
+    --transition: 150ms ease-out;
+}
+
+/* ===== REMISE À ZÉRO ===== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bleu-nuit);
+    color: var(--blanc);
+    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    line-height: 24px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+img,
+svg,
+canvas {
+    display: block;
+}
+
+::selection {
+    background: var(--turquoise);
+    color: var(--bleu-nuit);
+}
+
+/* Classe pilotée par js/interface.js pour masquer le menu mobile. */
+.cache {
+    display: none !important;
+}
+
+/* ===== TYPOGRAPHIE PARTAGÉE ===== */
+
+.section__titre,
+.hero__titre,
+.panneau__titre,
+.dialogue__titre,
+.pied-page__marque,
+.marque {
+    font-family: var(--police-titre);
+    font-weight: 400;
+}
+
+.surtitre,
+.carte__libelle,
+.panneau__surtitre,
+.dialogue__surtitre {
+    font-family: var(--police-texte);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+}
+
+/* ===== ACCESSIBILITÉ ===== */
+
+/* Lien d'évitement : visible seulement lorsqu'il reçoit le focus. */
+.skip-link {
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    z-index: 200;
+    padding: 10px 16px;
+    border-radius: var(--rayon-pilule);
+    background: var(--blanc);
+    color: var(--bleu-nuit);
+    font: 600 14px/1.2 var(--police-texte), Arial, sans-serif;
+    text-decoration: none;
+    transform: translateY(-160%);
+}
+
+.skip-link:focus-visible {
+    transform: translateY(0);
+}
+
+:focus-visible {
+    outline: 2px solid var(--turquoise);
+    outline-offset: 3px;
+}
+
+/* Respect de la préférence système : aucune animation. */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

@@ -1,0 +1,14 @@
+/*
+    EDUNOVA - Ajustement propre à la page d'accueil.
+    L'alignement de l'en-tête sur css/commun.css (barre de 44 px au lieu de
+    40 px) ajoute 4 px de hauteur. Cette compensation annule ce décalage
+    afin de conserver la position d'origine du hero, du titre, du globe,
+    des cartes flottantes et des sections. Le cas exact de 768 px est
+    exclu volontairement : la barre y mesure déjà 94 px sans compensation.
+*/
+
+@media (max-width: 767px), (min-width: 769px) {
+    .accueil > .contenu-hero {
+        margin-top: -4px;
+    }
+}

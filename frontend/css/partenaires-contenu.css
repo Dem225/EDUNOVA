@@ -1,0 +1,545 @@
+/*
+    EDUNOVA - Styles propres au contenu de la page « Nos partenaires » :
+    énoncés numérotés, listes à filets, modules, alternance, blocs lettrés
+    et état actuel. Chargé après partenaires.css. Aucune règle prioritaire.
+*/
+
+/* ===== SECTION 2 — CINQ ÉNONCÉS NUMÉROTÉS ===== */
+
+.pt-declarations {
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+.pt-declaration {
+    position: relative;
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 32px;
+    align-items: start;
+    padding: 34px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.pt-declaration:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.pt-declaration__numero {
+    color: var(--or);
+    font-family: var(--police-titre);
+    font-size: 36px;
+    line-height: 1;
+}
+
+.pt-declaration__texte {
+    color: var(--blanc);
+    font-family: var(--police-titre);
+    font-size: clamp(24px, 2.4vw, 32px);
+    font-weight: 400;
+    line-height: 1.22;
+    letter-spacing: -0.2px;
+    text-wrap: balance;
+}
+
+.pt-pourquoi__mention {
+    max-width: 760px;
+    margin: 56px auto 0;
+    color: var(--texte-discret);
+    font-family: var(--police-texte);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: center;
+    text-wrap: pretty;
+}
+
+/* ===== SECTION 3 — LISTE À FILETS FINS, DEUX COLONNES ===== */
+
+.pt-lignes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+.pt-ligne {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 26px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.pt-lignes > li:last-child,
+.pt-lignes > li:nth-last-child(2) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.pt-ligne__etiquette {
+    align-self: flex-start;
+}
+
+.pt-ligne__texte {
+    color: var(--blanc);
+    font-family: var(--police-texte);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 27px;
+    text-wrap: pretty;
+}
+
+/* ===== SECTION 4 — SIX MODULES SOBRES ===== */
+
+.pt-modules {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+.pt-module {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    min-height: 220px;
+    padding: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--rayon-lg);
+    background: rgba(22, 36, 66, 0.42);
+}
+
+.pt-module__icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(45, 212, 191, 0.35);
+    border-radius: var(--rayon-md);
+    background: rgba(45, 212, 191, 0.08);
+    color: var(--turquoise-clair);
+}
+
+.pt-module__etiquette {
+    align-self: flex-start;
+}
+
+.pt-module__texte {
+    margin-top: auto;
+    color: var(--blanc);
+    font-family: var(--police-texte);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 26px;
+    text-wrap: balance;
+}
+
+/* ===== SECTION 5 — ALTERNANCE LE LONG D'UN AXE FIN ===== */
+
+.pt-alternance {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+.pt-alternance::before {
+    position: absolute;
+    top: 16px;
+    bottom: 16px;
+    left: 50%;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(45, 212, 191, 0.5), rgba(229, 184, 75, 0.5), transparent);
+    content: "";
+    pointer-events: none;
+}
+
+.pt-element {
+    position: relative;
+    width: calc(50% - 40px);
+    padding: 26px 28px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: var(--rayon-lg);
+    background: rgba(22, 36, 66, 0.5);
+}
+
+.pt-element::after {
+    position: absolute;
+    top: 32px;
+    width: 9px;
+    height: 9px;
+    border-radius: var(--rayon-pilule);
+    background: var(--or);
+    box-shadow: 0 0 0 5px rgba(229, 184, 75, 0.12);
+    content: "";
+}
+
+.pt-element--gauche {
+    align-self: flex-start;
+    text-align: right;
+}
+
+.pt-element--gauche::after {
+    right: -45px;
+}
+
+.pt-element--droite {
+    align-self: flex-end;
+}
+
+.pt-element--droite::after {
+    left: -45px;
+}
+
+.pt-element__texte {
+    color: var(--blanc);
+    font-family: var(--police-texte);
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 27px;
+    text-wrap: balance;
+}
+
+.pt-etat {
+    max-width: 900px;
+    margin: 72px auto 0;
+    padding: 24px 28px;
+    border: 1px solid rgba(229, 184, 75, 0.5);
+    border-radius: var(--rayon-lg);
+    background: rgba(229, 184, 75, 0.05);
+}
+
+.pt-etat__titre {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--or);
+    font-family: var(--police-texte);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 0.1em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.pt-etat__texte {
+    color: var(--texte-discret);
+    font-family: var(--police-texte);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+    text-wrap: pretty;
+}
+
+/* ===== SECTION 6 — SIX BLOCS LETTRÉS A À F ===== */
+
+.pt-lettres {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 48px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+.pt-lettre {
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: 20px;
+    align-items: start;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.pt-lettre__marque {
+    color: var(--or);
+    font-family: var(--police-titre);
+    font-size: 46px;
+    line-height: 1;
+}
+
+.pt-lettre__titre {
+    margin-bottom: 8px;
+    color: var(--blanc);
+    font-family: var(--police-texte);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 25px;
+    text-wrap: balance;
+}
+
+.pt-lettre__texte {
+    color: var(--texte-discret);
+    font-family: var(--police-texte);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-wrap: pretty;
+}
+
+.pt-collaborations__mention {
+    max-width: 760px;
+    margin: 56px auto 0;
+    color: var(--texte-discret);
+    font-family: var(--police-texte);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: center;
+    text-wrap: pretty;
+}
+
+/* ===== RESPONSIVE : 1024 PX ===== */
+
+@media (max-width: 1024px) {
+    .pt-declarations {
+        max-width: 860px;
+    }
+
+    .pt-declaration {
+        grid-template-columns: 80px minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    .pt-lignes {
+        gap: 0 28px;
+    }
+
+    .pt-ligne__texte {
+        font-size: 17px;
+        line-height: 25px;
+    }
+
+    /* Grille 3 × 2 sur grand écran, deux colonnes sur tablette. */
+    .pt-modules {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pt-element {
+        width: calc(50% - 32px);
+    }
+
+    .pt-element--gauche::after {
+        right: -37px;
+    }
+
+    .pt-element--droite::after {
+        left: -37px;
+    }
+
+    .pt-lettres {
+        gap: 28px 32px;
+    }
+
+    .pt-lettre {
+        grid-template-columns: 54px minmax(0, 1fr);
+        gap: 16px;
+    }
+}
+
+/* ===== RESPONSIVE : 768 PX ===== */
+
+@media (max-width: 768px) {
+    .pt-declaration {
+        grid-template-columns: 64px minmax(0, 1fr);
+        gap: 16px;
+        padding: 26px 0;
+    }
+
+    .pt-declaration__numero {
+        font-size: 30px;
+    }
+
+    .pt-declaration__texte {
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    .pt-pourquoi__mention {
+        margin-top: 40px;
+    }
+
+    .pt-lignes {
+        gap: 0 20px;
+    }
+
+    .pt-ligne {
+        padding: 20px 0;
+    }
+
+    .pt-ligne__texte {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .pt-modules {
+        gap: 16px;
+    }
+
+    .pt-module {
+        min-height: 200px;
+        padding: 22px;
+    }
+
+    .pt-module__texte {
+        font-size: 16px;
+        line-height: 23px;
+    }
+
+    .pt-alternance {
+        gap: 40px;
+    }
+
+    .pt-element {
+        padding: 22px;
+    }
+
+    .pt-element__texte {
+        font-size: 17px;
+        line-height: 24px;
+    }
+
+    .pt-etat {
+        margin-top: 40px;
+        padding: 20px;
+    }
+
+    .pt-lettres {
+        gap: 24px;
+    }
+
+    .pt-lettre {
+        grid-template-columns: 46px minmax(0, 1fr);
+    }
+
+    .pt-lettre__marque {
+        font-size: 38px;
+    }
+
+    .pt-collaborations__mention {
+        margin-top: 40px;
+    }
+}
+
+/* ===== RESPONSIVE : UNE SEULE COLONNE SUR MOBILE ===== */
+
+@media (max-width: 767px) {
+    .pt-lignes {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
+        max-width: 520px;
+    }
+
+    .pt-lignes > li:nth-last-child(2) {
+        border-bottom: 0;
+    }
+
+    .pt-modules {
+        grid-template-columns: minmax(0, 1fr);
+        max-width: 520px;
+    }
+
+    .pt-alternance::before {
+        left: 4px;
+    }
+
+    .pt-element,
+    .pt-element--gauche,
+    .pt-element--droite {
+        width: calc(100% - 28px);
+        margin-left: 28px;
+        text-align: left;
+    }
+
+    .pt-element--gauche::after,
+    .pt-element--droite::after {
+        right: auto;
+        left: -28px;
+    }
+
+    .pt-lettres {
+        grid-template-columns: minmax(0, 1fr);
+        max-width: 520px;
+    }
+}
+
+/* ===== RESPONSIVE : ÉCRANS ÉTROITS (390 PX) ===== */
+
+@media (max-width: 390px) {
+    .pt-declaration {
+        grid-template-columns: 48px minmax(0, 1fr);
+        gap: 12px;
+        padding: 22px 0;
+    }
+
+    .pt-declaration__numero {
+        font-size: 24px;
+    }
+
+    .pt-declaration__texte {
+        font-size: 21px;
+        line-height: 27px;
+    }
+
+    .pt-intro {
+        font-size: 15px;
+        line-height: 24px;
+    }
+
+    .pt-ligne,
+    .pt-module,
+    .pt-element {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .pt-module {
+        min-height: 0;
+    }
+
+    .pt-etat {
+        padding: 18px;
+    }
+
+    .pt-etat__texte {
+        font-size: 13px;
+        line-height: 21px;
+    }
+
+    .pt-lettre {
+        grid-template-columns: 40px minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .pt-lettre__marque {
+        font-size: 34px;
+    }
+
+    .pt-lettre__titre {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .pt-lettre__texte {
+        font-size: 13px;
+        line-height: 21px;
+    }
+}

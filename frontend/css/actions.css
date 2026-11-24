@@ -1,0 +1,287 @@
+/*
+    EDUNOVA - Styles propres à la page « Nos actions » : structure, hero,
+    graine qui devient réseau, animations et adaptations globales.
+    Les styles des sections 2 à 7 sont dans actions-contenu.css, chargé
+    juste après. Aucune règle prioritaire, aucun doublon de commun.css.
+*/
+
+/* ===== STRUCTURE DE LA PAGE ===== */
+
+.ac-page {
+    overflow-x: hidden;
+}
+
+.ac-page__conteneur {
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Gouttières latérales conservées à toutes les largeurs. */
+.ac-page .section {
+    padding-right: var(--gutter-lg);
+    padding-left: var(--gutter-lg);
+}
+
+.ac-page .section__en-tete {
+    margin-bottom: 56px;
+}
+
+/* Petite étiquette dorée : uniquement des intentions, jamais un résultat. */
+.ac-etiquette {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border: 1px solid rgba(229, 184, 75, 0.42);
+    border-radius: var(--rayon-pilule);
+    background: rgba(229, 184, 75, 0.08);
+    color: var(--or);
+    font-family: var(--police-texte);
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 15px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+/* ===== ANIMATIONS DISCRÈTES =====
+   Le contenu est visible par défaut ; il n'est masqué que lorsque le JS
+   confirme la présence de GSAP, de ScrollTrigger et un mouvement autorisé. */
+
+html.ac-animations-actives .ac-anime {
+    opacity: 0;
+    transform: translateY(24px);
+}
+
+/* ===== HERO : TITRE À GAUCHE, GRAINE-QUI-DEVIENT-RÉSEAU À DROITE ===== */
+
+.ac-page .ac-hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    gap: 56px;
+    align-items: center;
+    max-width: 1200px;
+    min-height: 600px;
+    margin: 0 auto;
+    padding: 150px var(--gutter-lg) 72px;
+    isolation: isolate;
+    text-align: left;
+}
+
+/* Halo turquoise diffus derrière le motif. */
+.ac-hero__halo {
+    position: absolute;
+    top: 40px;
+    right: -40px;
+    z-index: -1;
+    width: 620px;
+    height: 620px;
+    border-radius: var(--rayon-pilule);
+    background: radial-gradient(circle at 50% 50%, rgba(45, 212, 191, 0.16), rgba(26, 46, 86, 0.12) 46%, transparent 72%);
+    filter: blur(60px);
+    pointer-events: none;
+}
+
+.ac-hero__points {
+    z-index: 0;
+}
+
+.ac-hero__texte {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+}
+
+.ac-page .ac-hero__badge {
+    flex-wrap: wrap;
+    margin-bottom: var(--gutter-xl);
+}
+
+.ac-hero__pastille {
+    letter-spacing: 0.02em;
+    text-transform: none;
+}
+
+.ac-page .ac-hero__titre {
+    max-width: 640px;
+    margin-bottom: var(--gutter-xl);
+    font-size: clamp(44px, 4.6vw, 68px);
+    line-height: 1.08;
+    letter-spacing: -1px;
+}
+
+.ac-page .ac-hero__intro {
+    max-width: 600px;
+    margin-bottom: 32px;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.ac-page .ac-hero__actions {
+    align-items: flex-start;
+}
+
+.ac-hero__graine {
+    position: relative;
+    z-index: 1;
+    justify-self: end;
+    width: 100%;
+    max-width: 520px;
+    color: var(--turquoise);
+}
+
+.ac-hero__branche path {
+    vector-effect: non-scaling-stroke;
+}
+
+/* ===== PANNEAU FINAL ET DIALOGUE ===== */
+
+.ac-page .ac-rejoindre__panneau {
+    max-width: 900px;
+}
+
+.ac-page .ac-rejoindre__panneau .panneau__titre {
+    font-size: clamp(34px, 4vw, 48px);
+    line-height: 1.12;
+}
+
+/* Surcharge propre à la page : à unifier plus tard dans formulaire.css
+   avec les pages « Programmes » (.pg-page) et « Contact » (.ct-page). */
+.ac-page .dialogue__fermer {
+    width: 44px;
+    height: 44px;
+}
+
+/* ===== RESPONSIVE : 1024 PX ===== */
+
+@media (max-width: 1024px) {
+    .ac-page .ac-hero {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 8px;
+        max-width: 800px;
+        min-height: 0;
+        padding-top: 132px;
+        padding-bottom: 64px;
+        text-align: center;
+    }
+
+    .ac-hero__halo {
+        top: 120px;
+        right: 50%;
+        width: 560px;
+        height: 560px;
+        transform: translateX(50%);
+    }
+
+    .ac-hero__texte {
+        margin: 0 auto;
+    }
+
+    .ac-page .ac-hero__badge {
+        justify-content: center;
+    }
+
+    .ac-page .ac-hero__titre {
+        margin-right: auto;
+        margin-left: auto;
+        font-size: 56px;
+        line-height: 62px;
+    }
+
+    .ac-page .ac-hero__intro {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .ac-page .ac-hero__actions {
+        align-items: center;
+    }
+
+    .ac-hero__graine {
+        justify-self: center;
+        max-width: 440px;
+    }
+}
+
+/* ===== RESPONSIVE : 768 PX ===== */
+
+@media (max-width: 768px) {
+    /* Rythme vertical resserré sur mobile : 72 px au lieu de 128 px. */
+    .ac-page .section {
+        padding-top: 72px;
+        padding-bottom: 72px;
+    }
+
+    .ac-page .section__en-tete {
+        margin-bottom: 40px;
+    }
+
+    .ac-page .ac-hero {
+        gap: 0;
+        padding-top: 120px;
+        padding-bottom: 48px;
+    }
+
+    .ac-page .ac-hero__badge {
+        margin-bottom: var(--gutter-lg);
+    }
+
+    .ac-page .ac-hero__titre {
+        font-size: 42px;
+        line-height: 48px;
+        letter-spacing: -0.6px;
+    }
+
+    .ac-page .ac-hero__intro {
+        margin-bottom: 28px;
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    .ac-hero__graine {
+        max-width: 360px;
+    }
+
+    .ac-page .ac-rejoindre__panneau .panneau__titre {
+        font-size: 36px;
+        line-height: 42px;
+    }
+}
+
+/* ===== RESPONSIVE : ÉCRANS ÉTROITS (390 PX) ===== */
+
+@media (max-width: 390px) {
+    .ac-page .ac-hero {
+        padding-top: 112px;
+    }
+
+    .ac-page .ac-hero__badge {
+        gap: 6px;
+        padding-right: var(--gutter-sm);
+        padding-left: var(--gutter-sm);
+    }
+
+    .ac-page .ac-hero__titre {
+        font-size: 34px;
+        line-height: 40px;
+    }
+
+    .ac-page .ac-hero__intro {
+        font-size: 15px;
+        line-height: 24px;
+    }
+
+    .ac-hero__pastille {
+        padding: 3px 8px;
+        font-size: 10px;
+    }
+
+    .ac-hero__graine {
+        max-width: 300px;
+    }
+
+    .ac-page .ac-rejoindre__panneau .panneau__titre {
+        font-size: 32px;
+        line-height: 38px;
+    }
+}

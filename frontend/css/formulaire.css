@@ -1,0 +1,269 @@
+/*
+    EDUNOVA - Dialogue et formulaire de candidature sur fond sombre.
+    Les identifiants et attributs ARIA du formulaire restent inchangés :
+    js/application.js s'en sert directement.
+*/
+
+/* ===== DIALOGUE ===== */
+
+.dialogue {
+    padding: 0;
+    max-width: min(640px, calc(100vw - 32px));
+    max-height: calc(100vh - 32px);
+    /* Les menus natifs (select) suivent le thème sombre du dialogue. */
+    color-scheme: dark;
+    /* La liste des pays doit pouvoir déborder du cadre sans être coupée. */
+    overflow: visible;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: var(--rayon-carte);
+    background: var(--bleu-carte);
+    color: var(--blanc);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+}
+
+.dialogue::backdrop {
+    background: rgba(11, 21, 40, 0.78);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.dialogue__interne {
+    max-height: calc(100vh - 32px);
+    padding: var(--gutter-xl);
+    overflow-y: auto;
+    font-family: var(--police-texte), Arial, sans-serif;
+}
+
+.dialogue__en-tete {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--gutter-md);
+    margin-bottom: var(--gutter-lg);
+}
+
+.dialogue__surtitre {
+    margin-bottom: 4px;
+    color: var(--or);
+}
+
+.dialogue__titre {
+    color: var(--blanc);
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 28px;
+    letter-spacing: -0.2px;
+}
+
+.dialogue__fermer {
+    flex: 0 0 auto;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: var(--rayon-pilule);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--blanc);
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.dialogue__intro {
+    margin-bottom: var(--gutter-lg);
+    color: rgba(255, 255, 255, 0.75);
+    font-family: var(--police-texte);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+}
+
+/* ===== CHAMPS DU FORMULAIRE ===== */
+
+#application-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#application-form > div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gutter-sm);
+}
+
+#application-form label {
+    font-weight: 600;
+    color: var(--texte-discret);
+}
+
+#application-form input,
+#application-form select,
+#application-form textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: var(--rayon-sm);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--blanc);
+    font: inherit;
+    font-size: 1rem;
+}
+
+#application-form textarea {
+    resize: vertical;
+}
+
+/* Flèche visible et options lisibles dans la liste « niveau » sombre. */
+#application-form select {
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 42px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23C5CEE5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+}
+
+#application-form select option {
+    background-color: #162442;
+    color: #FFFFFF;
+}
+
+#application-form select option:checked,
+#application-form select option:hover {
+    background-color: #1F3260;
+    color: #FFFFFF;
+}
+
+#application-form select option[value=""] {
+    color: #C5CEE5;
+}
+
+/* État d'erreur : positionné par js/application.js (ARIA + classe). */
+#application-form input[aria-invalid="true"],
+#application-form select[aria-invalid="true"],
+#application-form textarea[aria-invalid="true"],
+#application-form .est-invalide {
+    border-color: var(--rouge-erreur);
+    box-shadow: 0 0 0 3px rgba(252, 165, 165, 0.18);
+}
+
+#application-form .help {
+    font-size: 0.875rem;
+    color: var(--texte-discret);
+}
+
+/* Message d'erreur spécifique au numéro de téléphone. */
+.telephone-erreur {
+    margin: 0;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--rouge-erreur);
+}
+
+/* ===== SÉLECTEUR INTERNATIONAL DE TÉLÉPHONE =====
+   Adaptation du widget intl-tel-input au thème sombre. Le widget garde
+   exactement la hauteur, le rayon et la bordure des autres champs. */
+
+.iti {
+    display: block;
+    width: 100%;
+}
+
+.iti input {
+    border-radius: var(--rayon-sm);
+}
+
+.iti--separate-dial-code .iti__selected-country {
+    background-color: rgba(255, 255, 255, 0.06);
+    border-right: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.iti__selected-dial-code,
+.iti__country-name,
+.iti__dial-code {
+    color: var(--blanc);
+    font-family: var(--police-texte), Arial, sans-serif;
+    font-size: 1rem;
+}
+
+/* La liste s'ouvre au-dessus du champ : elle reste dans le dialogue,
+   même quand le formulaire est long et que la fenêtre est petite. */
+.iti--inline-dropdown .iti__dropdown-content {
+    top: auto;
+    bottom: calc(100% + 6px);
+}
+
+.iti__dropdown-content {
+    z-index: 100;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: var(--rayon-sm);
+    background-color: #162442;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.55);
+}
+
+.iti__search-input {
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: var(--rayon-sm) var(--rayon-sm) 0 0;
+    background-color: #162442;
+    color: var(--blanc);
+}
+
+.iti__search-input::placeholder {
+    color: var(--texte-discret);
+}
+
+.iti__country:hover,
+.iti__country.iti__highlight {
+    background-color: #2DD4BF;
+}
+
+.iti__country:hover .iti__country-name,
+.iti__country:hover .iti__dial-code,
+.iti__country.iti__highlight .iti__country-name,
+.iti__country.iti__highlight .iti__dial-code {
+    color: #0B1528;
+}
+
+.iti__divider {
+    border-color: rgba(255, 255, 255, 0.18);
+}
+
+#application-form button[type="submit"] {
+    align-self: flex-start;
+    padding: 14px var(--gutter-lg);
+    border: 0;
+    border-radius: var(--rayon-pilule);
+    background: var(--turquoise);
+    color: var(--bleu-nuit);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#application-form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ===== MESSAGE DE RETOUR ===== */
+
+/* js/application.js remplace entièrement className : le socle reste lié à l'id. */
+#message {
+    margin-top: 20px;
+    min-height: 1.6em;
+    font-weight: 600;
+    white-space: pre-line;
+}
+
+.message--info {
+    color: var(--bleu-leger);
+}
+
+.message--succes {
+    color: var(--turquoise-clair);
+}
+
+.message--erreur {
+    color: var(--rouge-erreur);
+}

@@ -1,0 +1,375 @@
+/*
+    EDUNOVA - Styles propres à la page « Actualités » : structure,
+    hero éditorial, animations discrètes et adaptations globales.
+    Les sections 2 à 7 sont stylées dans actualites-contenu.css, chargé
+    juste après. Aucune règle prioritaire, aucun doublon de commun.css.
+*/
+
+/* ===== STRUCTURE DE LA PAGE ===== */
+
+.actu-page {
+    overflow-x: hidden;
+}
+
+.actu-page__conteneur {
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Gouttières latérales conservées à toutes les largeurs. */
+.actu-page .section {
+    padding-right: var(--gutter-lg);
+    padding-left: var(--gutter-lg);
+}
+
+.actu-page .section__en-tete {
+    margin-bottom: 56px;
+}
+
+/* Petite étiquette dorée, réservée aux intitulés et états. */
+.actu-etiquette {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 4px 10px;
+    border: 1px solid rgba(229, 184, 75, 0.42);
+    border-radius: var(--rayon-pilule);
+    background: rgba(229, 184, 75, 0.08);
+    color: var(--or);
+    font-family: var(--police-texte);
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 15px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+/* Intro partagée par les en-têtes de section. */
+.actu-intro {
+    max-width: 680px;
+    margin: 24px auto 0;
+    color: var(--texte-discret);
+    font-family: var(--police-texte);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    text-wrap: pretty;
+}
+
+/* Note discrète, toujours alignée à gauche dans sa section. */
+.actu-note {
+    max-width: 760px;
+    margin: var(--gutter-xl) 0 0;
+    color: rgba(197, 206, 229, 0.75);
+    font-family: var(--police-texte);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 21px;
+    text-wrap: pretty;
+}
+
+/* ===== ANIMATIONS DISCRÈTES =====
+   Le contenu est visible par défaut ; il n'est masqué que lorsque le JS
+   confirme la présence de GSAP, de ScrollTrigger et un mouvement autorisé. */
+
+.actu-page .actu-anime {
+    opacity: 1;
+    transform: none;
+}
+
+html.actu-animations-actives .actu-anime {
+    opacity: 0;
+    transform: translateY(24px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html.actu-animations-actives .actu-anime {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* ===== HERO ÉDITORIAL ===== */
+
+.actu-page .actu-hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    gap: 56px;
+    align-items: center;
+    max-width: 1200px;
+    min-height: 600px;
+    margin: 0 auto;
+    padding: 150px var(--gutter-lg) 72px;
+    isolation: isolate;
+    text-align: left;
+}
+
+/* Halo turquoise très diffus derrière le visuel. */
+.actu-hero__halo {
+    position: absolute;
+    top: 60px;
+    right: -80px;
+    z-index: -2;
+    width: 620px;
+    height: 560px;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 50% 45%, rgba(45, 212, 191, 0.16), transparent 58%),
+        radial-gradient(circle at 72% 62%, rgba(125, 211, 252, 0.08), transparent 60%);
+    filter: blur(70px);
+    pointer-events: none;
+}
+
+.actu-hero__points {
+    z-index: -1;
+}
+
+.actu-hero__texte {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+}
+
+.actu-page .actu-hero__badge {
+    flex-wrap: wrap;
+    margin-bottom: var(--gutter-xl);
+}
+
+.actu-hero__pastille {
+    padding: 3px 9px;
+    border: 1px solid rgba(229, 184, 75, 0.35);
+    border-radius: var(--rayon-pilule);
+    background: rgba(229, 184, 75, 0.08);
+    color: var(--or);
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 14px;
+    letter-spacing: 0.03em;
+}
+
+.actu-page .actu-hero__titre {
+    max-width: 660px;
+    margin-bottom: var(--gutter-lg);
+    color: var(--blanc);
+    font-size: 68px;
+    line-height: 72px;
+    letter-spacing: -1px;
+}
+
+.actu-page .actu-hero__intro {
+    max-width: 560px;
+    margin-bottom: var(--gutter-xl);
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 18px;
+    line-height: 29px;
+}
+
+.actu-page .actu-hero__actions {
+    align-items: flex-start;
+}
+
+/* Visuel : carte existante en fond et feuilles de journal au premier plan. */
+.actu-hero__visuel {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 420px;
+}
+
+.actu-hero__carte {
+    width: 100%;
+    max-width: 400px;
+    opacity: 0.32;
+}
+
+.actu-hero__feuille {
+    position: absolute;
+    right: 8px;
+    bottom: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 230px;
+    height: 292px;
+    padding: 28px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 12px;
+    background: linear-gradient(155deg, rgba(22, 36, 66, 0.96), rgba(11, 21, 40, 0.9));
+    box-shadow: 0 26px 60px -24px rgba(0, 0, 0, 0.7);
+    transform: rotate(-4deg);
+}
+
+/* Une seconde feuille, décalée, suggère le sommaire d'un magazine. */
+.actu-hero__feuille::after {
+    position: absolute;
+    top: 12px;
+    right: -12px;
+    bottom: -12px;
+    left: 12px;
+    z-index: -1;
+    border: 1px solid rgba(45, 212, 191, 0.22);
+    border-radius: 12px;
+    content: "";
+    transform: rotate(5deg);
+}
+
+.actu-hero__filet {
+    width: 44px;
+    height: 2px;
+    margin-bottom: 8px;
+    background: var(--or);
+}
+
+.actu-hero__ligne {
+    width: 100%;
+    height: 6px;
+    border-radius: var(--rayon-pilule);
+    background: rgba(197, 206, 229, 0.22);
+}
+
+.actu-hero__ligne--moyenne {
+    width: 76%;
+}
+
+.actu-hero__ligne--courte {
+    width: 52%;
+}
+
+.actu-hero__cachet {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid rgba(229, 184, 75, 0.7);
+    border-radius: 50%;
+    color: var(--or);
+    font-family: var(--police-titre);
+    font-size: 18px;
+    line-height: 1;
+}
+
+/* ===== RESPONSIVE GLOBAL ===== */
+
+@media (max-width: 1024px) {
+    .actu-page .actu-hero {
+        gap: 36px;
+        padding-top: 132px;
+    }
+
+    .actu-page .actu-hero__titre {
+        font-size: 56px;
+        line-height: 61px;
+    }
+
+    .actu-hero__visuel {
+        height: 360px;
+    }
+
+    .actu-hero__feuille {
+        right: 0;
+        width: 200px;
+        height: 258px;
+    }
+}
+
+@media (max-width: 900px) {
+    .actu-page .actu-hero {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+        min-height: 0;
+        padding-top: 124px;
+        padding-bottom: 48px;
+    }
+
+    /* Le motif passe sous le texte et reste discret. */
+    .actu-hero__visuel {
+        order: 2;
+        height: 260px;
+    }
+
+    .actu-hero__carte {
+        max-width: 320px;
+    }
+
+    .actu-hero__feuille {
+        right: 12%;
+        bottom: 0;
+        width: 180px;
+        height: 226px;
+        padding: 22px 18px;
+    }
+
+    .actu-page .actu-hero__intro {
+        max-width: 620px;
+    }
+}
+
+@media (max-width: 768px) {
+    .actu-page .section__en-tete {
+        margin-bottom: 40px;
+    }
+
+    .actu-page .section__titre {
+        font-size: 42px;
+        line-height: 48px;
+    }
+
+    .actu-note {
+        font-size: 12px;
+        line-height: 20px;
+    }
+}
+
+@media (max-width: 390px) {
+    .actu-page .actu-hero {
+        gap: 16px;
+        padding-right: var(--gutter-md);
+        padding-left: var(--gutter-md);
+        padding-top: 112px;
+    }
+
+    .actu-page .actu-hero__badge {
+        gap: 6px;
+    }
+
+    .actu-page .actu-hero__titre {
+        font-size: 40px;
+        line-height: 45px;
+        letter-spacing: -0.6px;
+    }
+
+    .actu-page .actu-hero__intro {
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    .actu-hero__visuel {
+        height: 200px;
+    }
+
+    .actu-hero__carte {
+        max-width: 250px;
+    }
+
+    .actu-hero__feuille {
+        right: 8%;
+        width: 150px;
+        height: 190px;
+        gap: 9px;
+        padding: 18px 14px;
+    }
+
+    .actu-hero__cachet {
+        right: 12px;
+        bottom: 12px;
+        width: 28px;
+        height: 28px;
+        font-size: 15px;
+    }
+}

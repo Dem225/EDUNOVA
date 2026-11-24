@@ -8,7 +8,7 @@ from app.core.config import settings
 # Moteur de connexion PostgreSQL
 engine = create_engine(
     settings.DATABASE_URL,
-    echo=True,
+    echo=settings.SQL_ECHO and settings.APP_ENV == "development",
     pool_pre_ping=True,
 )
 

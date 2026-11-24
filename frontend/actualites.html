@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDUNOVA — Actualités</title>
+    <!-- Icône vide : évite une requête 404 sur favicon.ico. -->
+    <link rel="icon" href="data:,">
+    <!-- Polices conservées : DM Serif Display et Manrope uniquement. -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <!-- Socle commun, puis styles propres à la page « Actualités ». -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/composants.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="css/commun.css">
+    <link rel="stylesheet" href="css/actualites.css">
+    <link rel="stylesheet" href="css/actualites-contenu.css">
+</head>
+<body class="actu-page">
+
+    <!-- Lien d'évitement vers le contenu principal. -->
+    <a href="#contenu-principal" class="skip-link">Aller au contenu principal</a>
+
+    <div class="actu-page__conteneur">
+
+        <!-- ================================================================
+             EN-TÊTE COMMUN : sept liens, comme sur les autres pages.
+             Le lien « Actualités » porte aria-current="page" sur cette page.
+        ================================================================= -->
+        <header class="en-tete">
+            <div class="barre-nav">
+                <a href="index.html" class="marque">EDUNOVA</a>
+
+                <nav aria-label="Navigation principale" class="nav-principale">
+                    <a href="index.html" class="lien-nav">Accueil</a>
+                    <a href="a-propos.html" class="lien-nav">À propos</a>
+                    <a href="programmes.html" class="lien-nav">Programmes</a>
+                    <a href="actions.html" class="lien-nav">Nos actions</a>
+                    <a href="partenaires.html" class="lien-nav">Partenaires</a>
+                    <a href="actualites.html" class="lien-nav">Actualités</a>
+                    <a href="contact.html" class="lien-nav">Contact</a>
+                </nav>
+
+                <button type="button" data-menu-mobile class="bouton-menu" aria-label="Ouvrir le menu de navigation" aria-controls="navigation-mobile" aria-expanded="false">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+                        <path d="M4 7h16M4 12h16M4 17h16"></path>
+                    </svg>
+                </button>
+
+                <button type="button" disabled aria-disabled="true" class="bouton bouton--degrade bouton--bientot">
+                    Accéder à la plateforme <span class="pastille-bientot">Bientôt</span>
+                </button>
+            </div>
+
+            <!-- Le menu mobile réutilise js/interface.js sans modification. -->
+            <nav id="navigation-mobile" aria-label="Navigation principale (mobile)" data-menu-mobile-panneau class="menu-mobile cache">
+                <a href="index.html" class="lien-nav">Accueil</a>
+                <a href="a-propos.html" class="lien-nav">À propos</a>
+                <a href="programmes.html" class="lien-nav">Programmes</a>
+                <a href="actions.html" class="lien-nav">Nos actions</a>
+                <a href="partenaires.html" class="lien-nav">Partenaires</a>
+                <a href="actualites.html" class="lien-nav">Actualités</a>
+                <a href="contact.html" class="lien-nav">Contact</a>
+                <button type="button" disabled aria-disabled="true" class="bouton bouton--degrade bouton--bientot">
+                    Accéder à la plateforme <span class="pastille-bientot">Bientôt</span>
+                </button>
+            </nav>
+        </header>
+
+        <main id="contenu-principal" class="contenu-principal">
+
+            <!-- ============================================================
+                 SECTION 1 — HERO : composition éditoriale à deux colonnes,
+                 carte existante et motif de pages en superposition.
+            ============================================================= -->
+            <section id="hero" class="hero actu-hero">
+                <div class="actu-hero__halo" aria-hidden="true"></div>
+
+                <!-- Mêmes points discrets que les autres pages (24 positions). -->
+                <div class="champ-etoiles actu-hero__points" aria-hidden="true">
+                    <span class="etoile"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile"></span>
+                    <span class="etoile"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile"></span>
+                    <span class="etoile"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile"></span>
+                    <span class="etoile--petite"></span>
+                </div>
+
+                <div class="actu-hero__visuel" aria-hidden="true">
+                    <img src="assets/afrique-map.svg" alt="" class="actu-hero__carte map-mask">
+                    <div class="actu-hero__feuille">
+                        <span class="actu-hero__filet"></span>
+                        <span class="actu-hero__ligne"></span>
+                        <span class="actu-hero__ligne actu-hero__ligne--courte"></span>
+                        <span class="actu-hero__ligne"></span>
+                        <span class="actu-hero__ligne actu-hero__ligne--moyenne"></span>
+                        <span class="actu-hero__cachet">A</span>
+                    </div>
+                </div>
+
+                <div class="actu-hero__texte">
+                    <div class="badge actu-hero__badge actu-anime">
+                        <span class="filet-or" aria-hidden="true"></span>
+                        <span class="badge__point" aria-hidden="true"></span>
+                        NOS ACTUALITÉS
+                        <span class="actu-hero__pastille">Espace éditorial en cours de constitution</span>
+                        <span class="filet-or" aria-hidden="true"></span>
+                    </div>
+
+                    <h1 class="hero__titre actu-hero__titre actu-anime">Suivre les initiatives qui font avancer l'éducation.</h1>
+
+                    <p class="hero__sous-titre actu-hero__intro actu-anime">Cet espace présentera les nouvelles d'EDUNOVA, les annonces institutionnelles, les initiatives éducatives et les sujets liés à l'innovation en Afrique.</p>
+
+                    <div class="hero__actions actu-hero__actions actu-anime">
+                        <a href="#a-la-une" class="bouton bouton--blanc">Découvrir les publications</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 SECTION 2 — À LA UNE : publication principale illustrée par
+                 un exemple explicitement identifié comme démonstration.
+            ============================================================= -->
+            <section id="a-la-une" class="section actu-a-la-une">
+                <div class="section__en-tete actu-anime">
+                    <p class="surtitre actu-etiquette">À LA UNE</p>
+                    <h2 class="section__titre">À la une</h2>
+                    <p class="actu-intro">Aucune actualité réelle n'est publiée à ce jour. Le bloc ci-dessous illustre la mise en page prévue.</p>
+                </div>
+
+                <article class="actu-article actu-a-la-une__article actu-anime">
+                    <div class="actu-article__visuel" aria-hidden="true">
+                        <svg viewBox="0 0 320 180" fill="none">
+                            <rect x="46" y="26" width="228" height="128" rx="8" stroke="currentColor" stroke-opacity="0.35"></rect>
+                            <path d="M76 60h168M76 82h136M76 104h152" stroke="currentColor" stroke-opacity="0.25" stroke-width="3" stroke-linecap="round"></path>
+                            <circle cx="242" cy="126" r="12" stroke="#E5B84B" stroke-opacity="0.8"></circle>
+                        </svg>
+                        <span class="actu-article__visuel-texte">Visuel de démonstration</span>
+                    </div>
+
+                    <div class="actu-article__corps">
+                        <span class="actu-etiquette">Démonstration</span>
+                        <p class="actu-article__meta">Catégorie : Éducation <span aria-hidden="true">·</span> Date non communiquée</p>
+                        <h3 class="actu-article__titre">Exemple de publication principale</h3>
+                        <p class="actu-article__resume">Ce texte illustre le résumé d'un article. EDUNOVA n'a annoncé aucune actualité à ce jour.</p>
+                        <a href="#note-demonstration" class="actu-article__lien">Lire l'article</a>
+                    </div>
+                </article>
+
+                <p id="note-demonstration" class="actu-note actu-anime">Article de démonstration : aucun contenu réel n'est publié et aucun lien externe n'est associé.</p>
+            </section>
+
+            <!-- ============================================================
+                 SECTION 3 — TOUTES NOS ACTUALITÉS : grille éditoriale de six
+                 exemples, un par catégorie, filtrables depuis la section 4.
+            ============================================================= -->
+            <section id="publications" class="section actu-publications">
+                <div class="section__en-tete actu-anime">
+                    <p class="surtitre actu-etiquette">LE JOURNAL</p>
+                    <h2 class="section__titre">Toutes nos actualités</h2>
+                    <p class="actu-intro">Grille de démonstration : six exemples de mise en page, sans information réelle ni date d'publication.</p>
+                </div>
+
+                <div class="actu-grille" id="grille-publications">
+
+                    <article class="actu-publication actu-anime" data-categorie="vie">
+                        <div class="actu-publication__visuel" aria-hidden="true">
+                            <svg viewBox="0 0 320 180" fill="none">
+                                <circle cx="160" cy="90" r="48" stroke="currentColor" stroke-opacity="0.35"></circle>
+                                <path d="M112 90h96M160 42v96" stroke="currentColor" stroke-opacity="0.2"></path>
+                            </svg>
+                            <span>Exemple</span>
+                        </div>
+                        <div class="actu-publication__corps">
+                            <span class="actu-etiquette">Vie d'EDUNOVA</span>
+                            <p class="actu-publication__meta">Date non communiquée</p>
+                            <h3 class="actu-publication__titre">Publication de démonstration 01</h3>
+                            <p class="actu-publication__resume">Mise en page illustrative. Aucune information réelle n'est annoncée.</p>
+                            <a href="#note-demonstration" class="actu-publication__lien">Lire la suite</a>
+                        </div>
+                    </article>
+
+                    <article class="actu-publication actu-anime" data-categorie="education">
+                        <div class="actu-publication__visuel" aria-hidden="true">
+                            <svg viewBox="0 0 320 180" fill="none">
+                                <path d="M60 58l100-24 100 24-100 24z" stroke="currentColor" stroke-opacity="0.35"></path>
+                                <path d="M90 76v44c0 14 32 24 70 24s70-10 70-24V76" stroke="currentColor" stroke-opacity="0.2"></path>
+                            </svg>
+                            <span>Exemple</span>
+                        </div>
+                        <div class="actu-publication__corps">
+                            <span class="actu-etiquette">Éducation</span>
+                            <p class="actu-publication__meta">Date non communiquée</p>
+                            <h3 class="actu-publication__titre">Publication de démonstration 02</h3>
+                            <p class="actu-publication__resume">Mise en page illustrative. Aucune information réelle n'est annoncée.</p>
+                            <a href="#note-demonstration" class="actu-publication__lien">Lire la suite</a>
+                        </div>
+                    </article>
+
+                    <article class="actu-publication actu-anime" data-categorie="innovation">
+                        <div class="actu-publication__visuel" aria-hidden="true">
+                            <svg viewBox="0 0 320 180" fill="none">
+                                <path d="M128 122v-18c-18-10-28-26-28-44a60 60 0 0 1 120 0c0 18-10 34-28 44v18" stroke="currentColor" stroke-opacity="0.35"></path>
+                                <path d="M128 132h64M136 142h48" stroke="#E5B84B" stroke-opacity="0.55" stroke-linecap="round"></path>
+                            </svg>
+                            <span>Exemple</span>
+                        </div>
+                        <div class="actu-publication__corps">
+                            <span class="actu-etiquette">Innovation pédagogique</span>
+                            <p class="actu-publication__meta">Date non communiquée</p>
+                            <h3 class="actu-publication__titre">Publication de démonstration 03</h3>
+                            <p class="actu-publication__resume">Mise en page illustrative. Aucune information réelle n'est annoncée.</p>
+                            <a href="#note-demonstration" class="actu-publication__lien">Lire la suite</a>
+                        </div>
+                    </article>
+
+                    <article class="actu-publication actu-anime" data-categorie="technologie">
+                        <div class="actu-publication__visuel" aria-hidden="true">
+                            <svg viewBox="0 0 320 180" fill="none">
+                                <rect x="104" y="46" width="112" height="88" rx="8" stroke="currentColor" stroke-opacity="0.35"></rect>
+                                <path d="M132 74h56M132 94h40M132 114h50" stroke="currentColor" stroke-opacity="0.22" stroke-linecap="round"></path>
+                                <circle cx="188" cy="112" r="8" stroke="#E5B84B" stroke-opacity="0.7"></circle>
+                            </svg>
+                            <span>Exemple</span>
+                        </div>
+                        <div class="actu-publication__corps">
+                            <span class="actu-etiquette">Technologie et intelligence artificielle</span>
+                            <p class="actu-publication__meta">Date non communiquée</p>
+                            <h3 class="actu-publication__titre">Publication de démonstration 04</h3>
+                            <p class="actu-publication__resume">Mise en page illustrative. Aucune information réelle n'est annoncée.</p>
+                            <a href="#note-demonstration" class="actu-publication__lien">Lire la suite</a>
+                        </div>
+                    </article>
+
+                    <article class="actu-publication actu-anime" data-categorie="partenariats">
+                        <div class="actu-publication__visuel" aria-hidden="true">
+                            <svg viewBox="0 0 320 180" fill="none">
+                                <circle cx="118" cy="90" r="32" stroke="currentColor" stroke-opacity="0.35"></circle>
+                                <circle cx="202" cy="90" r="32" stroke="currentColor" stroke-opacity="0.35"></circle>
+                                <path d="M150 90h20" stroke="#E5B84B" stroke-opacity="0.8" stroke-width="2"></path>
+                            </svg>
+                            <span>Exemple</span>
+                        </div>
+                        <div class="actu-publication__corps">
+                            <span class="actu-etiquette">Partenariats</span>
+                            <p class="actu-publication__meta">Date non communiquée</p>
+                            <h3 class="actu-publication__titre">Publication de démonstration 05</h3>
+                            <p class="actu-publication__resume">Mise en page illustrative. Aucune information réelle n'est annoncée.</p>
+                            <a href="#note-demonstration" class="actu-publication__lien">Lire la suite</a>
+                        </div>
+                    </article>
+
+                    <article class="actu-publication actu-anime" data-categorie="evenements">
+                        <div class="actu-publication__visuel" aria-hidden="true">
+                            <svg viewBox="0 0 320 180" fill="none">
+                                <rect x="76" y="52" width="168" height="86" rx="8" stroke="currentColor" stroke-opacity="0.35"></rect>
+                                <path d="M76 78h168M112 44v16M208 44v16" stroke="currentColor" stroke-opacity="0.25" stroke-linecap="round"></path>
+                                <circle cx="160" cy="110" r="9" stroke="#E5B84B" stroke-opacity="0.7"></circle>
+                            </svg>
+                            <span>Exemple</span>
+                        </div>
+                        <div class="actu-publication__corps">
+                            <span class="actu-etiquette">Événements et initiatives</span>
+                            <p class="actu-publication__meta">Date non communiquée</p>
+                            <h3 class="actu-publication__titre">Publication de démonstration 06</h3>
+                            <p class="actu-publication__resume">Mise en page illustrative. Aucune information réelle n'est annoncée.</p>
+                            <a href="#note-demonstration" class="actu-publication__lien">Lire la suite</a>
+                        </div>
+                    </article>
+
+                </div>
+
+                <p class="actu-note">Les cartes ci-dessus sont des exemples de mise en page : aucune publication n'est annoncée.</p>
+            </section>
+
+            <!-- ============================================================
+                 SECTION 4 — NOS CATÉGORIES : sommaire à six rubriques et
+                 filtres réellement appliqués à la grille de la section 3.
+            ============================================================= -->
+            <section id="categories" class="section actu-categories">
+                <div class="section__en-tete actu-anime">
+                    <p class="surtitre actu-etiquette">SOMMAIRE</p>
+                    <h2 class="section__titre">Nos catégories</h2>
+                    <p class="actu-intro">Les publications seront classées dans ces six rubriques. Les filtres ci-dessous agissent sur les exemples de la grille éditoriale.</p>
+                </div>
+
+                <div class="actu-categories__corps">
+                    <div class="actu-filtres" role="group" aria-label="Filtrer les publications de démonstration">
+                        <button type="button" class="actu-filtre est-actif" data-filtre="toutes" data-libelle="Toutes" aria-pressed="true">Toutes <span class="actu-filtre__compte">6</span></button>
+                        <button type="button" class="actu-filtre" data-filtre="vie" data-libelle="Vie d'EDUNOVA" aria-pressed="false">Vie d'EDUNOVA</button>
+                        <button type="button" class="actu-filtre" data-filtre="education" data-libelle="Éducation" aria-pressed="false">Éducation</button>
+                        <button type="button" class="actu-filtre" data-filtre="innovation" data-libelle="Innovation pédagogique" aria-pressed="false">Innovation pédagogique</button>
+                        <button type="button" class="actu-filtre" data-filtre="technologie" data-libelle="Technologie et intelligence artificielle" aria-pressed="false">Technologie et intelligence artificielle</button>
+                        <button type="button" class="actu-filtre" data-filtre="partenariats" data-libelle="Partenariats" aria-pressed="false">Partenariats</button>
+                        <button type="button" class="actu-filtre" data-filtre="evenements" data-libelle="Événements et initiatives" aria-pressed="false">Événements et initiatives</button>
+                        <a href="#publications" class="lien-texte actu-filtres__lien">Voir les publications filtrées</a>
+                    </div>
+
+                    <ol class="actu-liste">
+                        <li class="actu-ligne actu-anime">
+                            <span class="actu-numero">01</span>
+                            <div>
+                                <h3 class="actu-ligne__titre">Vie d'EDUNOVA</h3>
+                                <p class="actu-ligne__texte">Informations institutionnelles et vie de l'initiative.</p>
+                            </div>
+                        </li>
+                        <li class="actu-ligne actu-anime">
+                            <span class="actu-numero">02</span>
+                            <div>
+                                <h3 class="actu-ligne__titre">Éducation</h3>
+                                <p class="actu-ligne__texte">Sujets liés à l'accès aux savoirs et aux ressources pédagogiques.</p>
+                            </div>
+                        </li>
+                        <li class="actu-ligne actu-anime">
+                            <span class="actu-numero">03</span>
+                            <div>
+                                <h3 class="actu-ligne__titre">Innovation pédagogique</h3>
+                                <p class="actu-ligne__texte">Pratiques et idées au service des apprentissages.</p>
+                            </div>
+                        </li>
+                        <li class="actu-ligne actu-anime">
+                            <span class="actu-numero">04</span>
+                            <div>
+                                <h3 class="actu-ligne__titre">Technologie et intelligence artificielle</h3>
+                                <p class="actu-ligne__texte">Outils numériques et usages possibles dans l'éducation.</p>
+                            </div>
+                        </li>
+                        <li class="actu-ligne actu-anime">
+                            <span class="actu-numero">05</span>
+                            <div>
+                                <h3 class="actu-ligne__titre">Partenariats</h3>
+                                <p class="actu-ligne__texte">Collaborations envisagées avec des acteurs de l'éducation.</p>
+                            </div>
+                        </li>
+                        <li class="actu-ligne actu-anime">
+                            <span class="actu-numero">06</span>
+                            <div>
+                                <h3 class="actu-ligne__titre">Événements et initiatives</h3>
+                                <p class="actu-ligne__texte">Rencontres, ateliers et activités pédagogiques à venir.</p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+
+                <p id="statut-filtre" class="actu-note" role="status" aria-live="polite" aria-atomic="true">6 publications de démonstration affichées pour Toutes.</p>
+            </section>
+
+            <!-- ============================================================
+                 SECTION 5 — NOS ANNONCES : état vide explicite, sans
+                 annonce officielle ni appel à participation inventé.
+            ============================================================= -->
+            <section id="annonces" class="section actu-annonces">
+                <div class="section__en-tete actu-anime">
+                    <p class="surtitre actu-etiquette">COMMUNICATIONS</p>
+                    <h2 class="section__titre">Nos annonces</h2>
+                    <p class="actu-intro">Espace réservé aux communications institutionnelles d'EDUNOVA.</p>
+                </div>
+
+                <div class="actu-bandeau actu-anime">
+                    <div class="actu-bandeau__icone" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+                            <path d="M5 5h14v12H9l-4 3z"></path>
+                            <path d="M8 9h8M8 13h5"></path>
+                        </svg>
+                    </div>
+                    <div class="actu-bandeau__corps">
+                        <span class="actu-etiquette">État actuel</span>
+                        <h3 class="actu-bandeau__titre">Aucune annonce officielle publiée à ce jour.</h3>
+                        <p class="actu-bandeau__texte">Les annonces importantes, appels à participation, communications officielles et informations destinées aux partenaires et acteurs éducatifs seront présentés ici.</p>
+                        <div class="actu-chips">
+                            <span class="actu-chip">Annonces importantes</span>
+                            <span class="actu-chip">Appels à participation</span>
+                            <span class="actu-chip">Communications officielles</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 SECTION 6 — ÉVÉNEMENTS ET RENDEZ-VOUS : trois pistes
+                 distinctes, sans date, lieu ni participant inventé.
+            ============================================================= -->
+            <section id="evenements" class="section actu-evenements">
+                <div class="section__en-tete actu-anime">
+                    <p class="surtitre actu-etiquette">AGENDA</p>
+                    <h2 class="section__titre">Événements et rendez-vous</h2>
+                    <p class="actu-intro">Les activités liées à EDUNOVA seront présentées selon leur état réel.</p>
+                </div>
+
+                <div class="actu-pistes">
+                    <div class="actu-piste actu-anime">
+                        <span class="actu-piste__point" aria-hidden="true"></span>
+                        <span class="actu-etiquette">Prévus</span>
+                        <h3 class="actu-piste__titre">Confirmés</h3>
+                        <p class="actu-piste__texte">Aucun événement confirmé à ce jour.</p>
+                    </div>
+
+                    <div class="actu-piste actu-anime">
+                        <span class="actu-piste__point" aria-hidden="true"></span>
+                        <span class="actu-etiquette">Passés</span>
+                        <h3 class="actu-piste__titre">Déjà réalisés</h3>
+                        <p class="actu-piste__texte">Aucun événement passé annoncé à ce jour.</p>
+                    </div>
+
+                    <div class="actu-piste actu-anime">
+                        <span class="actu-piste__point" aria-hidden="true"></span>
+                        <span class="actu-etiquette">Envisagés</span>
+                        <h3 class="actu-piste__titre">À imaginer</h3>
+                        <p class="actu-piste__texte">Rencontres éducatives, conférences, ateliers, activités pédagogiques et événements institutionnels pourraient être organisés.</p>
+                    </div>
+                </div>
+
+                <p class="actu-note">Aucune date, aucun lieu et aucun participant n'est annoncé.</p>
+            </section>
+
+            <!-- ============================================================
+                 SECTION 7 — RESTEZ INFORMÉS : panneau de verre, appel à
+                 l'action vers le formulaire de contact existant uniquement.
+            ============================================================= -->
+            <section id="restez-informes" class="section actu-restez">
+                <div class="panneau actu-restez__panneau actu-anime">
+                    <span class="panneau__filet" aria-hidden="true"></span>
+                    <p class="panneau__surtitre">RESTEZ INFORMÉS</p>
+                    <h2 class="panneau__titre">L'éducation évolue. Restons informés et avançons ensemble.</h2>
+                    <p class="panneau__texte">Pour poser une question ou recevoir des informations sur EDUNOVA, utilisez le formulaire de contact existant.</p>
+                    <div class="actu-actions">
+                        <a href="contact.html" class="bouton bouton--blanc">Nous contacter</a>
+                        <a href="#hero" class="lien-texte">Revenir en haut</a>
+                    </div>
+                    <p class="actu-note">Aucun formulaire d'inscription à une newsletter n'est relié à un service : aucun n'est proposé sur cette page.</p>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- REPÈRE DE LA PAGE COURANTE. -->
+        <nav aria-label="Repère de page" class="fil-ariane">
+            <span class="fil-ariane__label">Vous êtes ici :</span>
+            <span class="fil-ariane__page" aria-current="page">Actualités</span>
+        </nav>
+
+        <!-- =================================================================
+             PIED DE PAGE : mêmes sept liens que l'en-tête.
+        ================================================================= -->
+        <footer class="pied-page">
+            <div class="pied-page__contenu">
+                <div class="pied-page__grille">
+
+                    <div class="pied-page__colonne pied-page__colonne--large">
+                        <span class="pied-page__marque">EDUNOVA</span>
+                        <p class="pied-page__texte">L'éducation sans frontières, le savoir pour tous.</p>
+                        <p class="pied-page__texte pied-page__texte--discret">EDUNOVA est une initiative éducative panafricaine en cours de structuration.</p>
+                    </div>
+
+                    <nav aria-label="Navigation pied de page" class="pied-page__nav">
+                        <a href="index.html" class="pied-page__lien">Accueil</a>
+                        <a href="a-propos.html" class="pied-page__lien">À propos</a>
+                        <a href="programmes.html" class="pied-page__lien">Programmes</a>
+                        <a href="actions.html" class="pied-page__lien">Nos actions</a>
+                        <a href="partenaires.html" class="pied-page__lien">Partenaires</a>
+                        <a href="actualites.html" class="pied-page__lien">Actualités</a>
+                        <a href="contact.html" class="pied-page__lien">Contact</a>
+                    </nav>
+
+                    <div class="pied-page__colonne pied-page__colonne--liens">
+                        <a href="mentions-legales.html" class="pied-page__lien">Mentions légales</a>
+                        <a href="politique-confidentialite.html" class="pied-page__lien">Politique de confidentialité</a>
+                    </div>
+
+                </div>
+
+                <div>
+                    <p class="pied-page__copyright">© 2026 EDUNOVA</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts classiques, tous en defer : animations, puis menu mobile. -->
+    <script src="vendor/gsap/3.15.1/gsap.min.js" defer></script>
+    <script src="vendor/gsap/3.15.1/ScrollTrigger.min.js" defer></script>
+    <script src="js/actualites.js" defer></script>
+    <script src="js/interface.js" defer></script>
+</body>
+</html>

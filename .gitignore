@@ -6,6 +6,7 @@ __pycache__/
 # Variables secrètes
 .env
 .env.*
+!.env.example
 
 # Alembic
 *.db

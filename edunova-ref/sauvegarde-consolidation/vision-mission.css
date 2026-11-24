@@ -1,0 +1,831 @@
+/*
+    EDUNOVA - Styles propres à la page « Notre vision & notre mission ».
+    Ce fichier complète base.css, composants.css, sections.css et
+    formulaire.css. Aucun style commun n'est modifié.
+*/
+
+/* ===== STRUCTURE DE LA PAGE ===== */
+
+.vm-page {
+    overflow-x: hidden;
+}
+
+.vm-page__conteneur {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* ===== EN-TÊTE ET PIED DE PAGE REPRODUITS DE a-propos.css =====
+   Ces règles sont volontairement dupliquées ici : le fichier
+   css/a-propos.css ne doit pas être modifié. À regrouper dans une
+   étape séparée lorsque les pages seront fusionnées. */
+
+.vm-page .en-tete {
+    max-width: 1320px;
+}
+
+.vm-page .barre-nav {
+    gap: 20px;
+}
+
+.vm-page .nav-principale {
+    gap: 20px;
+}
+
+.vm-page .lien-nav {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.vm-page .bouton-menu {
+    width: 44px;
+    height: 44px;
+}
+
+.vm-page .bouton--degrade {
+    height: 44px;
+    min-height: 44px;
+    font-size: 13px;
+}
+
+/* Pages à venir : aucun survol, aucun état actif, curseur par défaut. */
+.vm-page .lien-nav--bientot,
+.vm-page .pied-page__lien--bientot {
+    opacity: 0.55;
+    cursor: default;
+}
+
+.vm-page .lien-nav--bientot:hover {
+    color: var(--blanc);
+}
+
+.vm-page .pied-page__lien--bientot:hover {
+    color: var(--texte-discret);
+}
+
+/* Bouton de plateforme désactivé et sa pastille. */
+.vm-page .bouton--bientot {
+    gap: 8px;
+    cursor: default;
+    opacity: 0.62;
+}
+
+.vm-page .bouton--degrade.bouton--bientot:hover {
+    opacity: 0.62;
+}
+
+.pastille-bientot {
+    padding: 2px 8px;
+    border-radius: var(--rayon-pilule);
+    background: rgba(11, 21, 40, 0.3);
+    color: var(--bleu-nuit);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 14px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.vm-page .menu-mobile .bouton--bientot {
+    width: 100%;
+    margin-top: var(--gutter-sm);
+}
+
+/* ===== HERO : ARCS D'HORIZON, HALOS ET ÉTOILES ===== */
+
+.vm-hero {
+    max-width: 1200px;
+    min-height: 600px;
+    padding: 140px var(--gutter-lg) 120px;
+    overflow: hidden;
+}
+
+.vm-hero__halo {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    z-index: 0;
+    width: 880px;
+    max-width: 110vw;
+    height: 460px;
+    border-radius: var(--rayon-pilule);
+    background: rgba(26, 46, 86, 0.55);
+    filter: blur(110px);
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.vm-hero__halo::after {
+    content: "";
+    position: absolute;
+    top: 32%;
+    left: 28%;
+    width: 44%;
+    height: 40%;
+    border-radius: var(--rayon-pilule);
+    background: rgba(45, 212, 191, 0.14);
+    filter: blur(70px);
+}
+
+.vm-hero .champ-etoiles {
+    z-index: 1;
+}
+
+.vm-hero .badge,
+.vm-hero__titre,
+.vm-hero__intro,
+.vm-hero .hero__actions {
+    position: relative;
+    z-index: 2;
+}
+
+.vm-hero .badge {
+    gap: 10px;
+    letter-spacing: 0.12em;
+}
+
+.vm-hero .badge .filet-or {
+    width: 24px;
+}
+
+.vm-hero__titre {
+    max-width: 940px;
+    font-size: 68px;
+    line-height: 76px;
+    letter-spacing: -1px;
+}
+
+.vm-hero__intro {
+    max-width: 620px;
+    margin-bottom: var(--gutter-xl);
+}
+
+/* Trois arcs fins qui s'ouvrent vers le haut comme un horizon. */
+.vm-hero__arc {
+    position: absolute;
+    left: 50%;
+    z-index: 1;
+    border: 1px solid rgba(94, 234, 212, 0.26);
+    border-bottom: 0;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.vm-hero__arc::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: 8%;
+    left: 8%;
+    height: 1px;
+    border-radius: 50%;
+    background: linear-gradient(to right, transparent, rgba(94, 234, 212, 0.8), transparent);
+    filter: blur(1px);
+}
+
+.vm-hero__arc--externe {
+    bottom: -430px;
+    width: min(1600px, 190vw);
+    height: 540px;
+    box-shadow: 0 -20px 100px rgba(45, 212, 191, 0.1);
+}
+
+.vm-hero__arc--moyen {
+    bottom: -390px;
+    width: min(1420px, 170vw);
+    height: 480px;
+    opacity: 0.75;
+}
+
+.vm-hero__arc--interne {
+    bottom: -350px;
+    width: min(1240px, 150vw);
+    height: 420px;
+    border-color: rgba(229, 184, 75, 0.24);
+    opacity: 0.6;
+}
+
+.vm-hero__arc--interne::before {
+    background: linear-gradient(to right, transparent, rgba(229, 184, 75, 0.65), transparent);
+}
+
+/* ===== SECTIONS COMMUNES À CETTE PAGE ===== */
+
+.vm-section {
+    padding-top: var(--section-lg);
+    padding-bottom: var(--section-lg);
+}
+
+.vm-section .section__titre {
+    font-weight: 400;
+}
+
+/* ===== NOTRE VISION : CITATION ÉDITORIALE ===== */
+
+.vm-vision {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.vm-vision__citation {
+    position: relative;
+    max-width: 900px;
+    color: var(--blanc);
+    font-family: var(--police-titre);
+    font-size: 44px;
+    font-weight: 400;
+    line-height: 54px;
+    letter-spacing: -0.5px;
+    text-wrap: balance;
+}
+
+.vm-vision__citation::before,
+.vm-vision__citation::after {
+    position: absolute;
+    color: rgba(229, 184, 75, 0.65);
+    font-family: var(--police-titre);
+    font-size: 64px;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.vm-vision__citation::before {
+    content: "“";
+    top: -54px;
+    left: -48px;
+}
+
+.vm-vision__citation::after {
+    content: "”";
+    right: -48px;
+    bottom: -70px;
+}
+
+.vm-vision__texte {
+    max-width: 760px;
+    margin-top: var(--gutter-xl);
+    color: rgba(255, 255, 255, 0.78);
+    font-family: var(--police-texte);
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 27px;
+    text-wrap: pretty;
+}
+
+/* ===== NOTRE MISSION : ÉNONCÉ ET LISTE NUMÉROTÉE ===== */
+
+.vm-mission__grille {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: clamp(40px, 6vw, 96px);
+    align-items: start;
+}
+
+.vm-mission__texte {
+    color: var(--blanc);
+    font-family: var(--police-titre);
+    font-size: 42px;
+    font-weight: 400;
+    line-height: 50px;
+    letter-spacing: -0.5px;
+    text-wrap: balance;
+}
+
+.vm-mission__intro {
+    margin-bottom: var(--gutter-xl);
+    color: var(--or);
+    font-family: var(--police-texte);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.vm-mission__liste {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gutter-lg);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.vm-mission__etape {
+    position: relative;
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr);
+    column-gap: var(--gutter-lg);
+    row-gap: var(--gutter-sm);
+    padding-bottom: var(--gutter-lg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.vm-mission__numero {
+    grid-column: 1;
+    color: var(--or);
+    font-family: var(--police-titre);
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 34px;
+}
+
+.vm-mission__filet {
+    position: absolute;
+    top: 17px;
+    left: 56px;
+    width: 36px;
+    height: 1px;
+    background: rgba(229, 184, 75, 0.6);
+}
+
+.vm-mission__contenu {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.vm-mission__titre {
+    color: var(--blanc);
+    font-family: var(--police-texte);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 26px;
+}
+
+.vm-mission__description {
+    color: rgba(255, 255, 255, 0.72);
+    font-family: var(--police-texte);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+}
+
+/* ===== NOS VALEURS FONDAMENTALES : BANDES HORIZONTALES ===== */
+
+.vm-valeurs .section__titre {
+    max-width: none;
+    text-align: left;
+}
+
+.vm-valeurs__bandes {
+    margin-top: 56px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.vm-valeurs__bande {
+    display: grid;
+    grid-template-columns: 56px minmax(0, 4fr) minmax(0, 6fr);
+    gap: var(--gutter-lg);
+    align-items: center;
+    padding: var(--gutter-xl) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.vm-valeurs__icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--rayon-md);
+    background: rgba(45, 212, 191, 0.08);
+    color: var(--turquoise);
+}
+
+.vm-valeurs__titre {
+    color: var(--blanc);
+    font-family: var(--police-texte);
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 29px;
+}
+
+.vm-valeurs__texte {
+    color: rgba(255, 255, 255, 0.72);
+    font-family: var(--police-texte);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+/* ===== NOS ENGAGEMENTS : MARQUEURS DORÉS, SANS COCHES ===== */
+
+.vm-engagements .section__titre {
+    max-width: none;
+    text-align: left;
+}
+
+.vm-engagements__intro {
+    max-width: 760px;
+    margin-top: var(--gutter-lg);
+    color: rgba(255, 255, 255, 0.78);
+    font-family: var(--police-texte);
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 27px;
+}
+
+.vm-engagements__liste {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gutter-md);
+    max-width: 900px;
+    margin: var(--gutter-xl) 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.vm-engagements__ligne {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--gutter-md);
+    color: var(--blanc);
+    font-family: var(--police-texte);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 28px;
+}
+
+.vm-engagements__marqueur {
+    flex: 0 0 auto;
+    width: 10px;
+    height: 10px;
+    margin-top: 9px;
+    border: 1px solid rgba(229, 184, 75, 0.9);
+    border-radius: 2px;
+    transform: rotate(45deg);
+}
+
+.vm-engagements__note {
+    max-width: 760px;
+    margin-top: var(--gutter-xl);
+    color: var(--texte-discret);
+    font-family: var(--police-texte);
+    font-size: 14px;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 23px;
+}
+
+/* ===== AMBITION À LONG TERME : CHEMIN EN TROIS ÉTAPES ===== */
+
+.vm-ambition .section__titre {
+    text-align: center;
+}
+
+.vm-ambition__cadre {
+    position: relative;
+    margin-top: 56px;
+    padding: var(--gutter-xl) 0 24px;
+}
+
+.vm-ambition__fond {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: min(1000px, 110vw);
+    max-width: none;
+    height: auto;
+    opacity: 0.12;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.vm-ambition__chemin {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--gutter-lg);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.vm-ambition__chemin::before {
+    content: "";
+    position: absolute;
+    top: 9px;
+    right: 10%;
+    left: 10%;
+    height: 1px;
+    background: linear-gradient(to right, rgba(94, 234, 212, 0.15), rgba(94, 234, 212, 0.6), rgba(229, 184, 75, 0.65));
+}
+
+.vm-ambition__etape {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gutter-md);
+    padding: 0 var(--gutter-md);
+    text-align: center;
+}
+
+.vm-ambition__point {
+    position: relative;
+    z-index: 1;
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--turquoise-clair);
+    border-radius: var(--rayon-pilule);
+    background: var(--bleu-nuit);
+    box-shadow: 0 0 0 6px rgba(45, 212, 191, 0.08), 0 0 24px rgba(45, 212, 191, 0.4);
+}
+
+.vm-ambition__nom {
+    color: var(--blanc);
+    font-family: var(--police-titre);
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 32px;
+}
+
+.vm-ambition__texte {
+    max-width: 320px;
+    color: rgba(255, 255, 255, 0.72);
+    font-family: var(--police-texte);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+}
+
+/* ===== CONCLUSION ET APPEL À L'ACTION ===== */
+
+.vm-rejoindre__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gutter-lg);
+}
+
+.vm-page .vm-rejoindre__actions .bouton--blanc {
+    min-height: 52px;
+}
+
+/* ===== ANIMATIONS : VISIBLES PAR DÉFAUT ===== */
+
+.vm-page .vm-anime {
+    opacity: 1;
+    transform: none;
+}
+
+/* Le JS ajoute cette classe seulement si GSAP est là et le mouvement autorisé. */
+.vm-animations-actives .vm-anime {
+    opacity: 0;
+    transform: translateY(24px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .vm-animations-actives .vm-anime {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* ===== RESPONSIVE : 1024 PX ===== */
+
+@media (max-width: 1024px) {
+    .vm-page .nav-principale {
+        gap: 12px;
+    }
+
+    .vm-page .lien-nav {
+        font-size: 13px;
+    }
+
+    .vm-hero__titre {
+        font-size: 60px;
+        line-height: 68px;
+    }
+
+    .vm-mission__grille {
+        grid-template-columns: 1fr;
+    }
+
+    .vm-mission__texte {
+        max-width: 760px;
+        font-size: 38px;
+        line-height: 46px;
+    }
+
+    .vm-valeurs__bande {
+        grid-template-columns: 48px minmax(0, 1fr) minmax(0, 1.4fr);
+    }
+}
+
+/* Passage anticipé au menu hamburger : sept liens ne tiennent pas sous 900 px. */
+@media (max-width: 900px) {
+    .vm-page .nav-principale {
+        display: none;
+    }
+
+    .vm-page .bouton-menu {
+        display: inline-flex;
+    }
+
+    .vm-page .menu-mobile {
+        display: flex;
+    }
+}
+
+/* ===== RESPONSIVE : TABLETTE ET MOBILE ===== */
+
+@media (max-width: 768px) {
+    .vm-hero {
+        min-height: 560px;
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
+
+    .vm-hero__titre {
+        font-size: 48px;
+        line-height: 56px;
+    }
+
+    .vm-vision__citation {
+        font-size: 38px;
+        line-height: 48px;
+    }
+
+    .vm-mission__texte {
+        font-size: 34px;
+        line-height: 42px;
+    }
+
+    .vm-section .section__titre,
+    .vm-ambition__nom {
+        font-size: 40px;
+        line-height: 46px;
+    }
+
+    .vm-valeurs__titre {
+        font-size: 20px;
+        line-height: 27px;
+    }
+
+    .vm-valeurs__bande {
+        grid-template-columns: 48px minmax(0, 1fr);
+        row-gap: var(--gutter-sm);
+    }
+
+    .vm-valeurs__texte {
+        grid-column: 2;
+    }
+}
+
+@media (max-width: 767px) {
+    .vm-section {
+        padding-top: 72px;
+        padding-bottom: 72px;
+    }
+
+    .vm-hero {
+        min-height: 540px;
+        padding: 110px var(--gutter-md) 110px;
+    }
+
+    .vm-hero__titre {
+        font-size: 38px;
+        line-height: 44px;
+        letter-spacing: -0.5px;
+    }
+
+    .vm-hero .hero__sous-titre,
+    .vm-vision__texte,
+    .vm-engagements__intro {
+        font-size: 16px;
+        line-height: 25px;
+    }
+
+    .vm-hero__arc--externe {
+        bottom: -330px;
+        width: 220vw;
+        height: 420px;
+    }
+
+    .vm-hero__arc--moyen {
+        bottom: -300px;
+        width: 200vw;
+        height: 380px;
+    }
+
+    .vm-hero__arc--interne {
+        bottom: -270px;
+        width: 180vw;
+        height: 340px;
+    }
+
+    .vm-vision__citation {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .vm-vision__citation::before {
+        top: -38px;
+        left: 0;
+        font-size: 48px;
+    }
+
+    .vm-vision__citation::after {
+        right: 0;
+        bottom: -48px;
+        font-size: 48px;
+    }
+
+    .vm-section .section__titre,
+    .vm-ambition__nom {
+        font-size: 32px;
+        line-height: 38px;
+        letter-spacing: -0.5px;
+    }
+
+    .vm-mission__texte {
+        font-size: 30px;
+        line-height: 38px;
+    }
+
+    .vm-mission__etape {
+        grid-template-columns: 56px minmax(0, 1fr);
+    }
+
+    .vm-mission__filet {
+        left: 48px;
+    }
+
+    .vm-engagements__ligne {
+        font-size: 16px;
+        line-height: 25px;
+    }
+
+    .vm-ambition__chemin {
+        grid-template-columns: 1fr;
+        gap: var(--gutter-xl);
+    }
+
+    .vm-ambition__chemin::before {
+        top: 0;
+        bottom: 0;
+        left: 9px;
+        right: auto;
+        width: 1px;
+        height: auto;
+        background: linear-gradient(to bottom, rgba(94, 234, 212, 0.15), rgba(94, 234, 212, 0.6), rgba(229, 184, 75, 0.65));
+    }
+
+    .vm-ambition__etape {
+        align-items: flex-start;
+        padding-left: 44px;
+        text-align: left;
+    }
+
+    .vm-ambition__point {
+        position: absolute;
+        top: 4px;
+        left: 0;
+    }
+
+    .vm-ambition__texte {
+        max-width: none;
+    }
+
+    .vm-rejoindre__actions {
+        width: 100%;
+        flex-direction: column;
+        gap: var(--gutter-md);
+    }
+
+    .vm-page .vm-rejoindre__actions .bouton--blanc {
+        width: 100%;
+    }
+}
+
+/* Écrans très étroits : aucune déformation du bouton ni des textes. */
+@media (max-width: 390px) {
+    .vm-page .barre-nav {
+        padding-right: var(--gutter-md);
+        padding-left: var(--gutter-md);
+    }
+
+    .vm-hero__titre {
+        font-size: 34px;
+        line-height: 40px;
+    }
+
+    .vm-page .bouton--bientot {
+        padding: 0 var(--gutter-md);
+        font-size: 12px;
+    }
+
+    .vm-vision__citation {
+        font-size: 30px;
+        line-height: 38px;
+    }
+}

@@ -1,0 +1,662 @@
+/*
+    EDUNOVA - Styles propres au contenu de la page « Nos actions » :
+    bandes, fil conducteur, engagements, jalons, réseau et appel final.
+    Chargé après actions.css. Aucune règle prioritaire.
+*/
+
+/* ===== SECTION 2 — QUATRE BANDES NUMÉROTÉES ===== */
+
+.ac-bandes {
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+.ac-bande {
+    position: relative;
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: var(--gutter-lg);
+    align-items: start;
+    padding: 28px 24px 28px 0;
+}
+
+/* Filet final, pour fermer la série comme un tableau éditorial. */
+.ac-bandes::after {
+    display: block;
+    height: 1px;
+    margin-left: 88px;
+    background: linear-gradient(to right, rgba(229, 184, 75, 0.45), rgba(255, 255, 255, 0.1), transparent);
+    content: "";
+}
+
+.ac-bande__numero {
+    color: var(--or);
+    font-family: var(--police-titre);
+    font-size: 32px;
+    line-height: 1;
+}
+
+.ac-bande__filet {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 1px;
+    background: linear-gradient(to right, rgba(229, 184, 75, 0.45), rgba(255, 255, 255, 0.1), transparent);
+    pointer-events: none;
+}
+
+.ac-bande__contenu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.ac-bande__titre {
+    color: var(--blanc);
+    font-family: var(--police-texte);
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 29px;
+    text-wrap: balance;
+}
+
+.ac-bande__texte {
+    max-width: 720px;
+    color: var(--texte-discret);
+    font-family: var(--police-texte);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 25px;
+    text-wrap: pretty;
+}
+
+/* ===== SECTION 3 — GRANDE PHRASE ET FIL CONDUCTEUR ===== */
+
+.ac-ressources__grille {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 80px;
+    align-items: start;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.ac-ressources__intro {
+    color: var(--blanc);
+    font-family: var(--police-titre);
+    font-size: clamp(30px, 3.2vw, 44px);
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.4px;
+    text-wrap: balance;
+}
+
+.ac-fil {
+    position: relative;
+    padding-left: 32px;
+}
+
+.ac-fil::before {
+    position: absolute;
+    top: 56px;
+    bottom: 12px;
+    left: 7px;
+    width: 1px;
+    background: linear-gradient(to bottom, rgba(45, 212, 191, 0.55), rgba(229, 184, 75, 0.5), transparent);
+    content: "";
+    pointer-events: none;
+}
+
+.ac-fil__liste {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin: 24px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ac-fil__item {
+    position: relative;
+}
+
+.ac-fil__marqueur {
+    position: absolute;
+    top: 9px;
+    left: -29px;
+    width: 9px;
+    height: 9px;
+    border-radius: var(--rayon-pilule);
+    background: var(--or);
+    box-shadow: 0 0 0 4px rgba(229, 184, 75, 0.12);
+}
+
+.ac-fil__texte {
+    color: var(--texte-discret);
+    font-family: var(--police-texte);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    text-wrap: pretty;
+}
+
+/* ===== SECTION 4 — BANDE PLEINE LARGEUR ET GRANDES PHRASES ===== */
+
+.ac-page .ac-inclusion {
+    position: relative;
+    max-width: none;
+    overflow: hidden;
+    background: linear-gradient(180deg, rgba(26, 46, 86, 0.42), rgba(22, 36, 66, 0.62));
+}
+
+.ac-inclusion__halo {
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    width: 900px;
+    height: 620px;
+    border-radius: var(--rayon-pilule);
+    background: radial-gradient(circle at 50% 50%, rgba(45, 212, 191, 0.14), transparent 68%);
+    filter: blur(70px);
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.ac-inclusion__interne {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.ac-inclusion__grille {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 56px 72px;
+}
+
+.ac-engagement__titre {
+    color: var(--blanc);
+    font-family: var(--police-titre);
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1.25;
+    letter-spacing: -0.2px;
+    text-wrap: balance;
+}
+
+.ac-engagement__texte {
+    margin-top: 12px;
+    color: var(--texte-discret);
+    font-family: var(--police-texte);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 25px;
+    text-wrap: pretty;
+}
+
+.ac-inclusion__mention {
+    max-width: 760px;
+    margin: 64px auto 0;
+    color: var(--texte-discret);
+    font-family: var(--police-texte);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: center;
+}
+
+/* ===== SECTION 5 — CINQ JALONS RELIÉS ===== */
+
+.ac-jalons {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+.ac-jalons::before {
+    position: absolute;
+    top: 27px;
+    right: 6%;
+    left: 6%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(45, 212, 191, 0.5), rgba(229, 184, 75, 0.55), transparent);
+    content: "";
+    pointer-events: none;
+}
+
+.ac-jalon {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.ac-jalon__filet {
+    display: none;
+}
+
+.ac-jalon__icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border: 1px solid rgba(45, 212, 191, 0.38);
+    border-radius: var(--rayon-pilule);
+    background: var(--bleu-carte);
+    color: var(--turquoise-clair);
+}
+
+.ac-jalon__etiquette {
+    white-space: nowrap;
+}
+
+.ac-jalon__texte {
+    color: var(--blanc);
+    font-family: var(--police-texte);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 24px;
+    text-wrap: pretty;
+}
+
+.ac-prudence {
+    max-width: 900px;
+    margin: 64px auto 0;
+    padding: 22px 28px;
+    border: 1px solid rgba(229, 184, 75, 0.45);
+    border-radius: var(--rayon-md);
+    background: rgba(229, 184, 75, 0.05);
+}
+
+.ac-prudence p {
+    color: var(--texte-discret);
+    font-family: var(--police-texte);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+    text-wrap: pretty;
+}
+
+/* ===== SECTION 6 — RÉSEAU DE CATÉGORIES, SANS NOM PROPRE ===== */
+
+.ac-cooperation__intro {
+    max-width: 640px;
+    margin: 24px auto 0;
+    color: var(--texte-discret);
+    font-family: var(--police-texte);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    text-wrap: pretty;
+}
+
+.ac-reseau {
+    position: relative;
+    max-width: 900px;
+    height: 460px;
+    margin: 0 auto;
+}
+
+.ac-reseau__svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    color: rgba(45, 212, 191, 0.45);
+    pointer-events: none;
+}
+
+.ac-reseau__lien {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.4;
+}
+
+.ac-reseau__centre {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 12px 20px;
+    border: 1px solid rgba(229, 184, 75, 0.6);
+    border-radius: var(--rayon-pilule);
+    background: var(--bleu-carte);
+    color: var(--or);
+    font-family: var(--police-texte);
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 18px;
+    letter-spacing: 0.08em;
+    transform: translate(-50%, -50%);
+}
+
+.ac-reseau__liste {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ac-reseau__noeud {
+    position: absolute;
+    width: 170px;
+    padding: 10px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: var(--rayon-pilule);
+    background: rgba(22, 36, 66, 0.92);
+    color: var(--texte-discret);
+    font-family: var(--police-texte);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 18px;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+.ac-reseau__noeud--1 { top: 9%; left: 50%; }
+.ac-reseau__noeud--2 { top: 26%; left: 82%; }
+.ac-reseau__noeud--3 { top: 74%; left: 85%; }
+.ac-reseau__noeud--4 { top: 91%; left: 50%; }
+.ac-reseau__noeud--5 { top: 74%; left: 18%; }
+.ac-reseau__noeud--6 { top: 26%; left: 16%; }
+
+.ac-cooperation__mention {
+    max-width: 700px;
+    margin: 48px auto 0;
+    color: var(--texte-discret);
+    font-family: var(--police-texte);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: center;
+}
+
+/* ===== SECTION 7 — PASTILLES ET ACTIONS DU PANNEAU FINAL ===== */
+
+.ac-rejoindre__roles {
+    margin-bottom: 32px;
+}
+
+.ac-rejoindre__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 12px 20px;
+}
+
+/* ===== RESPONSIVE : 1024 PX ===== */
+
+@media (max-width: 1024px) {
+    .ac-bandes {
+        max-width: 860px;
+    }
+
+    .ac-bande {
+        grid-template-columns: 56px minmax(0, 1fr);
+        gap: var(--gutter-md);
+    }
+
+    .ac-bandes::after {
+        margin-left: 72px;
+    }
+
+    .ac-ressources__grille {
+        gap: 48px;
+    }
+
+    .ac-ressources__intro {
+        font-size: 34px;
+        line-height: 42px;
+    }
+
+    .ac-inclusion__grille {
+        gap: 40px 48px;
+    }
+
+    .ac-jalons {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 40px 24px;
+    }
+
+    .ac-jalons::before {
+        display: none;
+    }
+
+    .ac-reseau__noeud {
+        width: 150px;
+        font-size: 12px;
+        line-height: 17px;
+    }
+}
+
+/* ===== RESPONSIVE : 768 PX ===== */
+
+@media (max-width: 768px) {
+    .ac-bande {
+        grid-template-columns: 44px minmax(0, 1fr);
+        gap: var(--gutter-sm);
+        padding: 22px 8px 22px 0;
+    }
+
+    .ac-bande__numero {
+        font-size: 26px;
+    }
+
+    .ac-bande__titre {
+        font-size: 19px;
+        line-height: 26px;
+    }
+
+    .ac-bande__texte {
+        font-size: 14px;
+        line-height: 23px;
+    }
+
+    .ac-bandes::after {
+        margin-left: 52px;
+    }
+
+    .ac-ressources__grille {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 40px;
+    }
+
+    .ac-ressources__intro {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .ac-fil__texte {
+        font-size: 15px;
+        line-height: 24px;
+    }
+
+    .ac-inclusion__grille {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
+    }
+
+    .ac-engagement__titre {
+        font-size: 24px;
+    }
+
+    .ac-jalons {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
+        max-width: 520px;
+    }
+
+    .ac-jalon {
+        display: grid;
+        grid-template-columns: 56px minmax(0, 1fr);
+        gap: 8px 20px;
+        padding: 0 0 28px 28px;
+    }
+
+    .ac-jalon__filet {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        display: block;
+        width: 1px;
+        background: linear-gradient(to bottom, rgba(45, 212, 191, 0.5), rgba(229, 184, 75, 0.35));
+    }
+
+    .ac-jalon__icone {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        width: 48px;
+        height: 48px;
+    }
+
+    .ac-jalon__etiquette {
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: start;
+    }
+
+    .ac-jalon__texte {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .ac-prudence {
+        margin-top: 40px;
+    }
+
+    /* Le réseau devient une liste verticale propre : plus de lignes ni de positions. */
+    .ac-reseau {
+        height: auto;
+        max-width: 520px;
+    }
+
+    .ac-reseau__svg {
+        display: none;
+    }
+
+    .ac-reseau__centre {
+        position: static;
+        display: inline-block;
+        margin: 0 auto 24px;
+        transform: none;
+    }
+
+    .ac-reseau__liste {
+        position: static;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .ac-reseau__noeud {
+        position: static;
+        width: 100%;
+        max-width: 420px;
+        margin: 0 auto;
+        transform: none;
+    }
+
+    .ac-cooperation__mention {
+        margin-top: 32px;
+    }
+}
+
+/* ===== RESPONSIVE : ÉCRANS ÉTROITS (390 PX) ===== */
+
+@media (max-width: 390px) {
+    .ac-bande {
+        grid-template-columns: 36px minmax(0, 1fr);
+        padding-right: 4px;
+    }
+
+    .ac-bande__numero {
+        font-size: 23px;
+    }
+
+    .ac-bande__titre {
+        font-size: 17px;
+        line-height: 24px;
+    }
+
+    .ac-bandes::after {
+        margin-left: 44px;
+    }
+
+    .ac-ressources__intro {
+        font-size: 29px;
+        line-height: 37px;
+    }
+
+    .ac-fil {
+        padding-left: 26px;
+    }
+
+    .ac-fil::before {
+        left: 5px;
+    }
+
+    .ac-fil__marqueur {
+        left: -24px;
+        width: 8px;
+        height: 8px;
+    }
+
+    .ac-fil__texte {
+        font-size: 14px;
+        line-height: 23px;
+    }
+
+    .ac-engagement__titre {
+        font-size: 22px;
+    }
+
+    .ac-jalon {
+        grid-template-columns: 44px minmax(0, 1fr);
+        gap: 6px 14px;
+        padding-left: 20px;
+    }
+
+    .ac-jalon__icone {
+        width: 42px;
+        height: 42px;
+    }
+
+    .ac-jalon__icone .icone {
+        width: 18px;
+        height: 18px;
+    }
+
+    .ac-jalon__texte {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    .ac-prudence {
+        padding: 18px var(--gutter-md);
+    }
+
+    .ac-prudence p {
+        font-size: 13px;
+        line-height: 22px;
+    }
+
+    .ac-reseau__noeud {
+        font-size: 12px;
+    }
+}

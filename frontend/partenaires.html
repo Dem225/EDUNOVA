@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDUNOVA — Nos partenaires</title>
+    <!-- Icône vide : évite une requête 404 sur favicon.ico. -->
+    <link rel="icon" href="data:,">
+    <!-- Polices conservées : DM Serif Display et Manrope uniquement. -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <!-- Socle commun, puis styles propres à cette page. -->
+    <link rel="stylesheet" href="vendor/intl-tel-input/build/css/intlTelInput.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/composants.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="css/formulaire.css">
+    <link rel="stylesheet" href="css/commun.css">
+    <link rel="stylesheet" href="css/partenaires.css">
+    <link rel="stylesheet" href="css/partenaires-contenu.css">
+</head>
+<body class="pt-page">
+
+    <!-- Lien d'évitement vers le contenu principal. -->
+    <a href="#contenu-principal" class="skip-link">Aller au contenu principal</a>
+
+    <div class="pt-page__conteneur">
+
+        <!-- ================================================================
+             EN-TÊTE COMMUN : reproduction locale de celui de actions.html.
+             Le lien « Partenaires » porte aria-current="page" sur cette rubrique.
+        ================================================================= -->
+        <header class="en-tete">
+            <div class="barre-nav">
+                <a href="index.html" class="marque">EDUNOVA</a>
+
+                <nav aria-label="Navigation principale" class="nav-principale">
+                    <a href="index.html" class="lien-nav">Accueil</a>
+                    <a href="a-propos.html" class="lien-nav">À propos</a>
+                    <a href="programmes.html" class="lien-nav">Programmes</a>
+                    <a href="actions.html" class="lien-nav">Nos actions</a>
+                    <a href="partenaires.html" class="lien-nav">Partenaires</a>
+                    <!-- Navigation institutionnelle complète : sept rubriques accessibles. -->
+                    <a href="actualites.html" class="lien-nav">Actualités</a>
+                    <a href="contact.html" class="lien-nav">Contact</a>
+                </nav>
+
+                <button type="button" data-menu-mobile class="bouton-menu" aria-label="Ouvrir le menu de navigation" aria-controls="navigation-mobile" aria-expanded="false">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+                        <path d="M4 7h16M4 12h16M4 17h16"></path>
+                    </svg>
+                </button>
+
+                <button type="button" disabled aria-disabled="true" class="bouton bouton--degrade bouton--bientot">
+                    Accéder à la plateforme <span class="pastille-bientot">Bientôt</span>
+                </button>
+            </div>
+
+            <!-- Le menu mobile réutilise js/interface.js sans modification. -->
+            <nav id="navigation-mobile" aria-label="Navigation principale (mobile)" data-menu-mobile-panneau class="menu-mobile cache">
+                <a href="index.html" class="lien-nav">Accueil</a>
+                <a href="a-propos.html" class="lien-nav">À propos</a>
+                <a href="programmes.html" class="lien-nav">Programmes</a>
+                <a href="actions.html" class="lien-nav">Nos actions</a>
+                <a href="partenaires.html" class="lien-nav">Partenaires</a>
+                <a href="actualites.html" class="lien-nav">Actualités</a>
+                <a href="contact.html" class="lien-nav">Contact</a>
+                <button type="button" disabled aria-disabled="true" class="bouton bouton--degrade bouton--bientot">
+                    Accéder à la plateforme <span class="pastille-bientot">Bientôt</span>
+                </button>
+            </nav>
+        </header>
+
+        <main id="contenu-principal" class="contenu-principal">
+
+            <!-- ============================================================
+                 SECTION 1 — HERO : titre à gauche, pont de deux rives à
+                 droite, sans globe ni visuel externe.
+            ============================================================= -->
+            <section id="hero" class="hero pt-hero">
+                <div class="pt-hero__halo" aria-hidden="true"></div>
+
+                <!-- Mêmes points discrets que les autres pages (24 positions). -->
+                <div class="champ-etoiles pt-hero__points" aria-hidden="true">
+                    <span class="etoile"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile"></span>
+                    <span class="etoile"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile"></span>
+                    <span class="etoile"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile--petite"></span>
+                    <span class="etoile"></span>
+                    <span class="etoile--petite"></span>
+                </div>
+
+                <!-- Deux arcs qui s'élèvent et se rejoignent en un point doré. -->
+                <svg class="pt-hero__pont" viewBox="0 0 560 480" fill="none" aria-hidden="true">
+                    <path class="pt-hero__arc" d="M40 430C110 170 240 78 280 150" stroke="currentColor" stroke-opacity="0.62" stroke-width="2" stroke-linecap="round"></path>
+                    <path class="pt-hero__arc" d="M520 430C450 170 320 78 280 150" stroke="currentColor" stroke-opacity="0.62" stroke-width="2" stroke-linecap="round"></path>
+                    <path d="M88 430C150 236 238 148 280 186" stroke="currentColor" stroke-opacity="0.24" stroke-width="1.4" stroke-linecap="round"></path>
+                    <path d="M472 430C410 236 322 148 280 186" stroke="currentColor" stroke-opacity="0.24" stroke-width="1.4" stroke-linecap="round"></path>
+                    <circle cx="40" cy="430" r="3" fill="#2DD4BF" fill-opacity="0.6"></circle>
+                    <circle cx="520" cy="430" r="3" fill="#2DD4BF" fill-opacity="0.6"></circle>
+                    <circle class="pt-hero__jonction" cx="280" cy="150" r="12" fill="#2DD4BF" fill-opacity="0.18"></circle>
+                    <circle class="pt-hero__jonction" cx="280" cy="150" r="4" fill="#E5B84B"></circle>
+                </svg>
+
+                <div class="pt-hero__texte">
+                    <div class="badge pt-hero__badge pt-anime">
+                        <span class="filet-or" aria-hidden="true"></span>
+                        <span class="badge__point" aria-hidden="true"></span>
+                        NOS PARTENAIRES
+                        <span class="pt-hero__pastille">Aucun partenaire annoncé à ce jour</span>
+                        <span class="filet-or" aria-hidden="true"></span>
+                    </div>
+
+                    <h1 class="hero__titre pt-hero__titre pt-anime">Ensemble, construisons l'avenir de l'éducation.</h1>
+
+                    <p class="hero__sous-titre pt-hero__intro pt-anime">EDUNOVA est une initiative en cours de structuration. Elle souhaite construire des collaborations durables avec celles et ceux qui œuvrent pour l'éducation en Afrique.</p>
+
+                    <div class="hero__actions pt-hero__actions pt-anime">
+                        <a href="#pourquoi" class="bouton bouton--blanc">Découvrir les collaborations</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 SECTION 2 — CINQ ÉNONCÉS NUMÉROTÉS, SANS CARTE DE VERRE.
+            ============================================================= -->
+            <section id="pourquoi" class="section pt-pourquoi">
+                <div class="section__en-tete pt-anime">
+                    <h2 class="section__titre">Pourquoi devenir partenaire ?</h2>
+                </div>
+
+                <ol class="pt-declarations">
+                    <li class="pt-declaration pt-anime">
+                        <span class="pt-declaration__numero" aria-hidden="true">01</span>
+                        <h3 class="pt-declaration__texte">Contribuer à une initiative éducative panafricaine.</h3>
+                    </li>
+                    <li class="pt-declaration pt-anime">
+                        <span class="pt-declaration__numero" aria-hidden="true">02</span>
+                        <h3 class="pt-declaration__texte">Favoriser l'accès aux ressources pédagogiques.</h3>
+                    </li>
+                    <li class="pt-declaration pt-anime">
+                        <span class="pt-declaration__numero" aria-hidden="true">03</span>
+                        <h3 class="pt-declaration__texte">Soutenir l'innovation éducative.</h3>
+                    </li>
+                    <li class="pt-declaration pt-anime">
+                        <span class="pt-declaration__numero" aria-hidden="true">04</span>
+                        <h3 class="pt-declaration__texte">Participer à des projets à impact éducatif.</h3>
+                    </li>
+                    <li class="pt-declaration pt-anime">
+                        <span class="pt-declaration__numero" aria-hidden="true">05</span>
+                        <h3 class="pt-declaration__texte">Développer des collaborations durables.</h3>
+                    </li>
+                </ol>
+
+                <p class="pt-pourquoi__mention pt-anime">Ces points décrivent des possibilités de collaboration. Ils ne constituent ni une promesse de résultat, ni un avantage garanti.</p>
+            </section>
+
+            <!-- ============================================================
+                 SECTION 3 — LISTE À FILETS FINS, DEUX COLONNES.
+            ============================================================= -->
+            <section id="institutionnels" class="section pt-institutionnels">
+                <div class="section__en-tete pt-anime">
+                    <h2 class="section__titre">Partenaires institutionnels</h2>
+                    <p class="pt-intro">Catégories d'acteurs avec lesquels EDUNOVA souhaiterait dialoguer.</p>
+                </div>
+
+                <ul class="pt-lignes">
+                    <li class="pt-ligne pt-anime">
+                        <span class="pt-etiquette pt-ligne__etiquette">Catégorie recherchée</span>
+                        <span class="pt-ligne__texte">Ministères et administrations publiques</span>
+                    </li>
+                    <li class="pt-ligne pt-anime">
+                        <span class="pt-etiquette pt-ligne__etiquette">Catégorie recherchée</span>
+                        <span class="pt-ligne__texte">Établissements scolaires</span>
+                    </li>
+                    <li class="pt-ligne pt-anime">
+                        <span class="pt-etiquette pt-ligne__etiquette">Catégorie recherchée</span>
+                        <span class="pt-ligne__texte">Universités et établissements d'enseignement supérieur</span>
+                    </li>
+                    <li class="pt-ligne pt-anime">
+                        <span class="pt-etiquette pt-ligne__etiquette">Catégorie recherchée</span>
+                        <span class="pt-ligne__texte">Institutions éducatives</span>
+                    </li>
+                    <li class="pt-ligne pt-anime">
+                        <span class="pt-etiquette pt-ligne__etiquette">Catégorie recherchée</span>
+                        <span class="pt-ligne__texte">Organismes publics concernés par l'éducation</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ============================================================
+                 SECTION 4 — SIX MODULES SOBRES, SANS MONTANT NI AVANTAGE.
+            ============================================================= -->
+            <section id="techniques" class="section pt-techniques">
+                <div class="section__en-tete pt-anime">
+                    <h2 class="section__titre">Partenaires techniques et financiers</h2>
+                    <p class="pt-intro">Des soutiens techniques ou financiers pourraient accompagner le développement de l'initiative.</p>
+                </div>
+
+                <ul class="pt-modules">
+                    <li class="pt-module pt-anime">
+                        <span class="pt-module__icone" aria-hidden="true">
+                            <svg class="icone icone--petite" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3Z"></path></svg>
+                        </span>
+                        <span class="pt-etiquette pt-module__etiquette">Catégorie recherchée</span>
+                        <h3 class="pt-module__texte">Organisations de développement</h3>
+                    </li>
+                    <li class="pt-module pt-anime">
+                        <span class="pt-module__icone" aria-hidden="true">
+                            <svg class="icone icone--petite" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10h18M5 10v9M19 10v9M9 10v9M15 10v9M8 6h8M12 3l8 3H4l8-3Z"></path></svg>
+                        </span>
+                        <span class="pt-etiquette pt-module__etiquette">Catégorie recherchée</span>
+                        <h3 class="pt-module__texte">Fondations</h3>
+                    </li>
+                    <li class="pt-module pt-anime">
+                        <span class="pt-module__icone" aria-hidden="true">
+                            <svg class="icone icone--petite" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2"></rect><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"></path></svg>
+                        </span>
+                        <span class="pt-etiquette pt-module__etiquette">Catégorie recherchée</span>
+                        <h3 class="pt-module__texte">Entreprises technologiques</h3>
+                    </li>
+                    <li class="pt-module pt-anime">
+                        <span class="pt-module__icone" aria-hidden="true">
+                            <svg class="icone icone--petite" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 5.5a4 4 0 0 0-5.3 5.3L4 16v4h4l5.2-5.2a4 4 0 0 0 5.3-5.3l-2.6 2.6-2.8-2.8 2.7-2.8Z"></path></svg>
+                        </span>
+                        <span class="pt-etiquette pt-module__etiquette">Catégorie recherchée</span>
+                        <h3 class="pt-module__texte">Partenaires techniques</h3>
+                    </li>
+                    <li class="pt-module pt-anime">
+                        <span class="pt-module__icone" aria-hidden="true">
+                            <svg class="icone icone--petite" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V7M10 19V4M16 19v-8M22 19H2M4 10h6M10 7h6"></path></svg>
+                        </span>
+                        <span class="pt-etiquette pt-module__etiquette">Catégorie recherchée</span>
+                        <h3 class="pt-module__texte">Bailleurs et organismes de financement</h3>
+                    </li>
+                    <li class="pt-module pt-anime">
+                        <span class="pt-module__icone" aria-hidden="true">
+                            <svg class="icone icone--petite" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21h16M6 21V7l6-4 6 4v14M9 21v-5h6v5M9 10h1M14 10h1M9 13h1M14 13h1"></path></svg>
+                        </span>
+                        <span class="pt-etiquette pt-module__etiquette">Catégorie recherchée</span>
+                        <h3 class="pt-module__texte">Entreprises privées</h3>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ============================================================
+                 SECTION 5 — ALTERNANCE LE LONG D'UN AXE, PUIS ÉTAT ACTUEL.
+            ============================================================= -->
+            <section id="associatifs" class="section pt-associatifs">
+                <div class="section__en-tete pt-anime">
+                    <h2 class="section__titre">Partenaires éducatifs et associatifs</h2>
+                    <p class="pt-intro">Celles et ceux qui connaissent le terrain et font vivre l'éducation au quotidien.</p>
+                </div>
+
+                <ol class="pt-alternance">
+                    <li class="pt-element pt-element--gauche pt-anime">
+                        <h3 class="pt-element__texte">Associations éducatives</h3>
+                    </li>
+                    <li class="pt-element pt-element--droite pt-anime">
+                        <h3 class="pt-element__texte">Organisations communautaires</h3>
+                    </li>
+                    <li class="pt-element pt-element--gauche pt-anime">
+                        <h3 class="pt-element__texte">Enseignants et professionnels de l'éducation</h3>
+                    </li>
+                    <li class="pt-element pt-element--droite pt-anime">
+                        <h3 class="pt-element__texte">Organisations de jeunesse</h3>
+                    </li>
+                    <li class="pt-element pt-element--gauche pt-anime">
+                        <h3 class="pt-element__texte">Acteurs de terrain</h3>
+                    </li>
+                </ol>
+
+                <aside class="pt-etat pt-anime">
+                    <span class="pt-etat__titre">État actuel</span>
+                    <p class="pt-etat__texte">Aucun partenaire n'est annoncé à ce jour. Cet espace accueillera, avec leur accord écrit, les organisations qui auront rejoint l'initiative.</p>
+                </aside>
+            </section>
+
+            <!-- ============================================================
+                 SECTION 6 — SIX BLOCS LETTRÉS A À F.
+            ============================================================= -->
+            <section id="collaborations" class="section pt-collaborations">
+                <div class="section__en-tete pt-anime">
+                    <h2 class="section__titre">Nos formes de collaboration</h2>
+                    <p class="pt-intro">Les manières dont une collaboration pourrait prendre forme.</p>
+                </div>
+
+                <ul class="pt-lettres">
+                    <li class="pt-lettre pt-anime">
+                        <span class="pt-lettre__marque" aria-hidden="true">A</span>
+                        <div class="pt-lettre__contenu">
+                            <h3 class="pt-lettre__titre">Collaboration pédagogique</h3>
+                            <p class="pt-lettre__texte">Co-construire des ressources et des parcours adaptés aux réalités éducatives.</p>
+                        </div>
+                    </li>
+                    <li class="pt-lettre pt-anime">
+                        <span class="pt-lettre__marque" aria-hidden="true">B</span>
+                        <div class="pt-lettre__contenu">
+                            <h3 class="pt-lettre__titre">Coopération technologique</h3>
+                            <p class="pt-lettre__texte">Partager des compétences et des outils numériques au service de l'apprentissage.</p>
+                        </div>
+                    </li>
+                    <li class="pt-lettre pt-anime">
+                        <span class="pt-lettre__marque" aria-hidden="true">C</span>
+                        <div class="pt-lettre__contenu">
+                            <h3 class="pt-lettre__titre">Soutien financier</h3>
+                            <p class="pt-lettre__texte">Contribuer, selon des modalités à définir, au développement de l'initiative.</p>
+                        </div>
+                    </li>
+                    <li class="pt-lettre pt-anime">
+                        <span class="pt-lettre__marque" aria-hidden="true">D</span>
+                        <div class="pt-lettre__contenu">
+                            <h3 class="pt-lettre__titre">Partenariats institutionnels</h3>
+                            <p class="pt-lettre__texte">Inscrire des actions dans un cadre de coopération avec des institutions.</p>
+                        </div>
+                    </li>
+                    <li class="pt-lettre pt-anime">
+                        <span class="pt-lettre__marque" aria-hidden="true">E</span>
+                        <div class="pt-lettre__contenu">
+                            <h3 class="pt-lettre__titre">Actions territoriales et communautaires</h3>
+                            <p class="pt-lettre__texte">Agir au plus près des communautés éducatives.</p>
+                        </div>
+                    </li>
+                    <li class="pt-lettre pt-anime">
+                        <span class="pt-lettre__marque" aria-hidden="true">F</span>
+                        <div class="pt-lettre__contenu">
+                            <h3 class="pt-lettre__titre">Partage d'expertise et de ressources</h3>
+                            <p class="pt-lettre__texte">Mettre en commun savoirs, contenus et bonnes pratiques.</p>
+                        </div>
+                    </li>
+                </ul>
+
+                <p class="pt-collaborations__mention pt-anime">Les modalités de chaque collaboration restent à définir avec chaque partenaire.</p>
+            </section>
+
+            <!-- ============================================================
+                 SECTION 7 — PANNEAU DE VERRE ET FILET DORÉ.
+            ============================================================= -->
+            <section id="rejoindre" class="section pt-rejoindre">
+                <div class="rejoindre">
+                    <div class="rejoindre__halo" aria-hidden="true"></div>
+
+                    <div class="panneau pt-rejoindre__panneau pt-anime">
+                        <div class="panneau__filet" aria-hidden="true"></div>
+                        <span class="panneau__surtitre">DEVENIR PARTENAIRE</span>
+                        <h2 class="panneau__titre">Construisons ensemble de nouvelles possibilités pour l'éducation.</h2>
+                        <p class="panneau__texte">Vous représentez une institution, une organisation ou une entreprise et souhaitez échanger avec EDUNOVA ? Prenez contact : la discussion peut commencer dès aujourd'hui.</p>
+
+                        <div class="pt-rejoindre__actions">
+                            <a href="contact.html" class="bouton bouton--blanc">Nous contacter</a>
+                            <button type="button" data-ouvrir-candidature class="bouton pt-bouton-secondaire">Manifester votre intérêt</button>
+                            <a href="actions.html" class="lien-texte">Découvrir nos actions</a>
+                            <a href="programmes.html" class="lien-texte">Découvrir nos programmes</a>
+                        </div>
+
+                        <p class="pt-rejoindre__note">Le formulaire de manifestation d'intérêt est commun à toute l'initiative ; il n'existe pas encore de formulaire dédié aux partenaires.</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- REPÈRE DE LA PAGE COURANTE. -->
+        <nav aria-label="Repère de page" class="fil-ariane">
+            <span class="fil-ariane__label">Vous êtes ici :</span>
+            <span class="fil-ariane__page" aria-current="page">Partenaires</span>
+        </nav>
+
+        <!-- =================================================================
+             PIED DE PAGE : mêmes sept liens que l'en-tête.
+        ================================================================= -->
+        <footer class="pied-page">
+            <div class="pied-page__contenu">
+                <div class="pied-page__grille">
+
+                    <div class="pied-page__colonne pied-page__colonne--large">
+                        <span class="pied-page__marque">EDUNOVA</span>
+                        <p class="pied-page__texte">L'éducation sans frontières, le savoir pour tous.</p>
+                        <p class="pied-page__texte pied-page__texte--discret">EDUNOVA est une initiative éducative panafricaine en cours de structuration.</p>
+                    </div>
+
+                    <nav aria-label="Navigation pied de page" class="pied-page__nav">
+                        <a href="index.html" class="pied-page__lien">Accueil</a>
+                        <a href="a-propos.html" class="pied-page__lien">À propos</a>
+                        <a href="programmes.html" class="pied-page__lien">Programmes</a>
+                        <a href="actions.html" class="pied-page__lien">Nos actions</a>
+                        <a href="partenaires.html" class="pied-page__lien">Partenaires</a>
+                        <a href="actualites.html" class="pied-page__lien">Actualités</a>
+                        <a href="contact.html" class="pied-page__lien">Contact</a>
+                    </nav>
+
+                    <div class="pied-page__colonne pied-page__colonne--liens">
+                        <a href="mentions-legales.html" class="pied-page__lien">Mentions légales</a>
+                        <a href="politique-confidentialite.html" class="pied-page__lien">Politique de confidentialité</a>
+                    </div>
+
+                </div>
+
+                <div>
+                    <p class="pied-page__copyright">© 2026 EDUNOVA</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- FORMULAIRE DE CANDIDATURE : champs et attributs d'origine inchangés. -->
+    <dialog id="candidature-dialog" class="dialogue" aria-labelledby="titre-candidature">
+        <div class="dialogue__interne">
+            <div class="dialogue__en-tete">
+                <div>
+                    <p class="dialogue__surtitre">EDUNOVA</p>
+                    <h2 id="titre-candidature" class="dialogue__titre">Rejoindre EDUNOVA</h2>
+                </div>
+                <button type="button" data-fermer-candidature aria-label="Fermer le formulaire" class="dialogue__fermer">×</button>
+            </div>
+
+            <p class="dialogue__intro">
+                Remplissez ce formulaire pour demander votre participation
+                à notre programme éducatif pilote.
+            </p>
+
+            <!--
+                Adresse de base de l'API.
+                Laissez vide pour la détection automatique : même origine en
+                production, http://127.0.0.1:8000 pour le développement local
+                (ports 5500/5501) ou l'ouverture en file://.
+                Vous pouvez aussi définir window.EDUNOVA_API_BASE_URL avant
+                le chargement de js/application.js.
+            -->
+            <form id="application-form" data-api-base-url="">
+
+                <div>
+                    <label for="nom">Nom</label>
+                    <input type="text" id="nom" name="nom" required
+                           minlength="2" maxlength="100"
+                           autocomplete="name" aria-describedby="nom-help">
+                    <small class="help" id="nom-help">Entre 2 et 100 caractères.</small>
+                </div>
+
+                <div>
+                    <label for="prenom">Prénom(s)</label>
+                    <input type="text" id="prenom" name="prenom" required
+                           minlength="2" maxlength="100"
+                           autocomplete="given-name" aria-describedby="prenom-help">
+                    <small class="help" id="prenom-help">Entre 2 et 100 caractères.</small>
+                </div>
+
+                <div>
+                    <label for="email">Adresse e-mail</label>
+                    <input type="email" id="email" name="email" required
+                           autocomplete="email" aria-describedby="email-help">
+                    <small class="help" id="email-help">Format : nom@exemple.com</small>
+                </div>
+
+                <div>
+                    <label for="telephone">Téléphone</label>
+                    <input type="tel" id="telephone" name="telephone"
+                           maxlength="30" inputmode="tel"
+                           autocomplete="tel" aria-describedby="telephone-help">
+                    <small class="help" id="telephone-help">30 caractères maximum (facultatif).</small>
+                    <!-- Erreur affichée uniquement par js/telephone.js. -->
+                    <p class="telephone-erreur" id="telephone-erreur" role="alert" hidden>Numéro de téléphone invalide pour ce pays</p>
+                </div>
+
+                <div>
+                    <label for="niveau">Votre parcours éducatif</label>
+
+                    <select id="niveau" name="niveau" required aria-describedby="niveau-help">
+                        <option value="">Choisissez votre parcours</option>
+                        <option value="primaire">EDUNOVA Junior — Primaire</option>
+                        <option value="college">EDUNOVA Collège — Collège</option>
+                        <option value="lycee">EDUNOVA Lycée — Lycée</option>
+                        <option value="universite">EDUNOVA University — Université</option>
+                        <option value="formation_professionnelle">EDUNOVA Skills — Formation professionnelle</option>
+                    </select>
+                    <small class="help" id="niveau-help">Choisissez le parcours qui vous concerne.</small>
+                </div>
+
+                <div>
+                    <label for="motivation">Pourquoi souhaitez-vous rejoindre EDUNOVA ?</label>
+                    <textarea
+                        id="motivation"
+                        name="motivation"
+                        rows="6"
+                        minlength="20"
+                        maxlength="5000"
+                        required
+                        aria-describedby="motivation-help"
+                    ></textarea>
+                    <small class="help" id="motivation-help">20 caractères minimum, 5000 maximum.</small>
+                </div>
+
+                <button type="submit">Envoyer ma candidature</button>
+
+            </form>
+
+            <div id="message" class="message message--info" role="status" aria-live="polite" aria-atomic="true"></div>
+        </div>
+    </dialog>
+
+    <!-- Scripts classiques, tous en defer : animations, puis formulaire. -->
+    <script src="vendor/gsap/3.15.1/gsap.min.js" defer></script>
+    <script src="vendor/gsap/3.15.1/ScrollTrigger.min.js" defer></script>
+    <script src="js/partenaires.js" defer></script>
+    <script src="vendor/intl-tel-input/build/js/intlTelInputWithUtils.min.js" defer></script>
+    <script src="js/telephone.js" defer></script>
+    <script src="js/interface.js" defer></script>
+    <script src="js/application.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,514 @@
+/*
+    EDUNOVA - Styles propres à la page « À propos ».
+    Ce fichier ne remplace aucun style commun : il ne fait que compléter
+    base.css, composants.css, sections.css et formulaire.css.
+*/
+
+/* ===== STRUCTURE DE LA PAGE ===== */
+
+.apropos-page {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* ===== EN-TÊTE À SEPT LIENS ===== */
+
+.apropos .en-tete {
+    max-width: 1320px;
+}
+
+.apropos .barre-nav {
+    gap: 20px;
+}
+
+.apropos .nav-principale {
+    gap: 20px;
+}
+
+.apropos .lien-nav {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.apropos .bouton-menu {
+    width: 44px;
+    height: 44px;
+}
+
+.apropos .bouton--degrade {
+    height: 44px;
+    min-height: 44px;
+    font-size: 13px;
+}
+
+/* Pages à venir : aucun survol, aucun état actif, curseur par défaut. */
+.apropos .lien-nav--bientot,
+.apropos .pied-page__lien--bientot {
+    opacity: 0.55;
+    cursor: default;
+}
+
+.apropos .lien-nav--bientot:hover {
+    color: var(--blanc);
+}
+
+.apropos .pied-page__lien--bientot:hover {
+    color: var(--texte-discret);
+}
+
+/* Bouton de plateforme désactivé et sa pastille. */
+.apropos .bouton--bientot {
+    gap: 8px;
+    cursor: default;
+    opacity: 0.62;
+}
+
+.apropos .bouton--degrade.bouton--bientot:hover {
+    opacity: 0.62;
+}
+
+.pastille-bientot {
+    padding: 2px 8px;
+    border-radius: var(--rayon-pilule);
+    background: rgba(11, 21, 40, 0.3);
+    color: var(--bleu-nuit);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 14px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.apropos .menu-mobile .bouton--bientot {
+    width: 100%;
+    margin-top: var(--gutter-sm);
+}
+
+/* ===== HERO SANS GLOBE 3D ===== */
+
+.apropos .apropos-hero {
+    max-width: 1200px;
+    min-height: 600px;
+    padding: 150px var(--gutter-lg) 140px;
+    overflow: hidden;
+}
+
+.apropos-hero__halo {
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    z-index: 0;
+    width: 860px;
+    max-width: 110vw;
+    height: 440px;
+    border-radius: var(--rayon-pilule);
+    background: rgba(26, 46, 86, 0.55);
+    filter: blur(110px);
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.apropos-hero__halo::after {
+    content: "";
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    width: 40%;
+    height: 40%;
+    border-radius: var(--rayon-pilule);
+    background: rgba(45, 212, 191, 0.12);
+    filter: blur(60px);
+}
+
+.apropos-hero .champ-etoiles {
+    z-index: 1;
+}
+
+.apropos-hero .badge,
+.apropos-hero__titre,
+.apropos-hero__intro,
+.apropos-hero .hero__actions {
+    position: relative;
+    z-index: 2;
+}
+
+.apropos-hero .badge {
+    gap: 10px;
+    letter-spacing: 0.12em;
+}
+
+.apropos-hero .badge .filet-or {
+    width: 24px;
+}
+
+.apropos-hero__titre {
+    max-width: 1000px;
+    font-size: 72px;
+    line-height: 80px;
+    letter-spacing: -1px;
+}
+
+.apropos-hero__intro {
+    max-width: 640px;
+    margin-bottom: var(--gutter-xl);
+}
+
+/* Grande courbe lumineuse en bas du hero, sans Three.js. */
+.apropos-hero__courbe {
+    position: absolute;
+    bottom: -330px;
+    left: 50%;
+    z-index: 1;
+    width: min(1500px, 180vw);
+    height: 470px;
+    border: 1px solid rgba(45, 212, 191, 0.32);
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    box-shadow: 0 -18px 90px rgba(45, 212, 191, 0.1), inset 0 24px 90px rgba(45, 212, 191, 0.07);
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.apropos-hero__courbe::before,
+.apropos-hero__courbe::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: 6%;
+    left: 6%;
+    height: 2px;
+    border-radius: 50%;
+    background: linear-gradient(to right, transparent, rgba(94, 234, 212, 0.8), transparent);
+    filter: blur(1px);
+}
+
+.apropos-hero__courbe::after {
+    top: 26px;
+    right: 16%;
+    left: 16%;
+    opacity: 0.45;
+}
+
+/* ===== SECTIONS COMMUNES À CETTE PAGE ===== */
+
+.apropos .section__en-tete {
+    margin-bottom: 56px;
+}
+
+.apropos .section__en-tete .surtitre {
+    margin-bottom: var(--gutter-md);
+}
+
+.apropos-intro {
+    max-width: 760px;
+    margin-top: var(--gutter-lg);
+    color: rgba(255, 255, 255, 0.78);
+    font-family: var(--police-texte);
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 27px;
+    text-align: center;
+    text-wrap: pretty;
+}
+
+.apropos .section__titre {
+    font-weight: 400;
+}
+
+/* ===== POURQUOI EDUNOVA ===== */
+
+.apropos-grille {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--gutter-lg);
+}
+
+.apropos-grille .carte {
+    min-height: 250px;
+}
+
+/* ===== NOTRE APPROCHE (BENTO) ===== */
+
+.apropos-bento {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--gutter-lg);
+}
+
+.apropos-bento .tuile:not(.apropos-bento__grande) {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.apropos-bento .apropos-bento__grande {
+    grid-column: span 2;
+    grid-row: span 2;
+    min-height: 430px;
+    justify-content: flex-start;
+    gap: var(--gutter-lg);
+}
+
+.apropos-etiquette {
+    align-self: flex-start;
+    padding: 4px 10px;
+    border: 1px solid rgba(229, 184, 75, 0.28);
+    border-radius: var(--rayon-pilule);
+    background: rgba(229, 184, 75, 0.08);
+    color: rgba(229, 184, 75, 0.95);
+    font-family: var(--police-texte);
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.apropos-bento .tuile__titre {
+    font-size: 19px;
+    line-height: 25px;
+}
+
+.apropos-bento .apropos-bento__grande .tuile__texte {
+    max-width: 380px;
+}
+
+.apropos-bento .apropos-bento__grande .tuile__titre {
+    font-size: 26px;
+    line-height: 32px;
+}
+
+.apropos-bento .tuile__description {
+    font-size: 15px;
+    line-height: 23px;
+}
+
+/* ===== À QUI S'ADRESSE EDUNOVA ===== */
+
+.apropos-publics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--gutter-lg);
+}
+
+.apropos-publics .carte {
+    min-height: 210px;
+}
+
+/* ===== AMBITION ===== */
+
+.apropos .apropos-ambition {
+    max-width: 900px;
+}
+
+/* ===== REJOINDRE L'INITIATIVE ===== */
+
+.apropos-panneau__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gutter-lg);
+}
+
+.apropos .apropos-panneau__actions .bouton--blanc {
+    min-height: 52px;
+}
+
+/* ===== ANIMATIONS : VISIBLES PAR DÉFAUT ===== */
+
+.apropos .apropos-anime {
+    opacity: 1;
+    transform: none;
+}
+
+/* Le JS n'ajoute cette classe que si GSAP est disponible et le mouvement autorisé. */
+.animations-actives .apropos-anime {
+    opacity: 0;
+    transform: translateY(24px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .animations-actives .apropos-anime {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* ===== RESPONSIVE : 1024 PX ===== */
+
+@media (max-width: 1024px) {
+    .apropos .nav-principale {
+        gap: 12px;
+    }
+
+    .apropos .lien-nav {
+        font-size: 13px;
+    }
+
+    .apropos .apropos-hero__titre {
+        font-size: 60px;
+        line-height: 68px;
+    }
+
+    .apropos-grille {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .apropos-bento {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .apropos-bento .apropos-bento__grande {
+        grid-column: span 2;
+        grid-row: span 1;
+        min-height: 340px;
+    }
+
+    .apropos-publics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Passage anticipé au menu hamburger : sept liens ne tiennent pas sous 900 px. */
+@media (max-width: 900px) {
+    .apropos .nav-principale {
+        display: none;
+    }
+
+    .apropos .bouton-menu {
+        display: inline-flex;
+    }
+
+    .apropos .menu-mobile {
+        display: flex;
+    }
+}
+
+/* ===== RESPONSIVE : TABLETTE ET MOBILE ===== */
+
+@media (max-width: 768px) {
+    .apropos .apropos-hero {
+        min-height: 560px;
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
+
+    .apropos .apropos-hero__titre {
+        font-size: 48px;
+        line-height: 56px;
+    }
+
+    .apropos .section__titre {
+        font-size: 40px;
+        line-height: 46px;
+    }
+
+    .apropos .panneau__titre {
+        font-size: 40px;
+        line-height: 48px;
+    }
+}
+
+@media (max-width: 767px) {
+    .apropos .section {
+        padding-top: 72px;
+        padding-bottom: 72px;
+    }
+
+    .apropos .section__en-tete {
+        margin-bottom: 40px;
+    }
+
+    .apropos .apropos-hero {
+        min-height: 540px;
+        padding: 110px var(--gutter-md) 110px;
+    }
+
+    .apropos .apropos-hero__titre {
+        font-size: 38px;
+        line-height: 44px;
+        letter-spacing: -0.5px;
+    }
+
+    .apropos .hero__sous-titre,
+    .apropos-intro {
+        font-size: 16px;
+        line-height: 25px;
+    }
+
+    .apropos-hero__courbe {
+        bottom: -280px;
+        width: 220vw;
+        height: 380px;
+    }
+
+    .apropos .section__titre,
+    .apropos .panneau__titre {
+        font-size: 32px;
+        line-height: 38px;
+        letter-spacing: -0.5px;
+    }
+
+    .apropos-grille,
+    .apropos-publics,
+    .apropos-bento {
+        grid-template-columns: 1fr;
+    }
+
+    .apropos-bento .apropos-bento__grande {
+        grid-column: span 1;
+        grid-row: span 1;
+        min-height: 0;
+    }
+
+    .apropos-bento .apropos-bento__grande .tuile__titre {
+        font-size: 22px;
+        line-height: 28px;
+    }
+
+    .apropos-grille .carte,
+    .apropos-publics .carte {
+        min-height: 0;
+    }
+
+    .apropos .pastilles {
+        gap: var(--gutter-sm);
+    }
+
+    .apropos .pastille {
+        padding: 8px var(--gutter-md);
+    }
+
+    .apropos .pastille__texte {
+        font-size: 13px;
+        line-height: 19px;
+    }
+
+    .apropos-panneau__actions {
+        width: 100%;
+        flex-direction: column;
+        gap: var(--gutter-md);
+    }
+
+    .apropos .apropos-panneau__actions .bouton--blanc {
+        width: 100%;
+    }
+}
+
+/* Écrans très étroits : aucune déformation des pastilles ni du bouton. */
+@media (max-width: 390px) {
+    .apropos .barre-nav {
+        padding-right: var(--gutter-md);
+        padding-left: var(--gutter-md);
+    }
+
+    .apropos-hero__titre {
+        font-size: 34px;
+        line-height: 40px;
+    }
+
+    .apropos .bouton--bientot {
+        padding: 0 var(--gutter-md);
+        font-size: 12px;
+    }
+}
